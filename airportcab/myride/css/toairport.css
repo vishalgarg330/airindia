@@ -1,0 +1,2893 @@
+.active {
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+    height: 133px;
+}
+
+.active img {
+    display: block;
+    width: 325px;
+    height: 192px;
+    margin-left: -38px;
+    border-radius: 12px;
+}
+
+.loader_1 {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 999;
+    margin: -40px 0 0 -40px;
+    -webkit-border: 16px solid #f3f3f3;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border-top: 16px solid rgb(41,167,225);
+    -webkit-border-top: 16px solid rgb(41,167,225);
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.payment_btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* height: 56px; */
+    height: 49px;
+    width: 90%;
+}
+
+.border_gap {
+    border: 1px solid #fff;
+    height: 33px;
+}
+
+.credit_btn,
+.upi_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.credit_btn p:nth-child(1) {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    /* font-size: 14px !important; */
+    margin: 8px 0 -4px 0 !important;
+    color: #fff;
+}
+
+.credit_btn p:nth-child(2) {
+    font-size: 10px;
+    color: #fff;
+}
+
+.credit_btn p:nth-child(2) span {
+    font-size: 10px;
+    /* color: orangered; */
+}
+
+.credit_btn img {
+    width: 18%;
+    height: 40%;
+    margin-bottom: -4%;
+}
+
+.upi_btn p:nth-child(1) {
+    /* font-size: 16px !important; */
+    color: #fff;
+    margin: 8px 0 -4px 0 !important;
+}
+
+.upi_btn p:nth-child(2) {
+    font-size: 10px;
+    color: #fff;
+
+}
+
+.upi_btn span {
+    font-size: 10px;
+    /* color: orangered; */
+}
+
+.upi_btn img {
+    width: 40%;
+    height: 40%;
+}
+
+#brand-logo {
+    overflow: hidden;
+    clear: both;
+    margin: 0;
+    background-color: black;
+}
+
+#passenger_source,
+#passenger_to {
+    margin-top: 5%;
+    font-size: 20px;
+    margin-bottom: 10%;
+    font-family: NetflixSansMedium;
+}
+
+#passenger_source {
+    color: green;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.Partner_Logo {
+    width: 17%;
+    position: absolute;
+    bottom: 59px;
+    left: 1%;
+}
+
+.partner_title p {
+    width: 17%;
+    position: absolute;
+    bottom: 83px;
+    left: 2%;
+}
+
+.partner_title p {
+    color: #fff;
+    font-size: 7px
+}
+
+#paymentoptions {
+    display: none;
+    margin-top: -15%;
+    clear: both;
+    /* margin-bottom: 20%; */
+}
+
+#paymentoptions h3 {
+    margin-left: 1rem;
+    font-size: 17px;
+    font-weight: 100;
+    font-family: 'NetflixSansMedium';
+}
+
+.journeyInfo {
+    width: 98%;
+    background: white;
+    margin: 0 auto 2%;
+    overflow: hidden;
+}
+
+.journeyDest {
+    width: 97%;
+    overflow: hidden;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.journeyFrom {
+    width: 15%;
+    float: left;
+    margin-right: 2%;
+}
+
+.journeyImg {
+    float: left;
+    width: 62%;
+    margin-top: 1%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.journeyTo {
+    width: 15%;
+    float: left;
+    padding-left: 1%;
+}
+
+.passengerDetails {
+    width: 95%;
+    overflow: hidden;
+    margin: 0 auto 3%;
+}
+
+.passengerTitle {
+    float: left;
+    width: 90%;
+    color: rgb(41,167,225);
+    font-size: 17px;
+    font-family: 'NetflixSansMedium';
+    margin-left: 3%;
+    margin-top: 5%;
+}
+
+.passengerName {
+    width: 90%;
+    font-size: 16px;
+    font-family: NetflixSansMedium;
+    clear: both;
+    margin-left: 3%;
+    overflow: hidden;
+    padding-top: 2%;
+}
+
+.dateInfo {
+    width: 33%;
+    float: left;
+}
+
+.departTime {
+    width: 33%;
+    float: left;
+}
+
+.arriveTime {
+    width: 32%;
+    float: left;
+}
+
+.detailsVal {
+    text-align: left;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-family: NetflixSansRegular;
+}
+
+.mapArea {
+    width: 100%;
+}
+
+.titleLeft {
+    width: 28%;
+    font-family: NetflixSansRegular;
+    cursor: pointer;
+    border: 0.5px solid #baabab;
+    margin: 0px 3px;
+    border-radius: 13px;
+    text-align: center;
+    opacity: 40%;
+
+}
+
+.titleLeft p {
+    margin: -7px 5px 0px;
+    font-size: 14px;
+}
+.titleLeft h3{
+    margin: 5px 0px;
+    /* font-size: 14px; */
+}
+.titleLeft img {
+    width: 60%;
+    margin-bottom: -5px;
+    /* border-bottom: 3px solid rgb(15, 89, 247); */
+    display: block;
+    margin: 0 auto;
+}
+
+.active_cab {
+    opacity: 100% !important;
+    background-color: aliceblue;
+}
+
+.titleLeft span {
+    font-size: 12px;
+    /* margin-left: 35%; */
+}
+
+.titleLeftCab {
+    width: 25%;
+    float: left;
+}
+
+.titleLeftLuggage {
+    width: 49%;
+    float: left;
+}
+
+.radioLeft {
+    margin-top: 6%;
+    float: left;
+    height: 29px;
+    width: 16%;
+
+}
+
+.labelRadio {
+    width: 75%;
+    margin-top: -6%;
+}
+
+.cabType {
+    overflow-x: hidden;
+    position: relative;
+    /* z-index: 9; */
+    clear: both;
+    padding-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.cabtype {
+    width: 95%;
+    margin-top: 23%;
+}
+
+.cab_type {
+    margin: 0 0 10px 5px;
+    color: white;
+    font-size: 16px;
+    font-family: 'NetflixSansRegular';
+}
+
+
+.below_field {
+    position: absolute;
+    z-index: 4;
+    width: 95%;
+    /* background: black; */
+    /* padding-bottom: 3%; */
+    /* bottom: 11%; */
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding-bottom: 3%;
+    left: 2.5%;
+}
+
+.below_field h3 {
+    color: white;
+    text-align: center;
+    font-weight: 100;
+    margin: 3% 0;
+}
+
+.below_field input[type="text"] {
+    font-family: NetflixSansRegular;
+    /* border-radius: 4px; */
+    height: 24px;
+    font-size: 14px;
+}
+
+.client_dtl {
+    color: #fff;
+    padding: 0.6em 1.4em 0.6em 0.8em;
+    width: 100%;
+    border: none;
+    background-color: #262626;
+    height: 24px;
+}
+
+.timeDetails h3 {
+    color: rgb(41,167,225);
+    text-align: left;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 10%;
+    font-weight: 100;
+}
+
+.timeDetails {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.cab_type {
+    margin: 0 0 10px 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.departure_btn {
+    width: 47%;
+    float: left;
+    background-color: rgb(41,167,225);
+    text-align: center;
+    height: 50px;
+    border-radius: 7px;
+    margin: 5px;
+}
+
+.full-field {
+    width: 100%;
+    margin-right: 0;
+}
+
+.input_srch,
+.Drop_srch,
+#datepicker {
+    color: black;
+    padding: 11px;
+    width: 85%;
+    margin-left: 3%;
+    outline: none;
+    font-size: 14px;
+    border: 2px;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #fff;
+    /* height: 24px; */
+    border-radius: 15px;
+    border: 0.5px solid #baabab;
+}
+.activeRide{
+    background: rgb(41,167,225);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none !important;
+}
+.Ridedata{
+    color: black;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 0.5px solid #baabab;
+    width: 34%;
+    text-align: center;
+}
+#time {
+    color: black;
+    padding: 0.6em 1.4em 0.6em 0.8em;
+    width: 79%;
+    margin-left: 5%;
+    outline: none;
+    font-size: 14px;
+    border: none;
+    background-color: #fff;
+    height: 24px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+#time::placeholder {
+    color: black;
+}
+
+.timepicker {
+
+    border-radius: 15px;
+    /* box-shadow: 15px; */
+    color: black;
+    background: #fff;
+    padding: 11px;
+    border: 0.5px solid #baabab;
+    outline: none;
+    width: 80%;
+    font-size: 14px;
+    outline: none;
+}
+
+.timepicker::placeholder {
+    color: #fff !important;
+}
+
+.input_srch::placeholder {
+    color: black;
+}
+
+.arrival_btn {
+    width: 48%;
+    float: left;
+    background-color: #edebeb;
+    text-align: center;
+    height: 50px;
+    margin: 5px 5px 5px 2px;
+    border-radius: 10px;
+}
+
+.departure_btn input[type="submit"] {
+    background-color: transparent;
+    border: none;
+    padding-top: 7%;
+    font-size: 20px;
+    color: white;
+    font-family: NetflixSansRegular;
+    cursor: pointer;
+}
+
+.arrival_btn input[type="submit"] {
+    background-color: transparent;
+    border: none;
+    padding-top: 7%;
+    font-size: 20px;
+    color: black;
+    font-family: NetflixSansRegular;
+    cursor: pointer;
+}
+
+.depart_ui {
+    background: black;
+    position: fixed;
+    z-index: 10;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    bottom: 0;
+    width: 100%;
+}
+
+.verify_ui {
+    background: black;
+    position: absolute;
+    z-index: 10;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    top: 65%;
+
+}
+
+.left_logo {
+    width: 35%;
+    margin: 2% auto 0;
+}
+
+.right_logo {
+    width: 32%;
+    float: right;
+    margin-top: 1%;
+
+}
+
+.location {
+    width: 40%;
+    margin: 1.2% 2% 1%;
+    border: none;
+    padding: 10px;
+    font-size: 0.9em;
+    color: white;
+    background: #262626;
+    border-radius: 2px;
+}
+
+.head_top {
+    color: #fff;
+    clear: both;
+    text-align: center;
+    font-family: 'NetflixSansRegular';
+    margin-bottom: 4%;
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+.head_top p {
+    font-weight: 100;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.div3 {
+    margin: 2% 1% 1%;
+    font-family: 'NetflixSansRegular';
+    font-size: 0.9em;
+    text-align: left;
+    padding-left: 2%;
+}
+
+.div3 label {
+    margin-right: 1%;
+    color: #fff;
+    cursor: pointer;
+}
+
+.div3 input[type="radio"] {
+    margin-right: 2%;
+}
+
+.form_mb {
+   width: 85%;
+    padding: 11px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: black;
+    background: #fff;
+    border-radius: 15px;
+    /* box-shadow: 1px 1px 1px #888888; */
+    margin: 1% 0 1% 3%;
+    height: 20px;
+    border: 0.5px solid #baabab;
+}
+
+.form_mb::placeholder {
+    color: black !important;
+}
+
+
+.auto_btn {
+    width: 90%;
+    background-color: rgb(41,167,225);
+    text-align: center;
+    padding: 5px 0;
+    /* bottom: 10px; */
+    /* position: fixed; */
+    border-radius: 2px;
+    margin: 2% 5% 0 auto;
+    -webkit-appearance: none;
+    cursor: pointer;
+    clear: both;
+    /* margin-bottom: 12%; */
+}
+
+#continue2 {
+    width: 100%;
+    background-color: rgb(41,167,225) !important;
+    text-align: center;
+    padding: 9px 0 !important;
+    bottom: 0;
+    /* position: fixed; */
+    border-radius: 5px;
+    margin: 0 auto !important;
+    -webkit-appearance: none !important;
+    cursor: pointer !important;
+}
+
+#continue2 {
+    padding: 5px 0;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+    /* color: #fff; */
+}
+
+.auto_btn input[type="submit"],
+#continue2 {
+    /* background-color: #fff; */
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: black;
+    font-family: NetflixSansRegular;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding: 5px;
+
+}
+
+.auto_btn input[type="submit"] {
+    width: 100%;
+}
+
+.iwill_btn {
+    width: 50%;
+    float: left;
+    background-color: #edebeb;
+    text-align: center;
+    height: 40px;
+    padding: 15px 0 2px;
+}
+
+.iwill_btn input[type="submit"] {
+    background-color: transparent;
+    border: none;
+    font-size: 17px;
+    color: black;
+    font-family: NetflixSansMedium;
+}
+
+.auto_btn span {
+    font-size: 12px;
+    color: #fff;
+}
+
+#back_depart {
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    position: absolute;
+    top: 10%;
+    z-index: 10;
+}
+
+#userInfoForm {
+    width: 80%;
+    padding: 5px;
+    margin: 0 auto;
+    background: #FF6700;
+    border-radius: 25px;
+}
+
+#userInfoForm input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+
+.span1 {
+    text-align: center;
+    margin: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px dashed black;
+    padding-bottom: 3px;
+    float: left;
+    clear: both;
+}
+
+.span2 {
+    text-align: left;
+    margin: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px dashed black;
+    padding-bottom: 3px;
+    width: 53%;
+    float: left;
+}
+
+.payment h5 {
+    margin: 0;
+    font-size: 17px;
+    padding: 3% 5px 12px;
+}
+
+.confirmation_boxCab,
+.confirmation_boxCab2,
+.confirmation_boxCab3,
+.confirmation_boxCab4,
+.confirmation_boxCab5 {
+    position: fixed;
+    width: 80%;
+    top: 30vh;
+    left: 5vw;
+    background-color: white;
+    z-index: 1000;
+    text-align: center;
+    padding: 5%;
+    display: none;
+    border-radius: 10px;
+}
+
+#confirmation_boxCabDiv5 {
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    display: none;
+    z-index: 11;
+    text-align: center;
+    padding: 5%;
+    overflow-y: scroll;
+}
+
+.confirmation_boxCabDiv,
+.confirmation_boxCabDiv3,
+.confirmation_boxCabDiv5 {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 1000;
+    text-align: center;
+    padding: 5%;
+}
+
+.status,
+.status2,
+.status6 {
+    background: RGB(224, 11, 37);
+    color: White;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    width: 20%;
+    font-size: 1.2em;
+    margin: 0 auto 3%;
+    background-color: rgb(41,167,225);
+    border-radius: 5px;
+    font-family: "NetflixSansRegular";
+}
+
+#reserve,
+#reserve5 {
+    font-size: 14px;
+}
+
+#ctn {
+    /* text-align: center; */
+    /* height: 60vh; */
+    /* background: black; */
+    /* margin-bottom: 7%; */
+    padding-bottom: 3%;
+}
+
+.optBox {
+    height: 35px;
+    padding: 0 0 0 14px;
+    width: 32%;
+    margin-left: 30%;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    letter-spacing: 16px;
+    text-align: center;
+}
+
+#makeSerIcon,
+#makeSerIconDrop {
+    position: relative;
+}
+
+#OutstationLoad {
+    width: 100%;
+    margin: 0;
+    float: left;
+    margin-bottom: 2%;
+}
+
+#makeSerIconI,
+#makeSerIconDropI,
+.Locationbox {
+    position: absolute;
+    right: 9.5%;
+    top: 3%;
+    width: 10%;
+    background-color: #fff;
+    text-align: right;
+    line-height: 38px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: rgb(41,167,225);
+    overflow: hidden;
+
+}
+
+#depAr {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+#cplBtn {
+    width: 100%;
+    float: left;
+    background-color: rgb(41,167,225);
+    text-align: center;
+    height: 50px;
+    border: none;
+    padding-top: 0;
+    font-size: 20px;
+    color: white;
+    font-family: "NetflixSansRegular";
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+#conPicLoc {
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+    width: 98%;
+    display: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+.otp_1 {
+    margin-top: 16%;
+    width: 95%;
+    overflow: hidden;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: -14%;
+
+}
+
+.otp_2 {
+    margin-top: 16%;
+    width: 95%;
+    overflow: hidden;
+    font-size: 14px;
+    margin-bottom: 5%;
+    color: #fff;
+    text-align: center;
+}
+
+.otp_2 span,
+.otp_1 span {
+    cursor: pointer;
+}
+
+.otp_2:hover {
+    color: rgb(41,167,225);
+}
+
+.drop_ui {
+    width: 95%;
+    margin-left: 5%;
+    padding: 11px;
+    color: black;
+    margin-top: 1%;
+    -webkit-appearance: none;
+    background-color: #fff;
+    height: 40px;
+    border: 0.5px solid #baabab;
+    border-radius: 15px;
+    /* box-shadow: 1px 1px 1px #888888; */
+    outline: none;
+    font-size: 14px;
+}
+
+.fa-sort-down {
+    right: 4%;
+    top: 0%;
+    font-size: 20px;
+    position: absolute;
+    width: 10%;
+    height: 49%;
+    background-color: transparent;
+    text-align: center;
+    line-height: 38px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: rgb(41,167,225);
+}
+
+.arrow {
+    right: 13%;
+    top: 8%;
+    font-size: 16px;
+    position: absolute;
+    width: 10%;
+    height: 49%;
+    background-color: transparent;
+    text-align: center;
+    line-height: 38px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: rgb(41,167,225);
+}
+
+.otp_vry {
+    width: 6%;
+    float: left;
+    margin-right: 4%;
+    -webkit-appearance: none;
+}
+
+.otp_vry input[type="tel"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    border-bottom: 1px solid white;
+    text-align: center;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding-right: 0;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.sideDetails {
+    position: absolute;
+    top: 20px;
+    /* right: 0; */
+    color: white;
+    font-size: 11px;
+    left: 3%;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+    height: 133px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.swiper-pagination-bullet {
+    background: rgb(41,167,225);
+    display: none;
+}
+
+.swiper {
+    padding-top: 12px;
+    padding-bottom: 10px;
+}
+
+.bottom_ui {
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: 7;
+    bottom: 0;
+    padding-top: 3%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.mid_otp {
+    width: 100%;
+    padding: 0 30%;
+    -webkit-appearance: none;
+}
+
+
+.radioBox {
+    margin-top: 12px;
+    margin-left: 4%;
+    font-size: 13px;
+}
+
+.radioBox input[type="checkbox"] {
+    float: left;
+}
+
+.radioBox p a {
+    text-decoration: none;
+}
+
+#blankspace {
+    height: 5rem;
+}
+
+.titleLeft input[type='radio']:checked:after {
+    width: 13px;
+    height: 13px;
+    border-radius: 15px;
+    top: 4px;
+    left: 0;
+    position: relative;
+    background-color: rgb(41,167,225);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 4px solid white;
+    -webkit-appearance: none;
+}
+
+.main_div {
+    width: 100%;
+    background: white;
+    height: 100vh;
+}
+
+.top_detail {
+    background: #fff;
+    width: 100%;
+    margin: 0 auto;
+    /* height: 100vh; */
+    /* border-top-left-radius: 16px; */
+    overflow: hidden;
+    /* margin-top: 3%; */
+}
+
+.top_img {
+    width: 50%;
+    float: left;
+    margin-left: -3%;
+}
+
+/* .continue_btn {
+    width: 90%;
+    -webkit-appearance: none;
+} */
+
+.big_verify {
+    height: 70vh;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: none;
+}
+
+.btn_disable {
+    background-color: #fff;
+    opacity: 60%;
+}
+
+.btn_enable {
+    background-color: RGB(224, 11, 37);
+    opacity: 100%;
+}
+
+#loadingContent h4 {
+    color: #fff;
+    top: 31%;
+    position: fixed;
+    left: 30%;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+#loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 999;
+    margin: -40px 0 0 -40px;
+    -webkit-border: 16px solid #f3f3f3;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border-top: 16px solid #1435a3;
+    -webkit-border-top: 16px solid #231faf;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and(max-width: 330px) {
+    .location {
+        width: 37%;
+    }
+
+    .titleLeft span {
+        font-size: 10px;
+    }
+
+    .titleLeft input[type='radio']:checked:after {
+        width: 8px;
+        height: 8px;
+        top: 6px;
+    }
+
+    .auto_btn {
+        margin-top: 2% !important;
+    }
+
+}
+
+@media screen and(max-width: 345px) {
+    .auto_btn {
+        margin-top: 3% !important;
+    }
+
+    .timepicker {
+        padding: 6.02% 5%;
+    }
+
+}
+
+@media screen and (min-width: 290px) and (max-width: 359px) {
+    .pickupLoc_img {
+        top: 36% !important;
+    }
+
+    .pickupTerminal_img {
+        top: 44% !important;
+    }
+
+    .pickupLoc_tym {
+        top: 53% !important;
+    }
+
+}
+
+/* @media screen and (min-width: 340px) and (max-width: 359px) {
+    .pickupLoc_img {
+        top: 37% !important;
+    }
+    .pickupTerminal_img {
+        top: 45% !important;
+    }
+    .pickupLoc_tym {
+        top: 57% !important;
+    }
+} */
+@media screen and (min-width: 365px) and (max-width: 380px) {
+    .pickupLoc_img {
+        top: 30% !important;
+    }
+
+    .pickupTerminal_img {
+        top: 37% !important;
+    }
+
+    .pickupLoc_tym {
+        top: 45% !important;
+    }
+
+    #datep {
+        padding: 1% 0% 0 0 !important;
+    }
+
+
+}
+
+.bottom_menu {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 11px;
+    padding-top: 2%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: black;
+    z-index: 999;
+}
+
+.bottom_menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and(orientation: landscape) {
+    .bottom_menu ul {
+        padding-left: 5%;
+    }
+}
+
+.bottom_menu ul li {
+    text-decoration: none;
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    width: 29%;
+    /* height: 100%; */
+    display: inline;
+    padding: 1.7% 1.7% 1.7% 8px;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.bottom_menu ul li.selected {
+    opacity: 1;
+    /*border-bottom: 2px solid white;*/
+}
+
+.bottom_menu ul li img {
+    width: 26px;
+    height: 26px;
+}
+
+.menu_title {
+    color: White;
+}
+
+@media screen and(max-width: 350px) {
+    .bottom_menu {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.FromPara {
+    width: 65%;
+    margin-bottom: 2%;
+}
+
+.ToPara {
+    width: 60%;
+    margin-top: 0;
+}
+
+#toast_msg {
+    color: white;
+    background: #333333e9;
+    padding: 1px;
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    top: 62.2%;
+    z-index: 99;
+    font-size: 13px;
+}
+
+#toast_msg p {
+    margin: 12px;
+}
+
+#passenger_name {
+    margin: 0;
+    padding: 5% 1% 0 0;
+    color: black;
+    font-size: 14px;
+    font-family: 'NetflixSansMedium';
+    text-transform: uppercase;
+    /* border-bottom: 5px solid #fff; */
+    cursor: pointer;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+
+.bookingDate {
+    width: 48%;
+    float: right;
+    text-align: right;
+    margin-right: 4%;
+}
+
+#current_location {
+    font-size: 14px;
+    padding: 5px 0px;
+}
+
+#current_location img {
+    width: 18px;
+    margin: 6px 11px;
+}
+
+#current_location span {
+    font-family: 'NetflixSansMedium';
+    position: relative;
+    top: -9px;
+}
+
+#current_location i {
+    font-size: 20px;
+    float: right;
+    margin: 6px 12px 5px 0px;
+}
+
+#snackbar {
+    min-width: 60%;
+    left: 19%;
+    font-size: 12px;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 72%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    left: 11%;
+    bottom: 12%;
+    font-size: 15px;
+    font-family: "Roboto-Regular", "Arial";
+    opacity: .9;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#datep {
+    margin: 0;
+    padding: 2% 0% 0 0;
+    color: black;
+    font-size: 13px;
+    font-family: 'NetflixSansMedium';
+    text-align: center;
+}
+
+#depart_time,
+#arrival_time {
+    margin: 0;
+    font-size: 13px;
+    width: 120%;
+}
+
+.spicescreen {
+    position: absolute;
+    width: 26%;
+    height: 5%;
+    left: 17px;
+    top: 3px;
+}
+
+.bottomDiv {
+    position: absolute;
+    color: white;
+    font-size: 9px;
+    width: 62%;
+    top: 85%;
+    right: 3%;
+}
+
+#dist {
+    float: left;
+    margin-left: 4%;
+    width: 56%;
+    position: absolute;
+    top: 68%;
+    font-size: 13px;
+    left: 38%;
+    color: white;
+    font-weight: 100;
+    text-align: right;
+    text-transform: capitalize;
+    margin-top: -1%;
+}
+
+#distPara {
+    float: left;
+    margin-left: 4%;
+    width: 56%;
+    position: absolute;
+    top: 50%;
+    font-size: 8px;
+    left: 38%;
+    color: white;
+    font-weight: 100;
+    text-align: right;
+    text-transform: capitalize;
+}
+
+.include {
+    clear: both;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    font-size: 5px;
+}
+
+#fare {
+    width: 45%;
+    /* margin-bottom: 1%; */
+    font-size: 17px;
+    text-align: right;
+    color: white;
+    float: left;
+    text-align: right;
+}
+
+#discountPer {
+    float: left;
+    margin-top: 1%;
+}
+
+#discount span {
+    text-decoration: line-through;
+    text-decoration-style: solid;
+    text-decoration-color: yellow;
+    text-decoration-thickness: 2px;
+    display: none !important;
+}
+
+.perdiscount {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    color: yellow;
+    margin-top: -3%;
+    font-size: 8px;
+    display: none;
+}
+
+#discount {
+    width: 51%;
+    overflow: hidden;
+    margin-left: 4%;
+    margin-bottom: 1%;
+    font-size: 13px;
+    /* position: absolute; */
+    /* top: 73%; */
+    /* right: 5%; */
+    color: white;
+    float: left;
+    text-align: right;
+    margin-top: 1%;
+}
+
+.pen {
+    right: 8%;
+    top: 17%;
+    font-size: 16px;
+    position: absolute;
+    width: 10%;
+    height: 49%;
+    background-color: transparent;
+    text-align: right;
+    line-height: 38px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: rgb(41,167,225);
+}
+
+
+.calender {
+    right: 6%;
+    top: 1%;
+    font-size: 17px;
+    position: absolute;
+    width: 10%;
+    height: 49%;
+    background-color: transparent;
+    text-align: center;
+    line-height: 38px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: rgb(41,167,225);
+    z-index: 9;
+}
+
+.terminalcode {
+    right: 9%;
+    top: 18%;
+    font-size: 16px;
+    position: absolute;
+    width: 10%;
+    height: 49%;
+    font-family: "NetflixsansRegular";
+    background-color: #E7E5E5;
+    text-align: center;
+    outline: none;
+    border: none;
+    z-index: 9;
+    color: black;
+    border-radius: 3px;
+    padding: 6px 0;
+}
+
+.activeTerminal {
+    background-color: black;
+    color: white;
+}
+
+#T2,
+#KQH1 {
+    right: 24%;
+}
+
+#T1 {
+    right: 40%;
+}
+
+#interstitial_back {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 1;
+    z-index: 9999;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.robodemo_back {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 1;
+    z-index: 998;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.pickupTerminal_img {
+    position: absolute;
+    top: 37%;
+    width: 70%;
+    left: 10%;
+}
+
+.pickupLoc_tym {
+    position: absolute;
+    top: 44%;
+    width: 70%;
+    left: 10%;
+}
+
+.pickupLoc_img {
+    position: absolute;
+    top: 29%;
+    width: 70%;
+    left: 10%;
+}
+
+.interstitial {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    position: absolute;
+    top: 7%;
+    bottom: 7%;
+    left: 10%;
+    right: 10%;
+}
+
+#close5 {
+    position: absolute;
+    top: -9px;
+    right: -7px;
+    font-size: 30px;
+    background: rgb(41,167,225);
+    color: white;
+    border-radius: 30px;
+}
+
+#close6 {
+    position: absolute;
+    top: -9px;
+    right: -7px;
+    font-size: 30px;
+    background: rgb(234,33,39);
+    color: white;
+    border-radius: 30px;
+}
+
+.autocomplete-results,
+.autocomplete-resultsDrop {
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    position: relative;
+    display: none;
+    background-color: white;
+    width: 93.5%;
+    padding: 0;
+    list-style-type: none;
+    margin: 0 3%;
+    border: 1px solid #d2d2d2;
+    border-top: 0;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.autocomplete-item {
+    padding: 5px 5px 5px 35px;
+    height: 26px;
+    line-height: 26px;
+    border-top: 1px solid #d9d9d9;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.autocomplete-icon {
+    display: block;
+    position: absolute;
+    top: 7px;
+    bottom: 0;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.autocomplete-icon.icon-localities {
+    background-image: url(https://images.woosmap.com/icons/locality.svg);
+}
+
+.autocomplete-item:hover .autocomplete-icon.icon-localities {
+    background-image: url(https://images.woosmap.com/icons/locality-selected.svg);
+}
+
+.autocomplete-item:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+/* .autocomplete-results::after {
+    content: "";
+    padding: 1px 1px 1px 0;
+    height: 18px;
+    box-sizing: border-box;
+    text-align: right;
+    display: block;
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 120px 14px
+} */
+.coupon_block {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #C7C7C7;
+    outline: none;
+    /* background: #fff; */
+    margin-top: 12%;
+    margin-bottom: 10%;
+}
+
+.coupon_block input[type="text"] {
+    width: 70%;
+    padding: 2%;
+    font-family: 'NetflixSansRegular';
+    border: none;
+    outline: none;
+    color: gray;
+    /* border-top: 0.1px solid black; */
+    /* border-left: 0.5px solid black; */
+    /* border-bottom: 0.5px solid black; */
+    height: 23px;
+    font-size: 14px;
+    padding: 0.6em 0.4em 0.6em 0.8em;
+}
+
+.coupon_block input[type="text"]::placeholder {
+    color: gray;
+}
+
+.coupon_block span {
+    font-size: 14px;
+    /* color: red; */
+    color: grey;
+    margin-left: 3%;
+    font-weight: bold;
+}
+
+.couponSuccessMsg {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 13px;
+    color: grey;
+    margin-top: 2%;
+}
+
+.buttonText {
+    width: 95.5%;
+    float: left;
+    background: rgb(41,167,225);
+    color: white;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#okay {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.exclamation {
+    background: black;
+    color: rgb(41,167,225);
+    font-size: 57px;
+    margin-top: -7%;
+    border-radius: 36px;
+}
+
+.popupBox {
+    position: fixed;
+    top: 25%;
+    width: 96%;
+    margin: 0 auto;
+    color: black;
+    background: white;
+    box-shadow: -1px 0px 8px 1px black;
+    /* padding: 2%; */
+    font-family: 'NetflixSansRegular';
+    left: 2%;
+    border-radius: 6px;
+    text-align: center;
+    padding-bottom: 0;
+    display: none;
+}
+
+.popupDiv {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    position: fixed;
+    z-index: 9;
+    display: none;
+}
+
+.popupBox h3 {
+    margin-top: 5%;
+}
+
+/* .referBlock{
+    background: #EE1C25;
+    position: fixed;
+    width: 100%;
+    bottom: -150%;
+    transition: 0.5s;
+    z-index: 99;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+} */
+.referImg {
+    width: 65%;
+    float: right;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.referPara {
+    clear: both;
+    color: white;
+    font-family: 'NetflixSansRegular';
+    font-size: 14px;
+}
+
+.referPara ul li {
+    margin-top: 4%;
+}
+
+.referPara ul {
+    margin-left: -3%;
+}
+
+.referBox {
+    width: 89%;
+    background: transparent;
+    margin: 5% auto;
+    /* border: 1px solid #FFFFFF; */
+    padding: 1%;
+    border-radius: 30px;
+    margin-top: 8%;
+}
+
+.referBox input[type="text"] {
+    width: 66%;
+    padding: 2%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    color: white;
+    padding-left: 3%;
+}
+
+.referBox span {
+    width: 28%;
+    border: none;
+    border-radius: 15px;
+    font-size: 13px;
+    padding: 2% 4.5%;
+    text-align: center;
+    background: white;
+}
+
+.infoBox {
+    width: 4%;
+    float: right;
+    margin-top: 4%;
+    margin-right: 2%;
+}
+
+#passenger_name:hover {
+    color: rgb(41,167,225) !important;
+}
+
+.Adrefer {
+    position: relative;
+    z-index: 9999;
+    color: rgb(41,167,225) !important;
+    border-bottom: 3px solid #fff !important;
+}
+
+.hideBox {
+    width: 20%;
+    padding: 1px;
+    background-color: white;
+}
+
+.referMain {
+    position: absolute;
+    /* position: fixed; */
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    bottom: -150%;
+    transition: 0.1s;
+}
+
+.manualoption {
+    margin-bottom: 1%;
+    background: white;
+    color: black;
+    position: relative;
+}
+
+.manualoption select {
+    width: 94%;
+    padding: 10px;
+    font-size: 15px;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    color: black;
+    background: #fff;
+    border-radius: 2px;
+    margin-left: 3%;
+    height: 43px;
+    margin-bottom: 3px;
+}
+
+.manualoption select option {
+    width: 100%;
+    color: black;
+    background: white;
+}
+
+#airportCharge {
+    line-height: 18px;
+    margin-top: 2%;
+}
+
+.dubaiArrow {
+    position: absolute;
+    right: 6%;
+    font-size: 20px;
+    margin-top: 3%;
+    color: black;
+}
+
+.top_menu {
+    overflow: hidden;
+    clear: both;
+    box-shadow: 1px 1px 10px 1px lightgrey;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 3px;
+    margin-top: 2%;
+}
+
+.top_menu a img {
+    width: 13%;
+    height: 54%;
+    margin-top: -2%;
+    position: absolute;
+    left: 42px;
+}
+
+.hotelSection span img {
+    left: 34px;
+    width: 16px;
+    height: 18px;
+    margin-top: 0%;
+}
+
+.CabSection {
+    width: 29%;
+    text-align: -webkit-center;
+    overflow: hidden;
+    float: left;
+    margin-right: 2%;
+    position: relative;
+    height: 27px;
+    padding: 5px 0px 0px 9px;
+    font-size: 14px;
+    background: black;
+    color: white;
+    padding-top: 11px;
+}
+
+.hotelSection {
+    width: 30%;
+    text-align: -webkit-center;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    color: #000;
+    height: 27px;
+    padding: 5px 0px 0px 10px;
+    font-size: 14px;
+    background-color: white;
+    padding-top: 11px;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    width: 100%;
+    overflow-y: scroll;
+    height: 100%;
+    padding: 0px;
+    background-color: white;
+    color: black;
+}
+
+.back_icon {
+    display: block;
+    width: 4%;
+    margin: 15px 5px 0 20px;
+    float: left;
+}
+
+.back_text {
+    margin-top: 13px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#choosetimegrid {
+    padding: 0px;
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: -8px;
+    font-family: "NetflixSansRegular";
+    font-weight: bold;
+}
+
+.time-list-wrap ul li {
+    text-align: center;
+    vertical-align: top;
+    margin-left: 21px;
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.time-slot {
+    width: 23%;
+    border-radius: 2px;
+    overflow: hidden;
+    float: left;
+    padding-bottom: 6px;
+    margin-left: 1%;
+    text-align: center;
+    margin-right: 1%;
+}
+
+.time-slot span {
+    display: block;
+    line-height: 33px;
+    font-size: 13px;
+    background-color: #dcdcdc;
+    font-family: Arial;
+    color: black;
+}
+
+.timeam {
+    width: 30%;
+    border-radius: 2px;
+    overflow: hidden;
+    padding-bottom: 0px;
+    margin-left: 5%;
+    text-align: center;
+    float: left;
+    margin-top: 4px;
+}
+
+.timeam span {
+    display: block;
+    line-height: 33px;
+    font-size: 13px;
+    background-color: #dcdcdc;
+    font-family: Arial;
+    color: black;
+}
+
+.timepm {
+    width: 30%;
+    border-radius: 2px;
+    overflow: hidden;
+    float: right;
+    padding-bottom: 0px;
+    text-align: center;
+    margin-right: 5%;
+    margin-top: 4px;
+}
+
+.timepm span {
+    display: block;
+    line-height: 33px;
+    font-size: 13px;
+    background-color: #dcdcdc;
+    font-family: Arial;
+    color: black;
+}
+
+#time-list-wrap {
+    padding: 16px;
+}
+.swiper-wrapper{
+    justify-content: center;
+}
+.activeClass {
+    background: rgb(41,167,225) !important;
+}
+
+.donetime {
+    width: 30%;
+    border-radius: 2px;
+    overflow: hidden;
+    /* float: right; */
+    padding-bottom: 6px;
+    text-align: center;
+    /* margin-right: 5%; */
+    margin-top: 4px;
+    margin-left: 7%;
+}
+
+.donetime span {
+    display: block;
+    line-height: 33px;
+    font-size: 13px;
+    background-color: #dcdcdc;
+    font-family: Arial;
+    color: black;
+}
+
+#slotdiv {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.done_btn {
+    width: 90%;
+    /* background-color: red; */
+    text-align: center;
+    padding: 5px 0;
+    /* bottom: 10px; */
+    /* position: fixed; */
+    border-radius: 2px;
+    margin: 2% 5% 0 auto;
+    -webkit-appearance: none;
+    cursor: pointer;
+    clear: both;
+    height: 38px;
+}
+
+#donetime {
+    width: 90%;
+    text-align: center;
+    padding: 9px 0 !important;
+    bottom: 0;
+    border-radius: 5px;
+    margin: 0 auto !important;
+    -webkit-appearance: none !important;
+    cursor: pointer !important;
+}
+
+#donetime {
+    padding: 5px 0;
+}
+
+.done_btn,
+#donetime {
+    width: 90%;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: black;
+    font-family: NetflixSansRegular;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding: 5px;
+
+}
+
+.done_btn {
+    width: 100%;
+}
+
+.un_active {
+    background-color: rgb(102, 102, 102);
+}
+
+.imgsection {
+    display: flex;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    margin-top: 8%;
+}
+
+.imgsection img:nth-child(1) {
+    width: 55px;
+    height: 40px;
+    margin-left: 6px;
+    border: 2px solid rgba(22, 47, 86, 0.1);
+    box-sizing: border-box;
+    border-radius: 5px;
+
+}
+
+.imgsection img:nth-child(2) {
+    width: 60px;
+    height: 45px;
+    margin-right: 5px;
+    border: 2px solid rgba(22, 47, 86, 0.1);
+    box-sizing: border-box;
+}
+
+.imgsection img:nth-child(3) {
+    width: 60px;
+    height: 45px;
+    margin-right: 5px;
+    border: 2px solid rgba(22, 47, 86, 0.1);
+    box-sizing: border-box;
+}
+
+.imgsection img:nth-child(4) {
+    width: 60px;
+    height: 45px;
+    margin-right: 5px;
+    border: 2px solid rgba(22, 47, 86, 0.1);
+    box-sizing: border-box;
+}
+
+.highlightPay {
+    border: 2px solid rgba(36, 107, 143, 1) !important;
+    border-radius: 5px;
+}
+
+.imgsection p {
+    font-size: 10px;
+    text-align: center;
+}
+
+.PaymentPara span img {
+    width: 40px;
+    height: 28px;
+    margin: 1px 0 2px 4px;
+}
+
+.agreeBox {
+    font-size: 13px;
+    margin: 3% 0 15% 4%;
+}
+
+.agreeBox input[type="checkbox"] {
+    float: left;
+}
+
+.agreeBox p a {
+    text-decoration: none;
+}
+
+#BookingId {
+    font-family: 'NetflixSansMedium';
+    font-size: 0.83em;
+}
+
+#BookingId span {
+    font-family: 'NetflixSansRegular';
+}
+
+#MobileNo {
+    font-family: 'NetflixSansMedium';
+    font-size: 0.83em;
+    margin: 7px 0;
+}
+
+#MobileNo span {
+    font-family: 'NetflixSansRegular';
+}
+
+.bookBtn {
+    /* display: flex;
+    position: fixed;
+    bottom: 0;
+    z-index: 9;
+    background: black;
+    color: white;
+    width: 100%;
+    border-radius: 40px;
+    margin-top: -46px; */
+
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    z-index: 9;
+    background: black;
+    color: white;
+    width: 100%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+
+}
+
+#greyedbtn{
+    display: flex;
+                    position: fixed;
+                    bottom: 0;
+                    z-index: 9;
+                    background: #828282;
+                    color: white;
+                    width: 100%;
+                    border-top-left-radius: 40px;
+                    border-top-right-radius: 40px;
+}
+
+#PayByCash {
+    /* font-size: 10px; */
+    font-size: 21px;
+    width: 100%;
+    display: none;
+    text-align: center;
+}
+
+#PayByCash p:nth-child(1) {
+
+    /* font-size: 16px; */
+    font-family: 'NetflixSansMedium';
+    /* margin: 10px 0 5px 0; */
+    font-size: 16px !important;
+    color: #fff;
+    margin: 8px 0 -4px 0 !important;
+    height:45px;
+
+}
+
+#PayByCash p:nth-child(2) {
+    /* margin-top: 7px; */
+    margin-top: 7px;
+    font-size: 12px;
+}
+
+#PayByrazorpay {
+    font-size: 10px;
+    width: 50%;
+    text-align: center;
+}
+
+#PayByrazorpay p:nth-child(1),
+#PayBypaytm p:nth-child(1) {
+    font-size: 14px;
+    font-family: 'NetflixSansMedium';
+    margin: 10px 0 5px 0;
+}
+
+#PayByrazorpay p:nth-child(2) {
+    margin-top: 7px;
+    font-size: 10px;
+}
+
+#PayByCash:hover {
+    /* color: red; */
+    color: rgb(41,167,225);
+    cursor: pointer;
+}
+
+#PayByrazorpay:hover,
+#PayBypaytm:hover {
+    /* color: red; */
+    color: rgb(41,167,225);
+    cursor: pointer;
+}
+
+/* .confirmation_boxCab3 .thank_msg{
+font-size: 15px !important;
+} */
+#PayBypaytm {
+    font-size: 10px;
+    /* display: none; */
+    padding-bottom: 9px;
+    width: 100%;
+    text-align: center;
+}
+
+#PayBypaytm span {
+    margin-top: 7px;
+    font-size: 12px;
+}
+
+.spinner {
+    position: absolute;
+    top: 35%;
+    left: 37%;
+    width: 25%;
+    display: none;
+    z-index: 99;
+}
+
+.spinnerBack {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    display: none;
+    z-index: 99;
+}
+
+#spinnerBack2 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* background: rgba(255,255,255, 0.4); */
+    top: 0;
+    z-index: 99;
+}
+
+
+
+
+#loader2 {
+    /* width: 100%;
+    height: 100%; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 170px;
+    height: 170px;
+    z-index: 100;
+    /* background-image: url("img/loader.gif"); */
+}
+
+.spinner p {
+    width: 100%;
+    color: white;
+    font-size: 15px;
+}
+
+.outstationMSG {
+    display: none;
+    clear: both;
+    font-size: 11px;
+    margin: 5%;
+    overflow: hidden;
+    padding-top: 3%;
+    font-family: 'NetflixSansMedium';
+}
+
+.RideTypeBox input[type='radio'] {
+    margin-left: 0%;
+    width: 16px;
+    height: 12px;
+    margin-right: 0px;
+    visibility: hidden;
+}
+
+/* .RideTypeBox input[type='radio']:checked:after {
+    margin-left: 9%;
+    width: 12px;
+    height: 12px;
+    margin-right: -2px;
+    top: -3px;
+    left: -5px;
+    position: relative;
+    background-color: rgb(15, 89, 247);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 4px solid white;
+    -webkit-appearance: none;
+    border-radius: 45px;
+} */
+
+.RideTypeBox {
+    font-family: 'NetflixSansRegular';
+    font-size: 15px;
+    margin: 10px 0px 5px 0px;
+    display: flex;
+}
+
+@media screen and (min-width: 250px) and (max-width: 351px) {
+    .div2 .numbe {
+        width: 30% !important;
+    }
+}
+
+
+/* /////////////// New css/////////////////// */
+#paymentoptions {
+    display: none;
+    margin-top: 15%;
+    clear: both;
+}
+
+#paymentoptions h3 {
+    margin-left: 1rem;
+    font-size: 17px;
+    font-weight: 100;
+    font-family: 'NetflixSansMedium';
+}
+
+#PayNow,
+#PayLater {
+    font-family: 'NetflixSansMedium';
+    font-size: 20px;
+}
+
+.referBlock {
+    background: #fff;
+    position: absolute;
+    color: #000;
+    width: 95%;
+    margin: 0 2.5%;
+    top: 35%;
+    display: none;
+    padding: 20px;
+    text-align: left;
+    box-sizing: border-box;
+    border-radius: 25px;
+    transition: 0.5s;
+    z-index: 99;
+}
+
+.referBlock .button {
+    background: RGB(224, 11, 37);
+    color: White;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    width: 20%;
+    font-size: 1.2em;
+    margin: 0 auto 3%;
+    background-color: rgb(41,167,225);
+    border-radius: 5px;
+    font-family: "NetflixSansRegular";
+    border: none;
+}
+
+.referImg {
+    width: 65%;
+    float: right;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.referPara {
+    clear: both;
+    color: #000;
+    font-family: 'NetflixSansRegular';
+    font-size: 14px;
+}
+
+.referPara ul li {
+    margin-top: 4%;
+}
+
+.important {
+    color: rgb(41,167,225);
+    margin: 5px 5px 5px 0;
+    display: none;
+}
+
+.referPara i {
+    color: rgb(41,167,225);
+    font-size: 28px;
+    display: none;
+    margin: 8px 8px 8px 0;
+}
+
+.PayInfo {
+    width: 10px;
+    margin: 3px 0 0 3px;
+}
+
+#Loading_Img {
+    /* display: none; */
+    width: 85%;
+    margin: 2% 7% -8% 7%;
+
+}
+
+.radioBox label {
+    width: 65%;
+    margin: 4px;
+    float: left;
+}
+
+.radioBox label span {
+    font-size: 9px;
+}
+
+.radioBox span {
+    margin-top: 10px;
+}
+
+/* .radioBox {
+    display: flex
+} */
+
+.radioBox #partpay {
+    font-size: 15px;
+    font-family: 'NetflixSansMedium';
+    margin-top: 17px;
+}
+
+.radioBox input[type="radio"] {
+    margin-bottom: 8%;
+}
+
+
+/* /////// Confirm ui popup css start///////// */
+
+#mainDetails {
+    background-color: white;
+    padding: 10px;
+    width: 90%;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    border: 1px solid black;
+    margin: 5% 2%;
+    border-radius: 7px;
+}
+
+/* #mainDetails::before{
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 100vh;
+   overflow-y: scroll;
+} */
+
+#mainDetails p {
+    text-align: center;
+    font-size: 15px;
+    font-family: 'NetflixSansMedium';
+}
+
+
+.card {
+    width: 80%;
+    margin: 0px auto 7px;
+    height: 160px;
+}
+
+.Row {
+    background: rgb(248, 248, 248);
+    padding: 10px;
+    font-size: 11px;
+    border: 0.1px solid rgb(238, 238, 238);
+    /* margin: 5px; */
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.belowDetails {
+    width: 95%;
+    margin: 0 auto;
+    background: rgb(248, 248, 248);
+    overflow: hidden;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Row1 {
+    background: rgb(248, 248, 248);
+    padding: 10px;
+    font-size: 15px;
+    /* margin: 5px; */
+    box-sizing: border-box;
+}
+
+.Row1 i {
+    font-size: 20px;
+    margin: 0 7px 0 0;
+}
+
+.Row1 a {
+    float: right;
+    margin: 6px 0;
+    font-family: 'NetflixSansRegular';
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.belowDetails img {
+    width: 6%;
+}
+
+.belowDetails span {
+    text-align: center;
+    padding-left: 13px;
+    font-size: 12px
+}
+
+#mainDetails input {
+    width: 100%;
+    height: 43px;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 15px;
+}
+
+.RideSpan {
+    font-family: 'NetflixSansMedium';
+    font-size: 15px !important;
+}
+
+#price_fare {
+    position: absolute;
+    top: 142px;
+    right: 56px;
+    color: #fff;
+    font-size: 20px !important;
+}
+
+.DiscountDiv {
+    font-family: 'NetflixSansMedium';
+    font-size: 11px;
+    width: 70%;
+    background-image: linear-gradient(to right, rgb(226, 197, 101), rgb(250, 246, 195));
+    height: 22px;
+    color: #000;
+    position: relative;
+    width: 135px;
+    text-align: center;
+    line-height: 24px;
+    box-shadow: -1px 0px 3px 0px grey;
+}
+
+#DiscountAmt {
+    display: block;
+    text-align: center;
+    background: linear-gradient(to bottom right, #fff calc(50% - 1px), black, #fff calc(49% + 1px));
+    margin-bottom: 22%;
+    font-size: 16px;
+    color: grey;
+}
+
+.DiscountDiv:after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: 100%;
+    top: 0;
+    border: 11.5px solid transparent;
+    border-left: 20px solid rgb(250, 246, 195);
+}
+
+#cabDiscount {
+    font-size: 11px;
+    font-family: 'NetflixSansMedium';
+}
+
+.amountBox {
+  margin-left:20px;
+    float: left;
+}
+
+#part {
+    margin-top: 8px;
+    /* margin-top: -16px; */
+    /* clear: both; */
+    padding-top: 0;
+    float: left;
+}
+
+/* /////// Confirm ui popup css end ///////// */
+
+.paymentoptions{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;;
+
+}
+.paymentoptions input[type="radio"]:checked{
+    float: left;
+    margin: 3px 3px 0px 0px;
+}
+.paymentoptions h4{
+    margin: 20px 0 13px 0;
+}
+.prepaidTxt
+{
+    margin: 0;
+    font-size: 14px;
+}
+
+.PaidAmount{
+    float: right;
+    text-align: right;
+}
+.PaidAmount p{
+    margin: 0;
+    font-family: 'NetflixSansMedium';
+}
+.PaidAmount span{
+    font-size: 11px;
+}
+.paymentoptions h4:nth-child(2)
+{
+    margin: 7px 0px;
+    border: 2px solid black;
+    padding: 6px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: rgb(41,167,225);
+    color: white;
+}
+.paymentTextBox{
+    width: 50%;
+    overflow: hidden;
+    margin: 0;
+    float: left;
+    font-size: 14px;
+}
+
+
+.insuranceoptions{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;;
+}
+.insuranceoptions input[type="checkbox"]{
+    float: left;
+    margin: 3px 3px 0px 0px;
+}
+.insuranceoptions h4{
+    margin: 10px 0 7px 0;
+    font-size: 15px;
+}
+.Ridetext
+{
+    margin: 0;
+    font-size: 14px;
+}
+
+.INsbenefits{
+    float: right;
+    text-align: right;
+}
+.INsbenefits p{
+    margin: 0;
+    font-family: 'NetflixSansMedium';
+}
+.INsbenefits span{
+    font-size: 11px;
+}
+.insuranceoptions h4:nth-child(2)
+{
+    margin: 7px 0px;
+    border: 2px solid black;
+    padding: 6px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: rgb(41,167,225);
+    color: white;
+}
+.insuranceTextBox{
+    width: 68%;
+    overflow: hidden;
+    margin: 0;
+    float: left;
+    font-size: 14px;
+}
+.insuranceOptionInner{
+    clear: both;
+}.DistanceKM{
+    display: flex;
+    margin: 3% 2% 0% 6%;
+    font-size: 13px;
+}
+.DistanceKM h4{
+    margin: 0;
+    font-family: 'NetflixSansMedium';
+    font-weight: 200;
+}

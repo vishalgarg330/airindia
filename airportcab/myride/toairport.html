@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type" />
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <link href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="css/mdtimepicker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <script src="js/apicall.js"></script>
+
+    <title id="title">My Airport Ride</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/toairport.css" />
+    <script>
+        var mapKey="AIzaSyC59Y7evT_numeVQRjexnhBVC39MXUKOfY";
+        loadJS("https://maps.googleapis.com/maps/api/js?v=3&key=" + mapKey + "&libraries=places&v=weekly", true);
+
+        function loadJS(FILE_URL, async = true) {
+            let scriptEle = document.createElement("script");
+
+            scriptEle.setAttribute("src", FILE_URL);
+            scriptEle.setAttribute("type", "text/javascript");
+            scriptEle.setAttribute("async", async);
+
+            document.head.appendChild(scriptEle);
+
+            // success event 
+            scriptEle.addEventListener("load", () => {
+            });
+            // error event
+            scriptEle.addEventListener("error", (ev) => {
+                console.log("Error on loading file", ev);
+            });
+        }
+    </script>
+
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            background: black;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            width: 0px;
+            /* For Chrome, Safari, and Opera */
+        }
+
+        html {
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            width: 0px;
+            /* For Chrome, Safari, and Opera */
+        }
+
+        @font-face {
+            font-family: 'NetflixSansLight';
+            src: url(font/NetflixSansLight.ttf);
+        }
+
+        @font-face {
+            font-family: 'NetflixSansMedium';
+            src: url(font/NetflixSansMedium.ttf);
+        }
+
+        @font-face {
+            font-family: 'NetflixSansRegular';
+            src: url(font/NetflixSansRegular.ttf);
+        }
+
+        p,
+        span {
+            font-family: NetflixSansRegular;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: NetflixSansRegular;
+        }
+
+        #tym2 {
+            width: 46%;
+            overflow: hidden;
+            float: left;
+            position: relative;
+            height: 41px;
+            z-index: 9;
+        }
+
+        .calenderBox {
+            width: 44%;
+            /* overflow: hidden; */
+            float: left;
+            position: relative;
+            z-index: 9;
+            margin-right: 5%;
+            margin-left: 2%;
+        }
+
+        #pickupDiv {
+            width: 45%;
+            /* overflow: hidden; */
+            float: left;
+        }
+
+        #cabPickupCity,
+        #outstationCity {
+            width: 99%;
+            margin-left: 5%;
+            padding: 11px;
+            color: black;
+            margin-top: 1%;
+            -webkit-appearance: none;
+            background-color: #fff;
+            height: 40px;
+            border: 0.5px solid #baabab;
+            /* border-radius: 15px 15px 15px 15px; */
+            /* box-shadow: 1px 1px 1px #888888; */
+            outline: none;
+            font-size: 14px;
+        }
+
+        #pickupDiv2 {
+            width: 46%;
+            overflow: hidden;
+            float: right;
+            margin-right: 3%;
+            position: relative;
+            /* box-shadow: 1px 1px 1px #888888; */
+            z-index: 9;
+        }
+
+        .calenderText::placeholder,
+        .timepicker::placeholder {
+            color: black !important;
+        }
+
+        .tripType,
+        .selfType {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35%;
+            margin: 6% auto;
+
+        }
+
+        .selfType {
+            /* box-shadow: 1px 1px 5px 1px lightgrey !important; */
+            display: none;
+        }
+
+        .tripType a {
+            margin: 5px 15px;
+            text-decoration: none;
+            color: black;
+            font-family: 'NetflixSansRegular';
+            border-bottom: 2px solid lightgrey;
+            font-size: 15px;
+        }
+
+        .selfType a {
+            text-decoration: none;
+            font-family: 'NetflixSansRegular';
+            width: 50%;
+            text-align: center;
+            padding: 10px 2px;
+            font-size: 13px;
+            float: left;
+            color: black;
+        }
+
+        .selectedTrip {
+            border-bottom: 2px solid rgb(234, 33, 39) !important;
+            font-family: "NetflixSansMedium" !important;
+        }
+
+        .selectedSelfDrive {
+            background-color: black;
+            color: white !important;
+        }
+
+        #notePoint {
+            width: 86%;
+            margin: 0 auto;
+            margin-top: 7%;
+            font-size: 13px;
+            display: none;
+        }
+
+        #confirmation_boxGeneral {
+            position: fixed;
+            width: 89%;
+            top: 30%;
+            left: 0;
+            background-color: white;
+            display: none;
+            z-index: 9999;
+            margin-left: 18px;
+            /* box-shadow: 1px 1px 29px 1px grey; */
+        }
+
+        .thank_msg {
+            /* font-weight: bold; */
+            background: white;
+            text-align: center;
+            font-size: 1.5em;
+            padding-bottom: 4%;
+            padding-top: 5%;
+            font-family: 'NetflixSansRegular';
+        }
+
+        .cookie {
+            position: fixed;
+            bottom: 11px;
+            background-color: rgb(46, 46, 56);
+            padding: 16px 22px 0px 10px;
+            text-align: justify;
+            border-radius: 5px;
+            height: 2rem;
+            line-height: 14px;
+            width: 100%;
+        }
+
+        .call_msgGeneral p {
+            background: white;
+            /* padding-left: 12%; */
+            text-align: center;
+        }
+
+        .selfType label {
+            font-family: 'NetflixSansRegular';
+            font-size: 15px;
+        }
+
+        #ValidateMsg,
+        #ValidateCityMsg {
+            font-size: 8px;
+            color: rgb(15, 89, 247);
+            width: 88%;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .rentalHour {
+            display: flex;
+            flex: 1 1 150px;
+            justify-content: center;
+            background-color: #fff;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-family: 'NetflixSansRegular';
+
+        }
+
+        .time {
+            display: flex;
+            margin: 10px;
+            padding: 10px;
+            background-color: #E7E5E5;
+            border-radius: 5px;
+        }
+
+        #fourHours,
+        #sixHours,
+        #eightHours,
+        #twelveHours {
+            visibility: hidden;
+            display: none;
+        }
+
+        .time label {
+            text-align: center;
+            font-family: 'NetflixSansRegular';
+            font-size: 15px;
+        }
+
+        .mobileCheck,
+        .pickupLocation,
+        .dropLocation {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            font-size: 15px;
+            width: 100%;
+            font-family: 'NetflixSansRegular';
+        }
+
+        .inputBox {
+            width: 100%;
+            outline: none;
+            margin: 10px 10px 0px 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: none;
+            padding: 13px;
+            font-size: 15px;
+            color: black;
+            font-family: 'NetflixSansRegular';
+
+        }
+
+        input[type=text]:active {
+            width: 100%;
+            /* display: flex; */
+        }
+
+        .bi {
+            position: absolute;
+            left: 88%;
+            margin-top: 20px;
+        }
+
+        .selectedItem {
+            background-color: black;
+            color: white;
+        }
+
+        #pac-inputOutstation {
+            position: relative;
+        }
+
+        #PayByCash span {
+            padding: 5px;
+        }
+
+        #searchI,
+        #searchII {
+            position: absolute;
+            right: 5.5%;
+            top: 22%;
+            width: 10%;
+            background-color: #fff;
+            text-align: right;
+            line-height: 38px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            color: black;
+            overflow: hidden;
+        }
+
+        #timemsg {
+            visibility: hidden;
+            min-width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            bottom: 10%;
+            font-size: 13px;
+            padding: 8px 9px 9px 2px;
+            font-family: NetflixSansRegular;
+        }
+
+        #timemsg.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        .confirmation_boxCab3 {
+            font-size: 14px;
+            /* font-weight: bold; */
+        }
+
+        /* .Partner_Logo {
+            width: 17%;
+            position: absolute;
+            bottom: -26px;
+            right: 4%;
+        } */
+        .fare_cardSize {
+            margin-left: -36px;
+            width: 323px;
+            height: 185px;
+        }
+
+        .distKm {
+            float: left !important;
+            margin-left: 4% !important;
+            width: 54% !important;
+            position: absolute !important;
+            top: 61% !important;
+            font-size: 16px !important;
+            left: 50% !important;
+            color: white !important;
+            font-weight: 100 !important;
+            text-align: right;
+            text-transform: capitalize !important;
+            margin-top: -1% !important;
+
+        }
+
+        .distpara1 {
+            float: left !important;
+            margin-left: 15% !important;
+            width: 56% !important;
+            position: absolute !important;
+            top: 37% !important;
+            font-size: 11px !important;
+            left: 38% !important;
+            color: white !important;
+            font-weight: 100 !;
+            text-align: right !important;
+            text-transform: capitalize !important;
+        }
+
+        .farePricetext {
+            position: absolute !important;
+            top: 72% !important;
+            font-size: 21px !important;
+            left: 73% !important;
+            color: white !important;
+            font-weight: 100 !important;
+            text-transform: capitalize !important;
+            margin-top: 3% !important;
+
+        }
+
+        .textCtr {
+            text-align: center;
+        }
+
+        /* Carousel */
+
+        .slider {
+            /* background-color: #f7f7f7; */
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* border-bottom: 10px solid #f7f7f7;
+            border-top: 10px solid #f7f7f7; */
+        }
+
+        .slide {
+            text-align: center;
+            background: #f7f7f7;
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .active-slide {
+            display: block;
+        }
+
+        .slider-nav {
+            text-align: center;
+            margin-top: -20px;
+        }
+
+        /* .arrow-prev {
+            margin-right: 45px;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 9px;
+        }
+
+        .arrow-next {
+            margin-left: 45px;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 9px;
+        } */
+
+        .slider-dots {
+            list-style: none;
+            display: inline-block;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .slider-dots li {
+            color: #bbbcbc;
+            display: inline;
+            font-size: 30px;
+            margin-right: 5px;
+        }
+
+        .slider-dots li.active-dot {
+            color: #363636;
+        }
+
+        #cross {
+            background-color: #fff;
+            position: absolute;
+            right: -3%;
+            color: #000;
+            top: -2%;
+            font-size: 28px;
+            border-radius: 24px;
+        }
+
+        .custom-model-main {
+            text-align: center;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /* z-index: 1050; */
+            -webkit-overflow-scrolling: touch;
+            outline: 0;
+            opacity: 0;
+            -webkit-transition: opacity 0.15s linear, z-index 0.15;
+            -o-transition: opacity 0.15s linear, z-index 0.15;
+            transition: opacity 0.15s linear, z-index 0.15;
+            z-index: -1;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .model-open {
+            z-index: 99999;
+            opacity: 1;
+            overflow: hidden;
+        }
+
+        .custom-model-inner {
+            -webkit-transform: translate(0, -25%);
+            -ms-transform: translate(0, -25%);
+            transform: translate(0, -25%);
+            -webkit-transition: -webkit-transform 0.3s ease-out;
+            -o-transition: -o-transform 0.3s ease-out;
+            transition: -webkit-transform 0.3s ease-out;
+            -o-transition: transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+            transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+            display: inline-block;
+            vertical-align: middle;
+            width: 600px;
+            margin: 30px auto;
+            max-width: 97%;
+        }
+
+        .custom-model-wrap {
+            display: block;
+            margin: top -35px;
+            width: 100%;
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #999;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+            background-clip: padding-box;
+            outline: 0;
+            text-align: left;
+            padding: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .model-open .custom-model-inner {
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+            position: relative;
+            z-index: 999;
+        }
+
+        .model-open .bg-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 99;
+        }
+
+        .bg-overlay {
+            background: rgba(0, 0, 0, 0);
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            -webkit-transition: background 0.15s linear;
+            -o-transition: background 0.15s linear;
+            transition: background 0.15s linear;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 0;
+            top: -30px;
+            cursor: pointer;
+            z-index: 99;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        @media screen and (min-width:800px) {
+            .custom-model-main:before {
+                content: "";
+                display: inline-block;
+                height: auto;
+                vertical-align: middle;
+                margin-right: -0px;
+                height: 100%;
+            }
+        }
+
+        @media screen and (max-width:799px) {
+            .custom-model-inner {
+                margin-top: 45px;
+            }
+        }
+
+        .customer {
+            width: 100%;
+            margin-top: 4px;
+            font-size: 18px;
+            background-color: #fff;
+            border-radius: 7px;
+            height: 42px;
+            font-family: 'NetflixSansRegular';
+        }
+
+        .selfbook {
+            width: 305px;
+            margin-top: 18px;
+            font-size: 18px;
+            background-color: #000;
+            color: #fff;
+            font-weight: 400;
+            border: none;
+            border-radius: 7px;
+            height: 42px;
+            font-family: 'NetflixSansRegular';
+        }
+
+        .upar {
+            margin-top: -10px;
+        }
+
+        .formnumber {
+            width: 90%;
+            display: none;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 0.9em;
+            color: black;
+            background: #fff;
+            border-radius: 8px;
+            margin: 1.5% 0 0.3% 1%;
+            height: 24px;
+        }
+
+        .formnumber::placeholder {
+            color: black !important;
+        }
+
+        .submitnumber {
+            display: none;
+            width: 305px;
+            margin-top: 18px;
+            font-size: 18px;
+            background-color: #000;
+            color: #fff;
+            font-weight: 400;
+            border: none;
+            border-radius: 7px;
+            height: 42px;
+            font-family: 'NetflixSansRegular';
+        }
+
+        .contentt {
+            margin-top: 60px;
+        }
+
+        .buttont {
+            background-color: #E30052;
+            color: #fff;
+            border: none;
+            font-family: 'NetflixSansMedium';
+            border-radius: 55px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            height: 75px;
+            font-size: 22px;
+        }
+
+        .buttont:hover {
+            background-color: #0F59F7;
+        }
+
+        .form-popup-bgt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .form-popup-bgt {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(94, 110, 141, 0.9);
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+            -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+            transition: opacity 0.3s 0s, visibility 0s 0.3s;
+            overflow-y: auto;
+            z-index: 10000;
+        }
+
+        .form-popup-bgt.is-visible {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+            -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+            transition: opacity 0.3s 0s, visibility 0s 0s;
+        }
+
+        .form-containert {
+            background-color: #2d3638;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            padding: 40px;
+            color: #fff;
+        }
+
+        .close-buttont {
+            background: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: solid 1px #fff;
+        }
+
+        .form-popup-bgt:before {
+            content: '';
+            background-color: #fff;
+            opacity: .25;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+
+
+        .whiteat {
+            background-color: #fff;
+            width: 66%;
+        }
+
+
+
+        .btnt {
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            background-color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+
+        .thanks {
+            justify-content: center;
+            display: flex;
+        }
+
+        .thankscont {
+            color: #000;
+            font-family: 'NetflixSansRegular';
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .closeform {
+            background-color: #000;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 23px;
+            font-family: 'NetflixSansRegular';
+            padding: 9px;
+
+            border-radius: 12px;
+            height: 35px;
+        }
+
+        .thank {
+            width: 50%;
+        }
+
+        .left-half {
+            background-color: #E5E5E5;
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .right-half {
+            background-color: #E5E5E5;
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .right-icon {
+            display: flex;
+        }
+
+        .left-icon {
+            display: flex;
+        }
+
+        .boxpayment {
+            border: 1px solid #ccc;
+            width: 90%;
+            margin-left: 18px;
+            background-color: #F9F9F9;
+            overflow: auto;
+        }
+
+        #PayNow2 {
+            display: none;
+        }
+      
+    </style>
+
+</head>
+
+<body>
+
+    <div class="spinnerBack"></div>
+    <div class="spinner" id="spinner">   
+        <div class="loader_1"></div>
+    </div>
+
+
+    <div class="confirmation_boxCabDiv"></div>
+    <div class="confirmation_boxCab">
+        <div class="thank_msg">
+            <i class="fa fa-check-circle" style="font-size:48px;color:rgb(234,33,39);background: transparent"></i>
+        </div>
+        <div class="call_msgCab">
+            <p id="cmmsg"></p>
+        </div>
+        <div class="status" id="status">OK</div>
+    </div>
+    <div class="confirmation_boxCab2">
+        <div class="thank_msg">
+            <i class="fa fa-check-circle" style="font-size:48px;color:rgb(234,33,39);background: transparent"></i>
+        </div>
+        <div class="call_msgCab">
+            <p id="cmmsg2"></p>
+        </div>
+        <div class="status" id="status2">OK</div>
+        <div class="status" id="status5">OK</div>
+        <div class="status" id="statusOutstation">OK</div>
+        <div class="status" id="status7" style="display: none;">OK</div>
+
+    </div>
+    <div class="confirmation_boxCab4" style="display:none">
+        <div class="thank_msg">
+            <i class="fa fa-check-circle" style="font-size:48px;color:rgb(234,33,39);background: transparent"></i>
+        </div>
+        <div class="call_msgCab">
+            <p id="cmmsg3"></p>
+        </div>
+        <div class="status" id="status4">OK</div>
+    </div>
+
+
+    <div id="interstitial_back" style="display: none;">
+    </div>
+
+    <main>
+        <div class="main_div">
+
+           
+            <div id="mapBox" style="display: none;">
+                <div id="map"></div>
+            </div>
+            <div class="top_detail">
+
+                <div class="tripType">
+                    <img src="img/rigo-logo.png"/>
+                </div>
+
+                <div class="RideTypeBox">    
+                    <input type="radio" name="RideType" id="DepartureRide"
+                        class="RideOption selectedRideType" value="Departure" checked>
+                    <label for="DepartureRide" class="activeRide Ridedata">City To Airport</label>
+                    <input type="radio" name="RideType" class="RideOption" id="ArrivalRide" value="Arrival">
+                    <label for="ArrivalRide" class="Ridedata">Airport To City</label>
+                </div>
+
+                <div class="timeDetails" style="display: none;">
+                    <div class="dateInfo">
+                        <h3>DATE</h3>
+                        <div class="detailsVal" id="datep">DD-MM-YYYY</div>
+                    </div>
+                    <div class=" departTime ">
+                        <h3 style="text-align: center;">DEPART</h3>
+                        <div class="detailsVal" id="depart_time" style="text-align: center;">00:00</div>
+                    </div>
+                    <div class="arriveTime">
+                        <h3 style="text-align: right;">ARRIVE</h3>
+                        <div class="detailsVal" id="arrival_time" style="text-align: right;">00:00</div>
+                    </div>
+                </div>
+                <form id="ctn">
+                    <div id="mandatory"
+                        style="color: rgb(234,33,39); margin-left: 3%; font-size: 13px; display: none; font-family: NetflixSansMedium">
+                    </div>
+
+                    <div class="mobile_box" style="position: relative;">
+                        <input type="tel" class="form_mb" id="mb_number" placeholder="Enter Your Mobile Number"
+                            pattern="[6-9]{1}[0-9]{4}[0-9]{5}" maxlength="10" style="border-radius: 15px;"
+                            oninvalid="this.setCustomValidity('Please enter your valid phone number')"
+                            oninput="this.setCustomValidity('')" required>
+                        <i class="fas fa-pencil-alt pen"></i>
+                    </div>
+
+                    <div id="snackbar"></div>
+                    <div id="loader"></div>
+
+                    <div id="BydefaultShow">
+               
+                        <div class="drop_div" id="pickupDiv">
+                            <select class="drop_ui" id="cabPickupCity" style="margin-left: 11px;">
+                            <option value="Select  City">Select City</option>
+                            <option value="DEL">Delhi(DEL)</option>
+                            <option value="BOM">Mumbai(BOM)</option>
+                            <option value="MAA">Chennai (MAA)</option>
+                            <option value="HYD">Hyderabad(HYD)</option>
+                            <option value="BLR">Bengaluru(BLR)</option>
+                            <option value="COK">Cochin(COK)</option>
+                            <option value="PNQ">Pune(PNQ)</option>
+                                </select>
+                        </div>
+
+                        <div class="drop_div" id="pickupDiv2">
+                            <select class="drop_ui" id="cabPickupTerminal" style="margin-left:0px"; style="border-radius: 15px";>
+                                <option selected disabled>Select Terminal</option>
+                            </select>
+                        </div>
+
+                        <div style="width: 100%; margin: 1.5% 0; float: left; margin-bottom: 2%;" class="pnr_pickup">
+                            <div id="makeSerIcon">
+                                <label class="full-field">
+                                    <input id="pac-input" name="pac-input" class="input_srch" autocomplete="off"
+                                        placeholder="Enter Pickup location " />
+                                    <i class="Locationbox fas fa-map-marker-alt " aria-hidden="true"
+                                        id="makeSerIconI"></i>
+                                </label>
+                            </div>
+                            <ul class="autocomplete-results">
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!----------- TiME uI POPUP code start --------->
+                    <div class="form-popup" id="myForm">
+                        <div class="back_icon">
+                            <img src="img/arrow-left.png">
+
+                        </div>
+                        <p class="back_text">Back</p>
+
+                        <div id="choosetimegrid" style="display: block; margin-bottom: 3%;">
+                            <label>Select Pick-up time:</label>
+                        </div>
+
+
+                        <div id="slotdiv">
+                            <div class="timeam">
+                                <span id="timeam" value="AM">AM</span>
+                            </div>
+
+                            <div class="timepm">
+                                <span id="timepm" value="PM">PM</span>
+                            </div>
+                            <p class="outstationMSG">* Do not select a time between 10PM to 6AM</p>
+                        </div>
+                        <div class="time-list-wrap" id="time-list-wrap" style="display: none;">
+                        </div>
+                        <div style="margin: 2% 0% 3% 5%;">
+                            <span style="font-size: 12px; font-weight: bold;">Important :</span><br> <span
+                                style="font-size: 11px; font-weight: lighter;">In case of departure choose your pick-up
+                                time wisely to catch your flight on time.</span><br><span
+                                style="font-size: 11px; font-weight: lighter;">• Domestic
+                                flight :- 2+2 hours (Airport Travel + Security Check-in)
+                                <br> • International flight :- 2+3 hours (Airport Travel + Security Check-in)</span>
+                        </div>
+
+                        <div id="timemsg">Please Select Time-Zone (AM/PM).
+                        </div>
+                    </div>
+                    <!----------- TiME uI POPUP code end --------->
+
+                    <div class="calenderBox" id="etaDiv" style=" border-radius: 15px;">
+                        <input type="text" class="calenderText" id="datepicker" onclick="showdate()"
+                            placeholder="Pickup Date" autocomplete="off" readonly>
+                        <i class="fas fa-calendar-week calender" onclick="showdate()"></i>
+                    </div>
+                    <div id="tym2" style="border-radius: 15px;">
+                        <label>
+                            <h1 style="margin:0px auto 0px auto; display: none;"></h1>
+                            <input type="text" class="timepicker" placeholder="Pickup Time" autocomplete="off";
+                                readonly />
+                            <i class="fas fa-clock arrow"></i>
+                        </label>
+                    </div>
+                    <br>
+
+                    <br>
+                    <div class="mobile_box1" style="position: relative; clear: both; margin-top: 1.5%;">
+                        <input type="email" class="form_mb" id="email_id"
+                            placeholder="Enter your e-mail">
+                    </div>
+
+                    <div class="cabType" id="cabType">
+                        <div class="titleLeft hatchback active_cab">
+                            <div class="imgDiv">
+                                <img src="img/mIni_icon.png" alt="mini car">
+                                <p>Mini</p>
+                                <h3 id="MiniFare"></h3>
+                            </div>
+                        </div>
+                        <div class="titleLeft sedan">
+                            <div class="imgDiv">
+                            <img src="img/sedan_icon.png" alt="sedan car">
+                            <p>Sedan</p>
+                            <h3 id="SedanFare"></h3>
+                            </div>
+                        </div>
+                        <div class="titleLeft suv">
+                            <div class="imgDiv">
+                            <img src="img/suv_icon.png" alt="suv car" >
+                            <p>Suv</p>
+                            <h3 id="MuvFare"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <img src="img/Rigo_details.jpg" id="Loading_Img"> -->
+
+                    <div class="DistanceKM" id="Distance">
+                        <h4>Estimated Distance : </h4>&nbsp
+                        <span id="Kilometer">0Km</span>
+                    </div>
+
+                    <!-- /////Payment Method///////////// -->
+                    <div class="paymentoptions">
+                        <h4>Payment Option</h4>
+                        <div class="paymentOptionInner">
+                            <input type="radio" name="payment" checked="true">
+                            <div class="paymentTextBox">
+                                <p class="prepaidTxt" style="margin-top: 0%;">Prepaid (Pay Now)</p>
+                                <h4>CONFIRMED BOOKING</h4>
+                            </div>
+
+                            <div class="PaidAmount">
+                                <p id="PaidAMOUNT">₹ 00</p>
+                                <span><b>+</b> Airport tolls & taxes</span>
+                            </div>
+                            </div>  
+                    </div>
+
+
+                    <!-- ////////////// Insurance details//////////////// -->
+                    <div class="insuranceoptions">
+                        <h4>Travel Insurance</h4>
+
+                        <div class="insuranceOptionInner">
+                            <input type="checkbox" name="insurance">
+                            <div class="insuranceTextBox">
+                                <p class="Ridetext" style="margin-top: 0%;">Rs. 8 per ride (Protect your ride)</p>
+                            </div>
+
+                            <div class="INsbenefits">
+                                <span><u>View Benefits</u></span>
+                            </div>
+                        </div>  
+
+                        <div class="insuranceOptionInner">
+                            <input type="checkbox" name="insurance">
+                            <div class="insuranceTextBox">
+                                <p class="Ridetext" style="margin-top: 0%;">Rs. 29 per flight (Secure your trip)</p>
+                            </div>
+
+                            <div class="INsbenefits">
+                                <span><u>View Benefits</u></span>
+                            </div>
+                        </div>  
+                    
+                    </div>
+
+
+
+                    <!-- <div id="swiperDiv">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper" id="swiper-wrapper">
+                        
+                            </div>
+                            <div class="swiper-pagination"></div>
+                           
+                        </div>
+                    </div>
+
+                    <p class="couponSuccessMsg" id="couponSuccessMsg"></p> -->
+                    <div class="agreeBox">
+                        <input type="checkbox" name="terms_condition" id="terms_condition" checked="">
+                        <p class="terms_condition" style="margin-top: 0%;">I agree to <a
+                                 style="color: rgb(41,167,225);">Terms &amp;
+                                Conditions</a></p>
+                    </div>
+
+
+                    <!-- <div class="auto_btn btn_disable" id="ConfirmButton"><input type="submit" id="continue"
+                            value="Confirm pickup" disabled />
+                    </div> -->
+
+                    <div class="payment_btn" id="greyedbtn">
+                        <div>
+                            <a style="text-decoration: none; text-align: center;
+                            color: #fff;
+                            font-size: 20px;
+                            font-family: 'NetflixSansMedium';
+                            margin-left: 409px;">
+                                <p style="margin-top: -9px;">Book Now</p>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="bookBtn" style="display:none">
+                        <div id="PayByCash">
+                            <!-- <p>Pay Later</p>
+                            <span style="font-size: 12px;">via Online Payment Link </span> -->
+                        </div>
+
+                        <div id="">
+                            <div class="payment_btn">
+                                <div id="paynowapprov" class="paynowapprove">
+                                    <a style="text-decoration: none;     text-align: center;
+                                    color: #fff;
+                                    font-size: 20px;
+                                    font-family: 'NetflixSansMedium';
+                                    margin-left: 409px;">
+                                        <p style="margin-top: -9px;">Proceed to Book</p>
+                                        <p style="font-size: 10px;
+                                margin-top: -21px;">
+                                            Select payment option on next page
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        </div>
+
+        <!-- ///////////// Ride booking confirmation popup without arrival text code start///////////////// -->
+        <div class="confirmation_boxCabDiv3"></div>
+        <div class="confirmation_boxCab3">
+            <div class="thank_msg" style="font-family: NetflixsansRegular;font-size: 14px; padding-bottom: 0%;">
+                <br>Your booking request is submitted successfully.
+                <p>You will receive confirmation details shortly through SMS & Whatsapp.</p>
+            </div>
+            <div class="call_msgCab">
+                <p id="reserve" style="margin-top: -1rem;"><br>
+                    For any assistance
+                    call 011-46514254.
+                </p>
+            </div>
+            <div class="status" id="status3" style="width:30%">Ok</div>
+        </div>
+        <!-- ///////////// Ride booking confirmation popup without arrivaltext  code start///////////////// -->
+
+
+        <!-- ///////////// Ride booking confirmation popup with arrival text code start///////////////// -->
+        <div class="confirmation_boxCabDiv5"></div>
+        <div class="confirmation_boxCab5">
+            <i class="fas fa-times-circle" id="close5" style="right: 0%;"></i>
+            <div class="thank_msg" style="font-family: NetflixsansRegular;font-size: 14px; padding-bottom: 0%;">
+                <br>Your booking request is submitted successfully.
+                <p>You will receive confirmation details shortly through SMS & Whatsapp.</p>
+            </div>
+            <div class="call_msgCab">
+                <p id="reserve5" style="margin-top: -1rem;"><br>
+                    Now Skip the queue and pre- book your arrival cab. For any assistance call 011-46514254.
+                </p>
+            </div>
+            <div class="status" id="status6" style="width:45%">Book Now</div>
+        </div>
+        <!-- ///////////// Ride booking confirmation popup with arrival text code start///////////////// -->
+
+    </main>
+
+    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC59Y7evT_numeVQRjexnhBVC39MXUKOfY&callback=initAutocomplete"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/mdtimepicker.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/toairport.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/paytm_cabbooking.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</body>
+
+</html>

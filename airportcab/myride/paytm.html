@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Paytm</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <script src="js/apicall.js"></script>
+
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            background: #fff;
+        }
+
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            width: 0px;
+            /* For Chrome, Safari, and Opera */
+        }
+
+        html {
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            width: 0px;
+            /* For Chrome, Safari, and Opera */
+        }
+
+        #paytm-app.paytm-wrapper {
+            height: 94vh !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <p>Please wait ......</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- <script src="js/paytm.js"> -->
+
+
+    </script>
+    <script>
+
+        var scriptTag = document.createElement('script');
+        scriptTag.setAttribute('type', 'application/javascript');
+        // scriptTag.setAttribute('src', 'https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/'+localStorage["PayMID"]+'.js');
+        scriptTag.setAttribute('crossorigin', 'anonymous');
+        document.head.appendChild(scriptTag);
+        scriptTag.addEventListener('load', () => {
+            onScriptLoad();
+        })
+
+
+        // document.getElementById("loader").style.display = "block";
+
+        function onScriptLoad() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cabOrderId = urlParams.get("cabOrderId");
+            const cancelPage = urlParams.get("cancelPage");
+            const bookingData = JSON.parse(localStorage["initaiteJSPayment"]);
+            let registerClubMember = JSON.parse(localStorage.cabbookingData);
+
+            console.log(bookingData);
+            var config = {
+                "root": "",
+                "flow": "DEFAULT",
+                "data": {
+                    "orderId": bookingData.paytmTransId, /* update order id */
+                    "token": bookingData.txnToken, /* update token value */
+                    "tokenType": "TXN_TOKEN",
+                    "amount": Number(bookingData.totalAmount),/* update amount */
+                    "userDetail": {
+                        "mobileNumber": registerClubMember.clubMember[0].mobile,
+                        "name": "Airport Customer"
+                    }
+                },
+                "handler": {
+                    "notifyMerchant": function (eventName, data) {
+                        console.log("notifyMerchant handler function called");
+                        console.log("eventName => ", eventName);
+                        console.log("data => ", data);
+                        if (data.message == "App closed from the header icon") {
+                            const returnUrl = cabOrderId != undefined ? `${cancelPage}.html?orderId=${cabOrderId}` : `${cancelPage}.html`;
+                            window.location = returnUrl;
+                        }
+                    }
+                }
+            };
+
+            console.log(config.data)
+            if (window.Paytm && window.Paytm.CheckoutJS) {
+                window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
+                    // initialze configuration using init method 
+                    window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+                        // after successfully updating configuration, invoke JS Checkout
+                        window.Paytm.CheckoutJS.invoke();
+                    }).catch(function onError(error) {
+                        console.log("error => ", error);
+                        window.location = "index.html"
+                    });
+                });
+            }
+        }
+    </script>
+
+
+    <!-- PayMID -->
+
+    <!-- " -->
+    <!-- <script type="application/javascript"
+   src="https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/RIGO470162788887.js"
+        onload="onScriptLoad();" crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>

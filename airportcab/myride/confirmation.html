@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departure Cab</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <link rel="icon" type="image/x-icon" href="img/IxiGo-Header-Icon.png">
+
+    <link href="css/mdtimepicker.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+
+    <link href="css/mdtimepicker.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/apicall.js"></script>
+    <script src="js/mdtimepicker.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+</head>
+<style>
+    @font-face {
+        font-family: 'NetflixSansLight';
+        src: url(font/NetflixSansLight.ttf);
+    }
+
+    @font-face {
+        font-family: 'NetflixSansMedium';
+        src: url(font/NetflixSansMedium.ttf);
+    }
+
+    @font-face {
+        font-family: 'NetflixSansRegular';
+        src: url(font/NetflixSansRegular.ttf);
+    }
+</style>
+<link href="css/confirm.css" rel="stylesheet" />
+
+<body>
+    <div id="snackbarCab">Your Cab Booking Voucher is downloading<br> If the download does not start, take a screenshot
+    </div>
+
+    <div class="confirmation_boxCabDiv"></div>
+    <div class="confirmation_boxCab">
+        <!-- <i class="fas fa-times-circle" id="referclose2" style="right: 0%;"></i> -->
+        <div class="thank_msg" style="font-family: NetflixsansRegular">
+            <br>Confirmation for your cab booking has been successfully downloaded.
+        </div>
+        <div class="call_msgCab">
+            <!-- <p id="reserve">Now, You can book luxurious stays at premium hotels with discount upto 40%. -->
+            <p id="reserve"> </p>
+        </div>
+        <div class="status" id="arrivalBook2">Okay</div>
+    </div>
+
+    <div class="confirmation_boxCabDiv2"></div>
+    <div class="confirmation_boxCab2">
+        <!-- <i class="fas fa-times-circle" id="referclose" style="right: 0%;"></i> -->
+        <div class="call_msgCab" style="font-size: 13px">
+            <!-- <p id="thnkmsg">Congratulations!</p> -->
+            <p id="cmmsg1"></p>
+            <p id="cmmsg2"></p>
+            <p id="cmmsg3"></p>
+        </div>
+        <!-- <div class="status" id="status2" style="float: left;margin-right: 10%;"><a id="anchor" style="text-decoration: none; color: #fff;">Refer now</a></div> -->
+        <div class="status" id="arrivalBook"><a style="text-decoration: none; color: #fff;" id="arrVAL">Okay</a>
+        </div>
+    </div>
+
+    <div id="confirmation_boxCabDiv5"></div>
+    <div id="confirmation_boxCab5">
+        <i class="fas fa-times-circle" id="close5" style="right: 0%;"></i>
+        <div class="thank_msg"
+            style="font-family: NetflixsansRegular;font-size: 14px; padding-bottom: 0%;text-align: left;">
+            <br>Your booking request is submitted successfully.
+            <p>You will receive confirmation details shortly through SMS & Whatsapp. Don't forget to take your Cashback.
+            </p>
+            <p>For any assistance call 011-46514254.</p>
+        </div>
+        <div class="call_msgCab" style="outline-style: dotted; border-radius: 0.2rem; height: 11rem;">
+            <h3 style="color: red; padding-top: 0.5rem; padding-left: 0.5rem;">Want to Book Arrival Cab ?</h3>
+            <p style="font-weight: bolder;">Use Coupon Code :</p>
+            <p style="margin-top: -0.5rem; background-color: rgb(236, 228, 228); padding: 0.5rem; border-radius: 0.2rem; font-weight: bolder; width: 90%; margin-left: 0.5rem; text-align: center;"
+                id="couponapi"></p>
+            <p style="font-size: 14px; padding-left: 0.5rem;">& get Cashback of Rs. <b><span id="coupounamt"></span></b>
+                on trip start.</p>
+        </div>
+        <div class="status" id="status6" style="width:100%; margin-top: 1rem;">Book Arrival Now !</div>
+    </div>
+
+    <div id="confirmation_boxCab6">
+        <i class="fas fa-times-circle" id="close6" style="right: 0%;"></i>
+
+        <div style="background-color: rgb(223, 234, 236);
+        padding: 2%;
+        width: 108%;
+        margin-left: -6%;">
+            <div class="tp_carImg"><img src="img/top_car.png" /></div>
+            <div class="thank_msg" style="font-family: inter-medium;">
+                Booked Successfully
+                <p style="font-size: 14px; font-family: inter-medium;">You will receive confirmation details shortly
+                    through
+                    SMS & Whatsapp.
+                </p>
+            </div>
+        </div>
+        <h4 style="text-align: left; font-family: inter-bold; margin-bottom: 2%;">Schedule your Return Ride</h4>
+        <div class="call_msgCab coupon_box ">
+        </div>
+        <div class="detailbox">
+            <div class="innerbox" style="display: flex;">
+                <div class="img1">
+                    <img src="img/Group 79794.png" alt="">
+                </div>
+                <div class="pno" style="width: 80%;">
+                    <p style="font-size: 14px; text-align: left; font-family: inter-medium;"><span
+                            id="mobile">9999999999</span> <br>Sedan - 1-3 people | 2 bags</p>
+                </div>
+                <div class="img1" style="height: 125%;">
+                    <img src="img/carnew.png" alt="">
+                </div>
+            </div>
+
+            <div class="innerbox" style="display: flex;  margin-top: 2%;">
+                <div class="img1" style="margin-left: 4%;">
+                    <img src="img/Group 79795.png" alt="">
+                </div>
+                <div class="pno" style="width: 70%; margin-top: -3%;">
+                    <p style="font-size: 12px; text-align: left"><span id="fromlocation"
+                            style="font-family: inter-regular;">Delhi Airport</span> <br><br><span id="tolocation"
+                            style="font-family: inter-regular;">Phase 5 Udyog Vihar</span></p>
+                </div>
+                <div class="img1" id="img1" style="display: none;">
+                    <div class="offamt">
+                        <p style="font-size: 10px; margin-top: 2%">₹ 75 Off</p>
+                    </div>
+                    <div id="discountamt">
+                        <p id="finalamt" style="font-family: inter-bold;">₹ 0</p>
+                    </div>
+                    <div class="fullamt">
+                        <p style="font-size: 12px; text-decoration: line-through red" id="fullamt">₹ 0</p>
+                    </div>
+                    <p style="font-size: 8px;
+                    position: absolute;
+                    margin-top: -3.5%;
+                    width: 30%;
+                    margin-left: -14%; font-family: inter-regular;">Exc. of Airport tolls & taxes</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="paymentbtn" id="paymentbtn">
+        </div>
+
+        <p style="text-align: left; text-decoration: underline; color: rgb(64,163,255); font-family: inter-bold;"
+            id="arrivalpageopen"> </p>
+
+    </div>
+
+
+    <main>
+        <div id="interstitial_back" style="display: none;">
+        </div>
+
+        <form class="confirm" id="cabForm">
+
+            <div class="top_img">
+            </div>
+
+            <div class="spinnerBack"></div>
+            <div class="spinner" id="spinner"><img id="loader_img" src="img/loader.gif">
+                <p>Please wait...</p>
+            </div>
+
+            <div class="back_img" style="margin-top: 20%;">
+                <div class="top_head">
+                    <div class="top_div">
+                        <div class="green" id="typImg"><img src="img/rigo-logo.png"></div>
+                        <h4 style="margin: 1px; font-size: 17px; clear: both; margin-left: 4%;" id="cabTitle">
+                            Airport Taxi Service</h4>
+                    </div>
+
+
+                    <div class="Topdetails">
+                        <div class="sideCar">
+                            <img src="img/mIni_icon.png" />
+                        </div>
+                        <div class="sideDetails">
+                            <p id="cabType">Mini</p>
+                            <p>WagonR,Swift or Similar</p>
+                            <div class="flexitem">
+                                <span class="Highlight">AC</span>
+                                <pre>|</pre>
+                                <span class="Highlight">Free Wifi</span>
+                                <pre>|</pre>
+                                <span class="Highlight">4 seater</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="minorDetails">
+                        <span class="Highlight">4.4/5</span>
+                        <span>Drive & ride quality</span>
+                    </div>
+
+                    <div class="faredetails">
+                        <div class="upperData">
+                            <span id="bfp">₹ 00</span>
+                            <span id="tobfp">₹ 00</span>
+                        </div>
+                        <p>Total estimated fare price including GST.</p>
+                    </div>
+
+                    <div style="width: 95%; color: rgb(41,167,225);">
+                        <div class="left_div"
+                            style="float: right; text-align: right; margin-bottom: 2%;font-family: NetflixSansMedium;">
+                            About <span style="font-family: NetflixSansMedium;" id="eprk"></span></div>
+                    </div>
+
+                    <hr>
+
+                    <div class="div2">
+                        <div style="width: 95%; margin-bottom: 2%;">
+                            <h5 class="heading numbe" style="width: 23%;">Mobile No:</h5>
+                            <span id="MobileNo">......</span>
+                        </div>
+                        <div style="width: 95%; margin-bottom: 2%;">
+                            <h5 class="heading">From:</h5>
+                            <span id="pickUpLock">T3 Indira Gandhi International Airport, New Delhi</span>
+                        </div>
+                        <div style="width: 95%; margin-bottom: 2%;">
+                            <h5 class="heading">To:</h5>
+                            <span id="dropLoc">Loading..</span>
+                        </div>
+                        <div style="width: 47%;
+                        float: left;">
+                            <h5 class="heading">Date:</h5>
+                            <span id="picTime" style="width: 30%;
+                            margin-left: 13%;">DD-MM-YYYY</span>
+                        </div>
+                        <div style="width: 48%;
+                        float: left;">
+                            <h5 class="heading">Time:</h5>
+                            <span id="picTym" style="margin-left: 15%;">00:00 hrs</span>
+                        </div>
+                        <!-- <div style="width: 95%;
+                        overflow: hidden;
+                        display: flex;">
+                            <h5 class="cabTyp">Cab Type:</h5>
+                            <span id="cabType" style="margin: 5px 7px;">Loading..</span>
+                        </div> -->
+
+
+                    </div>
+                    <hr>
+                    <div class="TNC">
+                        <h4>Terms & Conditions</h4>
+                        <ul>
+                            <li>Daily can be used as local travel</li>
+                            <li>Ride time fare may changes if ride take longer due to traffic</li>
+                            <li>GST applicable on fare</li>
+                        </ul>
+                    </div>
+
+                    <div class="confirm_button">
+                        <input type="submit" value="Download Confirmation" id="cmcb" />
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <div id="bottom_banner" style="margin-top: 4%" ;>
+        </div>
+        </div>
+
+        <div class="pay_back1">
+            <div class="payment_success">
+                <h3>Payment done successfully</h3>
+                <div class="ok_b" id="k1">OK</div>
+            </div>
+        </div>
+        <div class="pay_back2">
+            <div class="cab_confi">
+                <h3>Cab booked successfully</h3>
+            </div>
+        </div>
+
+        <input type="hidden" id="popupvalue" />
+
+        </form>
+    </main>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="js/tracking.js"></script>
+
+    <script src="js/jspdf.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/mdtimepicker.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/mdtimepicker.js"></script>
+    <script src="js/html2canvas.js "></script>
+    <script src="js/paytm_cabbooking.js"></script>
+    <script src="js/canvas2image.js "></script>
+    <script src="js/cab_confirm.js"></script>
+
+    <script>
+
+        $('#cmcb').click(function () {
+            $('#mailbox').css('display', 'block')
+            $('#icon').css('display', 'none')
+            $('#typemail').css('display', 'none')
+            $('#sentmail').css('display', 'none')
+
+
+        })
+        $('#mailbox').click(function () {
+            $('#cmcb').css('display', 'none')
+            $('#mailbox').css('display', 'none')
+            $('#typemail').css('display', 'block')
+            $('#line').css('display', 'block')
+            $('#icon').css('display', 'block')
+            $('.iconbox').css('display', 'block')
+        })
+        // $('#icon').click(function () {
+        //     $('#cmcb').css('display', 'block')
+        //     $('#icon').css('display', 'none')
+        //     $('#typemail').css('display', 'none')
+        //     $('#line').css('display', 'none')
+        //     $('#sentmail').css('display', 'block')
+
+
+        // })
+        $('#cmcb').on("click", async function (e) {
+            localStorage.setItem("moveHere", true)
+            e.preventDefault();
+            $('#cmcb').css('display', 'none')
+            var x, y;
+            if (sessionStorage["delivery"]) {
+                var a = 500;
+                y = 270 + a;
+            } else {
+                var a = 300;
+                y = 350 + a;
+            }
+
+            var HTML_Width = $("#cabForm ").width();
+            var HTML_Height = $("#cabForm ").height() + 300;
+            var top_left_margin = 15;
+            var PDF_Width = HTML_Width + (top_left_margin * 2);
+            var PDF_Height = HTML_Height;
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
+
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+            var body = document.body,
+                html = document.documentElement;
+
+            var height = Math.max(body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+            html2canvas($("body ")[0], {
+                // allowTaint: true,
+                useCORS: true
+            }).then(function (canvas) {
+                canvas.getContext('2d');
+
+                // console.log(canvas.height + " " + canvas.width);
+
+                var imgData = canvas.toDataURL("image/jpeg ", 1.0);
+
+                // window.location.href = imgData;
+
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height + a]);
+                pdf.addImage(imgData, 'JPEG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+                pdf.setFontSize(11);
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFillColor(0, 0, 0);
+
+                var textX, textY;
+                // if (coupon_card == " " || coupon_card == "null ") {
+                textX = 225, textY = 530;
+
+                if (localStorage["PNR_Data"] == "Found") {
+                    let pnrD = JSON.parse(localStorage["pnrData"]);
+                    Track_analytics(localStorage["booking_id"], pnrD[0]["FirstName"], pnrD[0]["ArrivalStation"], pnrD[0]["DepartureStation"], pnrD[0]["STA"], pnrD[0]["STD"], pnrD[0]["PassengerNumber"], "NULL", "PDF DOWNLOAD");
+                }
+                else {
+                    Track_analytics(localStorage["booking_id"], "C2ACustomer", "Null", "Null", "Null", "Null", "NULL", "NULL", "PDF DOWNLOAD Non-PNR");
+                }
+                pdf.save("cabConfirmationInfo.pdf");
+
+                setTimeout(function () {
+                    //$(".confirmation_box ").fadeIn(1000);
+                    $(".confirmation_boxCabDiv").fadeIn(1000);
+                    $(".confirmation_boxCab").fadeIn(1000);
+                    // localStorage.setItem("PDF_download",true);
+                }, 2000);
+
+                myFunction();
+            });
+            function myFunction() {
+                var x = document.getElementById("snackbarCab");
+                x.className = "show";
+                setTimeout(function () {
+                    x.className = x.className.replace("show", " ");
+                }, 5000);
+            }
+
+            $('#cmcb').css('display', 'block')
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>

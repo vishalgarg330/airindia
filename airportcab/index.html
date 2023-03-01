@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="icon" type="image/x-icon" href="images/BAC.png">
+	<meta name="description" content="">
+	<title>MyAirportRide</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/bootstrap.css" media="screen">
+	<link rel="stylesheet" href="css/mystyle.css">
+</head>
+
+<body class="u-body u-xl-mode">
+
+	<!-- ///// For mobile ui -->
+	<div id="android">
+		<iframe class="u-image u-image-default u-image-2 iphoneFrame"
+		src="myride/toairport.html" id="myRide"></iframe>
+	</div>
+
+	<!-- For laptop UI code start-->
+	<section class="u-black u-clearfix u-section-1" id="webSection">
+		<div class="u-clearfix u-sheet u-sheet-1">
+		  <div class="u-align-center u-clearfix u-layout-wrap u-layout-wrap-1">
+			<div class="u-layout">
+			  <div class="u-layout-row">
+				<div class="u-container-style u-layout-cell u-size-37 u-layout-cell-1">
+				  <div class="u-container-layout u-container-layout-1">
+					<h2 class="u-custom-font u-font-montserrat u-text top_title"
+					  style="font-size:40px ; line-height: 35px;"><span
+						style="font-weight:300; text-transform: uppercase;">Introducing</span><br><br>Quick<br> Hassle-free <br> Low cost
+						 <br>Airport Transfers.</h2>
+	
+					<h2 class="u-custom-font u-font-montserrat u-text u-text-2" data-animation-out="0"
+					  style="font-size: 28px;">  Zero Cancellations.
+					  <br>
+					<br>  Zero Tension.
+					<br>
+				  <br> Book your airport ride today and save upto 40%.</h2>
+					  <br>
+					  <div class="buttoncall">
+						<button type="button" class="btn btn-secondary btn-lg u-custom-font u-font-montserrat u-text u-text-2 callNOw">Call Now</button>
+					  <p class="or" style=" margin: 16px; margin-top: 50px;  font-size: 22.29px;"></p>
+					  <p class="missed"> <a class="call" href="tel:011-46514254"><span style="font-weight:750;color:#F2CD5C;font-size:32.29px;line-height: 80.61px;">011-46514254</span></a></p>
+					  </div>
+				  </div>
+				</div>
+				<div class="u-align-left-lg u-align-left-md u-align-left-xl u-align-right-sm u-align-right-xs u-container-style u-layout-cell u-size-23 u-layout-cell-2">
+				  <div class="u-container-layout u-container-layout-2">
+					<div class="u-image u-image-default u-image-2"
+					  style="border-radius: 1rem; width: 25rem; background-color: white;">
+					  <iframe class="u-image u-image-default u-image-2 iphoneFrame"
+						style="border-radius: 0.6rem; padding-top: 1rem; border: 1px solid white ;width: 23rem;"
+						src="myride/toairport.html" id="ifd"></iframe>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <h1
+			class="u-align-center u-custom-font u-font-montserrat u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xs u-text-3">
+			Book Your Ride <br>For Airport Drops And Pick-Ups
+		  </h1>
+		</div>
+	  </section>
+	  	<!-- For laptop UI code end-->
+
+
+	<script>
+
+		var iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+		var ua = navigator.userAgent.toLowerCase();
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		var macLap = userAgent.match(/Macintosh/i);
+
+		var isAndroid = ua.indexOf("android") > -1;
+		if ((isAndroid) || (iOS)) {
+			localStorage.setItem("myairportride", true)
+			document.getElementById("webSection").style.display = "none";
+			document.getElementById("android").style.display="block"
+		} else {
+			document.getElementById("android").style.display = "none";
+			document.getElementById("webSection").style.display="block"
+		}
+	</script>
+
+</body>
+
+</html>

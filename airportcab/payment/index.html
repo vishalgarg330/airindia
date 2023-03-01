@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Payment</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            background: #fff;
+        }
+
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            width: 0px;
+            /* For Chrome, Safari, and Opera */
+        }
+
+        html {
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            width: 0px;
+            /* For Chrome, Safari, and Opera */
+        }
+
+        @font-face {
+            font-family: 'NetflixSansLight';
+            src: url(font/NetflixSansLight.ttf);
+        }
+
+        @font-face {
+            font-family: 'NetflixSansMedium';
+            src: url(font/NetflixSansMedium.ttf);
+        }
+
+        @font-face {
+            font-family: 'NetflixSansRegular';
+            src: url(font/NetflixSansRegular.ttf);
+        }
+
+        p,
+        span {
+            font-family: NetflixSansRegular;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: NetflixSansRegular;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #brand-logo {
+            background-color: rgb(50, 88, 201);
+            height: 50vh;
+            color: white;
+            text-align: center;
+        }
+
+        #brand-logo p {
+            margin: 0;
+            font-size: 17px;
+            padding-top: 10%;
+            padding-bottom: 5%;
+        }
+
+        #brand-logo span {
+            font-size: 30px;
+        }
+
+        .success {
+            background: white;
+            font-size: 60px;
+            border: none;
+            color: green;
+            display: none;
+        }
+
+        .fail {
+            background: white;
+            font-size: 45px;
+            border: none;
+            color: rgb(239, 52, 59);
+            display: none;
+        }
+
+        #mall_payment p {
+            font-family: "NetflixSansMedium";
+        }
+
+        .msg {
+            text-align: left;
+            color: gray;
+            margin-left: 5%;
+        }
+
+        #transId,
+        #transDate {
+            color: black;
+        }
+
+        .confirmation_boxCab {
+            position: fixed;
+            width: 80%;
+            top: 30vh;
+            left: 5vw;
+            background-color: white;
+            z-index: 12;
+            text-align: center;
+            padding: 5%;
+            display: none;
+            border-radius: 5px;
+        }
+
+        .confirmation_boxCabDiv {
+            position: fixed;
+            width: 100%;
+            top: 0%;
+            left: 0%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            display: none;
+            z-index: 11;
+            text-align: center;
+            padding: 5%;
+        }
+
+        #failmsg {
+            margin: 0;
+            text-align: center;
+            font-family: 'NetflixSansRegular';
+            color: red;
+            font-size: 13px;
+            margin-right: 12%;
+            display: none;
+        }
+
+        .main_data {
+            position: absolute;
+            top: 22%;
+            left: 8%;
+            background: white;
+            width: 80%;
+            text-align: center;
+            box-shadow: 1px 1px 12px grey;
+            border-radius: 10px;
+            padding: 6% 2%;
+        }
+
+        .status {
+            background: RGB(224, 11, 37);
+            color: White;
+            text-align: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            width: 20%;
+            font-size: 1.2em;
+            margin: 0 auto;
+            background-color: red;
+            margin-bottom: 3%;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: NetflixSansRegular;
+        }
+
+
+        #loader {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            margin: -40px 0 0 -40px;
+            -webkit-border: 16px solid #f3f3f3;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            border-top: 16px solid #e40f0f;
+            -webkit-border-top: 16px solid #e40f0f;
+            width: 30px;
+            height: 30px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            display: none;
+        }
+
+        .bottom {
+            position: fixed;
+            bottom: 0;
+            /* width: 80%; */
+            margin: 0 auto;
+            text-align: center;
+            color: gray;
+        }
+
+        .img_bottom {
+            width: 30%;
+            margin: 5% auto;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media screen and (max-width: 370px) {
+            .main_data {
+                padding: 3% 2%;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="confirmation_boxCabDiv"></div>
+    <div class="confirmation_boxCab">
+        <div class="thank_msg">
+            <i class="fa fa-check-circle" style="font-size:48px;color:red;background: transparent"></i>
+        </div>
+        <div class="call_msgCab">
+            <p id="cmmsg"></p>
+        </div>
+        <div class="status" id="status">OK</div>
+    </div>
+
+
+    <main>
+        <div class="main_div">
+            <div id="brand-logo">
+                <p>ORDER NO : <span id="order" style=" font-size: 17px;">SPJ00000</span></p>
+                <span>₹</span><span id="amount">0,00,000</span>
+            </div>
+
+            <div class="main_data">
+                <form id="mall_payment">
+                    <i class="fa fa-check-circle success"></i>
+                    <i class="fa fa-exclamation-circle fail"></i>
+                    <p id="paystatus">Payment Status</p>
+                    <hr>
+                    <div class="msg">
+                        <p>Transaction Id</p>
+                        <p id="transId">SPJ8998989797943</p>
+                        <p>Date</p>
+                        <p id="transDate">06-11-2021</p>
+                        <br>
+                        <p id="failmsg">Try again by clicking on the link received on landing</p>
+                    </div>
+                </form>
+            </div>
+            <div class="bottom">
+                <!-- <p style="font-size:13px;">Payment may take up to 3 working days to <br>Reflected in your account</p> -->
+                <div class="img_bottom"><img src="img/logo_mojobox.png"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script>
+        function getURLParameter(url, name) {
+            return (RegExp(name + '=' + '(.+?)(&|$)').exec(url) || [, null])[1];
+        }
+        localStorage["order_no"] = getURLParameter(location.href, 'orderId');
+        localStorage["Payment_type"] = getURLParameter(location.href, 'type');
+        localStorage["URL_open"] = getURLParameter(location.href, 'URL_open');
+        localStorage["pnr"] = getURLParameter(location.href, 'pnr');
+        localStorage["partnerName"] = getURLParameter(location.href, 'partnerName');
+        localStorage["sourceName"] = getURLParameter(location.href, 'source_name');
+        localStorage["destinationName"] = getURLParameter(location.href, 'destination_name');
+        localStorage["StartTYM"] = getURLParameter(location.href, 'start_time');
+        localStorage["bookingId"] = getURLParameter(location.href, 'bookingId');
+        localStorage["cabTYP"] = getURLParameter(location.href, 'cab_type');
+        localStorage["fare_price"] = getURLParameter(location.href, 'fare_price');
+        localStorage["KM"] = getURLParameter(location.href, 'total_kilometers');
+        localStorage["SourceCity"] = getURLParameter(location.href, 'source_city');
+        localStorage["SourceLat"] = getURLParameter(location.href, 'source_latitude');
+        localStorage["SourceLong"] = getURLParameter(location.href, 'source_longitude');
+
+        if(localStorage["URL_open"] == "RIGOCAB_departure")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "RIGOCAB_arrival")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "cleartrip_departure_arrival")
+        {
+            LoadRIGOCABData()
+        }
+        
+        else if(localStorage["URL_open"] == "ixigo_departure")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "Vistara")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "emtBac")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "ixigo_arrival")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "bmt_arrival")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "bmt_departure")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "xclub_arrival")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == "xclub_departure")
+        {
+            LoadRIGOCABData()
+        }
+        else if(localStorage["URL_open"] == 'hdfc')
+        {
+            LoadRIGOCABData()
+        }
+        
+        
+        else{
+            status();
+        }
+        function status() {
+            var OrderId = localStorage["order_no"]
+            $.ajax({
+                contentType: 'application/json',
+                Accept: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    document.getElementById("order").innerHTML = res.data.orderId;
+                    document.getElementById("amount").innerHTML = res.data.txnAmount;
+                    document.getElementById("transId").innerHTML = res.data.mid;
+                    var splitDate = (res.data.txnDate).split(" ", 1);
+                    document.getElementById("transDate").innerHTML = splitDate;
+
+                    if (res.data.resultInfo.resultStatus == "TXN_FAILURE" || res.data.resultInfo.resultStatus == "PENDING") {
+                        document.getElementsByClassName("success")[0].style.display = "none"
+                        document.getElementsByClassName("fail")[0].style.display = "block"
+                        document.getElementById("paystatus").innerHTML = "Payment Failed";
+                        document.getElementById("failmsg").style.display = "block";
+                        document.getElementById("brand-logo").style.backgroundColor = "rgb(239,52,59)"
+                    }
+                    else {
+                        if (localStorage["URL_open"].toLowerCase() == 'RIGOCAB') {
+                            window.location = `https://rigocab.com/confirm.html?orderId=${localStorage.order_no}&paymentType=PAYTM&order_reference_number=${localStorage.bookingId}`
+                        }
+                                              
+                        else{
+                            window.location = `${localStorage["URL_open"]}?orderId=${localStorage.order_no}&paymentType=PAYTM&order_reference_number=${localStorage.bookingId}`
+                        }
+                        document.getElementsByClassName("success")[0].style.display = "block"
+                        document.getElementsByClassName("fail")[0].style.display = "none"
+                        document.getElementById("paystatus").innerHTML = "Payment Successfull";
+                        document.getElementById("failmsg").style.display = "none";
+                        document.getElementById("brand-logo").style.backgroundColor = "rgb(50, 88, 201)"
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                    $("#cmmsg").html("Internal Server Error");
+                    $(".thank_msg i").removeClass("fa-check-circle");
+                    $(".thank_msg i").addClass("fa-times-circle");
+                    $(".confirmation_boxCabDiv").css("display", "block");
+                    $(".confirmation_boxCab").css("display", "block");
+                },
+                type: 'GET',
+                url: 'https://backend.rigocabs.com/preprodwebapi/getPaymentStatus?orderId=' + OrderId
+            });
+        }
+    
+
+
+        function LoadRIGOCABData() {
+            var OrderId = localStorage["order_no"]
+            $.ajax({
+                contentType: 'application/json',
+                Accept: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    document.getElementById("order").innerHTML = res.data.orderId;
+                    document.getElementById("amount").innerHTML = res.data.txnAmount;
+                    document.getElementById("transId").innerHTML = res.data.mid;
+                    var splitDate = (res.data.txnDate).split(" ", 1);
+                    document.getElementById("transDate").innerHTML = splitDate;
+
+                    if (res.data.resultInfo.resultStatus == "TXN_FAILURE") {
+                        document.getElementsByClassName("success")[0].style.display = "none"
+                        document.getElementsByClassName("fail")[0].style.display = "block"
+                        document.getElementById("paystatus").innerHTML = "Payment Failed";
+                        document.getElementById("failmsg").style.display = "block";
+                        document.getElementById("brand-logo").style.backgroundColor = "rgb(239,52,59)"
+                    }
+                    else {
+    
+                        if (localStorage["URL_open"].toLowerCase() == 'RIGOCAB_departure') {
+                            window.location = `https://rigocab.com/confirm.html?orderId=${localStorage.order_no}&paymentType=PAYTM&order_reference_number=${localStorage.bookingId}`
+                        }
+
+                        document.getElementsByClassName("success")[0].style.display = "block"
+                        document.getElementsByClassName("fail")[0].style.display = "none"
+                        document.getElementById("paystatus").innerHTML = "Payment Successfull";
+                        document.getElementById("failmsg").style.display = "none";
+                        document.getElementById("brand-logo").style.backgroundColor = "rgb(50, 88, 201)"
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                    $("#cmmsg").html("Internal Server Error");
+                    $(".thank_msg i").removeClass("fa-check-circle");
+                    $(".thank_msg i").addClass("fa-times-circle");
+                    $(".confirmation_boxCabDiv").css("display", "block");
+                    $(".confirmation_boxCab").css("display", "block");
+                },
+                type: 'GET',
+                url: 'https://backend.rigocabs.com/preprodwebapi/getPaymentStatus?orderId=' + OrderId
+            });
+        }
+    
+    </script>
+</body>
+
+</html>

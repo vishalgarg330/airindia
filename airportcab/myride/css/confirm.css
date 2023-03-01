@@ -1,0 +1,946 @@
+.sideCar{
+    width: 20%;
+    /* background: rgb(41,167,225);;
+    border-radius: 50px; */
+}
+.Topdetails{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+
+}
+.sideDetails p{
+    margin: 0;
+    font-size: 13px;
+}
+.flexitem{
+    display: flex;
+    margin: 9px 0 0 0;
+}
+.flexitem pre{
+    margin: 3px;
+}
+.sideDetails{
+    margin: 5px 0px 5px 20px;
+    width: 100%;
+}
+.Highlight{
+    background: rgb(41,167,225);
+    color: white;
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+
+}
+.minorDetails{
+    margin: 17px 0 10px 20px;
+    width: 90%;
+}
+.minorDetails span:nth-child(2)
+{
+    font-size: 13px;
+}
+
+.faredetails{
+  
+    float: right;
+    text-align: right;
+    margin: 0px 15px 5px 5px;
+}
+.upperData span:nth-child(1)
+{
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 15px;
+    position: relative;
+}
+
+.upperData span:nth-child(2)
+{
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.upperData span:nth-child(1):before {
+    position: absolute;
+    content: "";
+    /* left: 0; */
+    top: 50%;
+    right: -5px;
+    border-top: 1px solid;
+    border-color: inherit;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-17deg);
+    width: 51px;
+    color: red;
+  }
+  .faredetails p
+  {
+    margin: 2px;
+    font-size: 11px;
+
+  }
+  hr{
+    clear: both;
+    width: 90%;
+  }
+  .TNC{
+    width: 90%;
+    font-family: 'NetflixSansRegular';
+    margin: 0 auto;
+  }
+  .TNC ul{
+    padding-left: 19px;
+    margin-top: 10px;
+  }
+  .TNC h4{
+    margin: 10px 0px 0px 0px;
+  }
+  .TNC ul li{
+    font-weight: 100 !important;
+    font-size: 13px;
+  }
+
+  /* OLd Css */
+
+  @font-face {
+    font-family: 'inter-bold';
+    src: url(font/Inter-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'inter-regular';
+    src: url(font/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'inter-medium';
+    src: url(font/Inter-Medium.ttf);
+}
+
+body {
+/* overflow: hidden; */
+background-color: white;
+}
+
+::-webkit-scrollbar {
+display: none;
+}
+
+html {
+scrollbar-width: none;
+/* For Firefox */
+-ms-overflow-style: none;
+/* For Internet Explorer and Edge */
+}
+
+html::-webkit-scrollbar {
+width: 0px;
+/* For Chrome, Safari, and Opera */
+}
+
+html,
+body {
+height: 100%;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+overflow-y: scroll
+}
+
+p,
+span {
+font-family: NetflixSansRegular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-family: NetflixSansRegular;
+}
+
+img {
+width: 100%;
+height: 100%;
+}
+
+.top {
+overflow-x: hidden;
+background-color: black;
+}
+
+.left_logo {
+width: 45%;
+margin: 0 auto;
+margin-top: 4px;
+
+}
+
+.right_logo {
+width: 32%;
+float: right;
+margin-top: 1%;
+}
+
+.green {
+width: 35%;
+float: left;
+margin-top: 0%;
+margin-left: 4%;
+margin-bottom: 3%;
+}
+
+.confirm {
+overflow-x: hidden;
+position: relative;
+}
+
+.top_div {
+margin-top: -14.5%;
+margin-bottom: 2%;
+overflow: hidden;
+width: 96%;
+/* margin-left: 32%; */
+}
+
+.top_head {
+width: 100vw;
+top: 3%;
+margin: 0;
+padding-left: 2%;
+/* overflow-x: hidden; */
+z-index: 9999;
+}
+
+.mid_text {
+float: left;
+width: 50%;
+}
+
+.right_text p,
+.right_text h5 {
+margin: 1px 0px;
+}
+
+.right_text p {
+font-size: 10px;
+}
+
+.right_text {
+width: 31%;
+float: left;
+font-size: 11px;
+text-align: right;
+}
+
+.mid_text {
+float: left;
+width: 47%;
+font-size: 15px;
+margin-left: 1%;
+}
+
+.mid_text span {
+font-size: 11px;
+font-weight: 600;
+margin: 2px;
+}
+
+.mid_text p {
+margin: 2px;
+font-size: 10px;
+}
+
+.div2 {
+clear: both;
+margin: 1% 3%;
+padding-top: 1%;
+padding-left: 1%;
+margin-top: 1%;
+overflow: hidden;;
+}
+
+.div2 h5 {
+margin: 5px 0px;
+}
+
+.div2 span {
+font-size: 13px;
+}
+
+.left_div {
+width: 55%;
+float: left;
+margin: 2px 0px;
+font-size: 13px;
+font-family: NetflixSansRegular;
+}
+
+.right_div {
+width: 45%;
+float: left;
+margin: 2px 0px;
+font-size: 14px;
+padding-bottom: 1%;
+font-family: NetflixSansMedium;
+text-align: right;
+}
+
+.notify p {
+font-size: 11px;
+word-spacing: 3px;
+}
+
+.notify {
+margin-top: 5%;
+width: 95%;
+}
+
+.confirm_button {
+
+    width: 90%;
+    background-color: rgb(41,167,225);
+    text-align: center;
+    border-radius: 7px;
+    -webkit-appearance: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 5% auto;
+
+
+
+}
+
+.confirm_button input[type="submit"] {
+    width: 100%;
+    float: left;
+    background-color: rgb(41,167,225);
+    text-align: center;
+    height: 45px;
+    border: none;
+    padding-top: 1%;
+    font-size: 15px;
+    color: white;
+    font-family: "NetflixSansRegular";
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.confirmation_boxCab,
+.confirmation_boxCab2 {
+position: fixed;
+width: 80%;
+top: 30vh;
+left: 5vw;
+background-color: white;
+z-index: 12;
+text-align: center;
+padding: 5%;
+display: none;
+border-radius: 5px;
+box-shadow: 0px 0px 6px -1px black;
+}
+
+.confirmation_boxCabDiv,
+.confirmation_boxCabDiv2 {
+position: fixed;
+width: 100%;
+top: 0%;
+left: 0%;
+height: 100%;
+background-color: rgba(0, 0, 0, .8);
+display: none;
+z-index: 11;
+text-align: center;
+padding: 5%;
+overflow-y: scroll;
+
+
+}
+
+.status {
+background: RGB(224, 11, 37);
+color: White;
+text-align: center;
+padding-top: 12px;
+padding-bottom: 12px;
+width: 40%;
+font-size: 1.2em;
+margin: 0 auto;
+background-color: rgb(41,167,225);
+margin-bottom: 3%;
+cursor: pointer;
+border-radius: 5px;
+font-family: NetflixSansRegular;
+}
+
+
+.payment_success,
+.cab_confi {
+background: rgb(237, 101, 27);
+color: white;
+border-radius: 7px;
+padding: 8px;
+text-align: center;
+top: 40%;
+width: 80%;
+/* margin: 0 auto; */
+position: absolute;
+left: 8%;
+
+}
+
+.payment_success h3,
+.cab_confi h3 {
+font-weight: 100;
+}
+
+.ok_b {
+background: white;
+color: rgb(237, 101, 27);
+width: 13%;
+padding: 5px;
+margin: 0 auto;
+border-radius: 5px;
+margin-bottom: 3%;
+}
+
+.pay_back1 {
+width: 100vw;
+height: 100vh;
+position: absolute;
+background: rgba(0, 0, 0, 0.9);
+top: 0%;
+display: none;
+}
+
+.pay_back2 {
+width: 100vw;
+height: 100vh;
+position: absolute;
+background: rgba(0, 0, 0, 0.9);
+top: 0%;
+display: none;
+}
+
+#brand-logo {
+background: black;
+width: 100%;
+overflow: hidden;
+display: none;
+}
+
+.top_img {
+width: 45%;
+float: left;
+ margin-left: 0%; 
+}
+
+.bookingDate {
+width: 40%;
+float: right;
+text-align: right;
+}
+
+#passenger_name {
+margin: 0;
+padding: 0;
+color: rgb(237, 101, 27);
+font-size: 16px;
+/* border-bottom: 5px solid #F1F1F1; */
+padding-right: 3%;
+padding-top: 5%;
+font-family: 'NetflixSansMedium';
+}
+
+.journeyInfo {
+width: 95%;
+background: white;
+margin: 0 auto;
+margin-bottom: 2%;
+overflow: hidden;
+}
+
+.journeyDest {
+width: 97%;
+overflow: hidden;
+margin-top: 5%;
+margin-left: 3%;
+}
+
+.journeyFrom {
+width: 15%;
+float: left;
+margin-right: 3%;
+}
+
+#passenger_source,
+#passenger_to {
+margin-top: 5%;
+font-size: 20px;
+margin-bottom: 10%;
+font-family: NetflixSansMedium;
+}
+
+#passenger_source {
+color: green;
+font-weight: 800;
+text-decoration: underline;
+}
+
+.journeyImg {
+float: left;
+width: 62%;
+margin-top: -2%;
+border-bottom: 2px dashed;
+}
+
+#snackbarCab {
+visibility: hidden;
+min-width: 100%;
+background-color: #333;
+color: #fff;
+text-align: center;
+border-radius: 2px;
+position: fixed;
+z-index: 1;
+left: 0;
+bottom: 30px;
+font-size: 13px;
+padding: 8px 9px 9px 2px;
+font-family: NetflixSansRegular;
+
+}
+
+#snackbarCab.show {
+visibility: visible;
+-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+img {
+width: 100%;
+height: 100%;
+}
+
+.journeyTo {
+width: 15%;
+float: left;
+padding-left: 3%;
+}
+
+.detail_img {
+width: 5%;
+float: left;
+margin-right: 3%;
+}
+
+.heading {
+width: 13%;
+float: left;
+margin-top: 0 !important;
+}
+
+#depart_time,
+#arrival_time {
+margin-top: 2%;
+font-size: 13px;
+width: 130%;
+}
+
+#cabType {
+text-transform: capitalize;
+}
+
+.spinner {
+position: absolute;
+top: 35%;
+left: 37%;
+width: 25%;
+display: none
+}
+
+.spinnerBack {
+position: fixed;
+width: 100%;
+height: 100%;
+/* background: rgba(0,0,0,0.8); */
+top: 0;
+display: none;
+}
+
+#loader_img {
+width: 100%;
+height: 100%;
+}
+
+.spinner p {
+width: 100%;
+color: white;
+font-size: 15px;
+}
+
+#confirmation_boxCab5 {
+position: absolute;
+width: 80%;
+top: 20vh;
+left: 5vw;
+background-color: white;
+z-index: 12;
+text-align: center;
+padding: 5%;
+display: none;
+border-radius: 5px;
+box-shadow: 0px 0px 6px -1px black;
+}
+
+#confirmation_boxCab6 {
+position: absolute;
+width: 85%;
+top: 4vh;
+left: 2.5vw;
+background-color: white;
+z-index: 12;
+text-align: center;
+padding: 5%;
+display: none;
+border-radius: 5px;
+box-shadow: 0px 0px 6px -1px black;
+}
+
+.mailb {
+width: 100%;
+float: left;
+background-color: #0F59F7;
+text-align: center;
+height: 50px;
+border: none;
+padding-top: 1%;
+font-size: 15px;
+color: white;
+font-family: "NetflixSansRegular";
+-webkit-appearance: none;
+cursor: pointer;
+
+}
+
+.buttons {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 90%;
+}
+
+#sentmail {
+width: 100%;
+float: left;
+background-color: #333333;
+text-align: center;
+height: 50px;
+border: none;
+padding-top: 1%;
+font-size: 15px;
+color: white;
+font-family: "NetflixSansRegular";
+-webkit-appearance: none;
+cursor: pointer;
+}
+
+.mailbb {
+width: 79%;
+display: none;
+float: left;
+background-color: #F1F1F1;
+height: 50px;
+border: none;
+padding-top: 1%;
+font-size: 15px;
+color: #000;
+font-family: NetflixSansRegular;
+border-radius: 7px;
+cursor: pointer;
+padding-left: 10px;
+}
+
+
+.vl {
+border-left: 2px solid #000;
+height: 40px;
+position: absolute;
+right: 62px;
+display: none;
+}
+
+.icon {
+width: 17px;
+position: relative;
+top: 0px;
+background-color: #fff;
+right: 1px;
+border-radius: 50px;
+padding: 5px 5px 5px 5px;
+}
+
+#sentmail {
+display: none;
+}
+
+.confirmation_buttonBox {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-right: 20px;
+}
+
+
+.confirmation_boxCab,
+.confirmation_boxCab2 {
+position: fixed;
+width: 80%;
+top: 30vh;
+left: 5vw;
+background-color: white;
+z-index: 12;
+text-align: center;
+padding: 5%;
+display: none;
+border-radius: 5px;
+box-shadow: 0px 0px 6px -1px black;
+}
+
+.confirmation_boxCabDiv,
+.confirmation_boxCabDiv2 {
+position: fixed;
+width: 100%;
+top: 0%;
+left: 0%;
+height: 100%;
+background-color: rgba(0, 0, 0, .8);
+display: none;
+z-index: 11;
+text-align: center;
+padding: 5%;
+overflow-y: scroll;
+
+
+}
+
+.status {
+background: RGB(224, 11, 37);
+color: White;
+text-align: center;
+padding-top: 12px;
+padding-bottom: 12px;
+width: 40%;
+font-size: 1.2em;
+margin: 0 auto;
+background-color: rgb(41,167,225);
+margin-bottom: 3%;
+cursor: pointer;
+border-radius: 5px;
+font-family: NetflixSansRegular;
+}
+
+.inner_textBox {
+display: flex;
+align-items: center;
+justify-content: space-between;
+text-align: center;
+background-color: #F1F1F1;
+margin-right: 22px;
+border-radius: 12px;
+}
+.iconbox{
+display: none;
+}
+.no-outline:focus{
+outline:none;
+}
+
+
+.top_carImg {
+position: absolute;
+top: -55px;
+width: 21%;
+left: 36%;
+background: white;
+border: 10px solid rgba(0, 0, 0, 0.8);
+border-radius: 64px;
+padding: 5px;
+}
+
+.tp_carImg {
+/* top: -55px; */
+width: 40%;
+margin: 0 auto;
+left: 36%;
+/* background: white; */
+border-radius: 64px;
+}
+
+.top_carImg img {
+padding-top: 12px;
+}
+
+#confirmation_boxCab5 .thank_msg {
+font-family: NetflixsansRegular;
+font-size: 14px;
+padding-bottom: 0%;
+text-align: center;
+margin-top: 3%;
+}
+
+#confirmation_boxCab5 .call_msgCab p {
+padding: 0.5rem;
+font-weight: bolder;
+color: green;
+text-align: center;
+margin: 0;
+}
+
+#confirmation_boxCab5 .coupon_box {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#confirmation_boxCab5 .coupon_container {
+border: 2px dotted black;
+border-radius: 0.2rem;
+width: 50%;
+display: flex;
+justify-content: center;
+align-items: center
+}
+
+#confirmation_boxCab5 .coupon_box img {
+width: 20px;
+}
+
+.BookingBtn {
+margin-top: 4%;
+}
+
+.ReturnRide {
+margin: 4% 0;
+}
+
+.ReturnRide input[type="text"] {
+width: 65%;
+padding: 8px;
+background: #F3F7F8;
+border: none;
+border-radius: 5px;
+margin-right: 7px;
+box-shadow: 0px 0px 1.97906px rgb(0 0 0 / 25%)
+}
+
+.ReturnRide button {
+color: white;
+background: #40A3FF;
+box-shadow: 0px 0px 1.97906px rgba(0, 0, 0, 0.25);
+border-radius: 4.94764px;
+border: none;
+padding: 8px;
+}
+
+.detailbox {
+border-radius: 5px;
+height: 20vh;
+width: 85vw;
+background-color: rgb(223, 234, 236);
+}
+
+.innerbox {
+height: 8vh;
+width: 85vw;
+/* background-color: orange; */
+}
+
+.img1 {
+padding: 2%;
+}
+
+@media screen and (min-width: 390px) and (max-width: 418px) {
+.img1 {
+    height: 4vh;
+}
+}
+
+.offamt {
+width: 100%;
+padding: 3% 10%;
+color: white;
+height: 40%;
+margin-top: 5%;
+background-color: red;
+/* border: 2px solid red; */
+}
+
+#discountamt {
+font-size: 16px;
+/* margin-top: -2% */
+font-weight: bold;
+margin-top: -20%;
+}
+
+.fullamt {
+margin-top: -76%;
+margin-left: -96%;
+width: 100%;
+}
+
+.calndericon {
+position: absolute;
+margin-top: 3%;
+margin-left: 2%;
+}
+
+.calenderbox {
+width: 45%;
+}
+
+#datepicker {
+color: #828282;
+padding: 0.5em 0.5em 0.5em 2.5em;
+width: 70%;
+margin-left: 3%;
+outline: none;
+font-size: 14px;
+border: none;
+background-color: rgb(223, 234, 236);
+height: 24px;
+border-radius: 2px;
+}
+
+.datecalender {
+color: #828282;
+padding: 0.5em 0.5em 0.5em 2.5em;
+width: 70%;
+margin-left: 3%;
+outline: none;
+font-size: 14px;
+border: none;
+background-color: rgb(223, 234, 236);
+height: 24px;
+border-radius: 2px;
+}
+
+.paymentbtn {
+margin-top: 10%;
+border-radius: 40px;
+background-color: #8d97a1;
+;
+color: white;
+}
+
+.timepicker::placeholder {
+color: #828282 !important;
+}

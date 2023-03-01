@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport Cab</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <link href="css/mdtimepicker.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+
+    <link href="css/mdtimepicker.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/mdtimepicker.js"></script>
+    <script src="js/apicall.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+    <style>
+        @font-face {
+            font-family: 'inter-bold';
+            src: url(font/Inter-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: 'inter-regular';
+            src: url(font/Inter-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: 'inter-medium';
+            src: url(font/Inter-Medium.ttf);
+        }
+    </style>
+</head>
+<style>
+    body {
+        /* overflow: hidden; */
+        background-color: white;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    html {
+        scrollbar-width: none;
+        /* For Firefox */
+        -ms-overflow-style: none;
+        /* For Internet Explorer and Edge */
+    }
+
+    html::-webkit-scrollbar {
+        width: 0px;
+        /* For Chrome, Safari, and Opera */
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: scroll
+    }
+
+    @font-face {
+        font-family: 'NetflixSansLight';
+        src: url(font/NetflixSansLight.ttf);
+    }
+
+    @font-face {
+        font-family: 'NetflixSansMedium';
+        src: url(font/NetflixSansMedium.ttf);
+    }
+
+    @font-face {
+        font-family: 'NetflixSansRegular';
+        src: url(font/NetflixSansRegular.ttf);
+    }
+
+    p,
+    span {
+        font-family: NetflixSansRegular;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: NetflixSansRegular;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .top {
+        overflow-x: hidden;
+        background-color: black;
+    }
+
+    .left_logo {
+        width: 45%;
+        margin: 0 auto;
+        margin-top: 4px;
+
+    }
+
+    .right_logo {
+        width: 32%;
+        float: right;
+        margin-top: 1%;
+    }
+
+    .green {
+        width: 30%;
+        float: left;
+        margin-top: 0%;
+        margin-left: 34%;
+
+    }
+
+
+    .confirm {
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .top_div {
+        margin-top: 1%;
+        margin-bottom: 2%;
+        overflow: hidden;
+        width: 96%;
+        /* margin-left: 32%; */
+    }
+
+    .top_head {
+        width: 100vw;
+        top: 3%;
+        margin: 0;
+        padding-left: 2%;
+        /* overflow-x: hidden; */
+        z-index: 9999;
+    }
+
+    .mid_text {
+        float: left;
+        width: 50%;
+    }
+
+    .right_text p,
+    .right_text h5 {
+        margin: 1px 0px;
+    }
+
+    .right_text p {
+        font-size: 10px;
+    }
+
+    .right_text {
+        width: 31%;
+        float: left;
+        font-size: 11px;
+        text-align: right;
+    }
+
+    .mid_text {
+        float: left;
+        width: 47%;
+        font-size: 15px;
+        margin-left: 1%;
+    }
+
+    .mid_text span {
+        font-size: 11px;
+        font-weight: 600;
+        margin: 2px;
+    }
+
+    .mid_text p {
+        margin: 2px;
+        font-size: 10px;
+    }
+
+    .div2 {
+        clear: both;
+        margin: 1% 3%;
+        padding-top: 1%;
+        padding-left: 1%;
+        margin-top: 1%;
+    }
+
+    .div2 h5 {
+        margin: 5px 0px;
+    }
+
+    .top_menu {
+        margin-top: 12%;
+    }
+
+    .div2 span {
+        font-size: 13px;
+    }
+
+    .left_div {
+        width: 55%;
+        float: left;
+        margin: 2px 0px;
+        font-size: 13px;
+        font-family: NetflixSansRegular;
+    }
+
+    .right_div {
+        width: 45%;
+        float: left;
+        margin: 2px 0px;
+        font-size: 14px;
+        padding-bottom: 1%;
+        font-family: NetflixSansMedium;
+        text-align: right;
+    }
+
+    .notify p {
+        font-size: 11px;
+        word-spacing: 3px;
+    }
+
+    .notify {
+        margin-top: 5%;
+        width: 95%;
+    }
+
+    .confirm_button {
+        width: 95%;
+        background-color: rgb(234, 33, 39);
+        text-align: center;
+        border-radius: 7px;
+        margin-top: 5%;
+        -webkit-appearance: none;
+        overflow: hidden;
+        cursor: pointer;
+
+    }
+
+    .confirm_button input[type="submit"] {
+        width: 100%;
+        float: left;
+        background-color: rgb(234, 33, 39);
+        text-align: center;
+        height: 50px;
+        border: none;
+        padding-top: 1%;
+        font-size: 20px;
+        color: white;
+        font-family: "NetflixSansRegular";
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    .confirmation_boxCab,
+    .confirmation_boxCab2,
+    .confirmation_boxCab3,
+    #confirmation_boxCab5 {
+        position: fixed;
+        width: 80%;
+        top: 30vh;
+        left: 5vw;
+        background-color: white;
+        z-index: 12;
+        text-align: center;
+        padding: 5%;
+        display: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px -1px black;
+    }
+
+    #confirmation_boxCab5 {
+        top: 15vh;
+    }
+
+
+    #confirmation_boxCab6 {
+        position: absolute;
+        width: 85%;
+        top: 4vh;
+        left: 2.5vw;
+        background-color: white;
+        z-index: 12;
+        text-align: center;
+        padding: 5%;
+        display: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px -1px black;
+    }
+
+    .confirmation_boxCabDiv,
+    .confirmation_boxCabDiv2,
+    .confirmation_boxCabDiv3,
+    #confirmation_boxCabDiv5 {
+        position: fixed;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .8);
+        display: none;
+        z-index: 11;
+        text-align: center;
+        padding: 5%;
+
+    }
+
+    .status {
+        background: RGB(224, 11, 37);
+        color: White;
+        text-align: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        width: 40%;
+        font-size: 1.2em;
+        margin: 0 auto;
+        background-color: rgb(234, 33, 39);
+        margin-bottom: 3%;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: NetflixSansRegular;
+    }
+
+    .payment_success,
+    .cab_confi {
+        background: rgb(234, 33, 39);
+        color: white;
+        border-radius: 7px;
+        padding: 8px;
+        text-align: center;
+        top: 40%;
+        width: 80%;
+        /* margin: 0 auto; */
+        position: absolute;
+        left: 8%;
+
+    }
+
+    .payment_success h3,
+    .cab_confi h3 {
+        font-weight: 100;
+    }
+
+    .ok_b {
+        background: white;
+        color: rgb(234, 33, 39);
+        width: 13%;
+        padding: 5px;
+        margin: 0 auto;
+        border-radius: 5px;
+        margin-bottom: 3%;
+    }
+
+    .pay_back1 {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.9);
+        top: 0%;
+        display: none;
+    }
+
+    .pay_back2 {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.9);
+        top: 0%;
+        display: none;
+    }
+
+    #brand-logo {
+        background: black;
+        width: 100%;
+        overflow: hidden;
+        display: none;
+    }
+
+    .top_img {
+        width: 45%;
+        float: left;
+        margin-left: 0%;
+    }
+
+    .bookingDate {
+        width: 40%;
+        float: right;
+        text-align: right;
+    }
+
+    #passenger_name {
+        margin: 0;
+        padding: 0;
+        color: rgb(234, 33, 39);
+        font-size: 16px;
+        /* border-bottom: 5px solid #F1F1F1; */
+        padding-right: 3%;
+        padding-top: 5%;
+        font-family: 'NetflixSansMedium';
+    }
+
+    .journeyInfo {
+        width: 95%;
+        background: white;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        overflow: hidden;
+    }
+
+    .journeyDest {
+        width: 97%;
+        overflow: hidden;
+        margin-top: 5%;
+        margin-left: 3%;
+    }
+
+    .journeyFrom {
+        width: 15%;
+        float: left;
+        margin-right: 3%;
+    }
+
+    #passenger_source,
+    #passenger_to {
+        margin-top: 5%;
+        font-size: 20px;
+        margin-bottom: 10%;
+        font-family: NetflixSansMedium;
+    }
+
+    #passenger_source {
+        color: green;
+        font-weight: 800;
+        text-decoration: underline;
+    }
+
+    .journeyImg {
+        float: left;
+        width: 62%;
+        margin-top: -2%;
+        border-bottom: 2px dashed;
+    }
+
+    #snackbarCab {
+        visibility: hidden;
+        min-width: 100%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        bottom: 30px;
+        font-size: 13px;
+        padding: 8px 9px 9px 2px;
+        font-family: NetflixSansRegular;
+
+    }
+
+    #snackbarCab.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .journeyTo {
+        width: 15%;
+        float: left;
+        padding-left: 3%;
+    }
+
+    .detail_img {
+        width: 5%;
+        float: left;
+        margin-right: 3%;
+    }
+
+    .heading {
+        width: 13%;
+        float: left;
+        margin-top: 0 !important;
+    }
+
+    #depart_time,
+    #arrival_time {
+        margin-top: 2%;
+        font-size: 13px;
+        width: 130%;
+    }
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        /* background-color: rgb(0,0,0); Fallback color */
+        /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+        -webkit-animation-name: fadeIn;
+        /* Fade in the background */
+        -webkit-animation-duration: 0.4s;
+        animation-name: fadeIn;
+        animation-duration: 0.4s
+    }
+
+    /* Modal Content */
+    .modal-content {
+        /* position: fixed; */
+        bottom: 0%;
+        background-color: #fefefe;
+        width: 100%;
+        -webkit-animation-name: slideIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: slideIn;
+        animation-duration: 0.4s;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-bottom: 15%;
+    }
+
+    .paymentType_active {
+        background-color: gray !important;
+    }
+
+    .paymentPara_active {
+        color: white;
+    }
+
+    /* The Close Button */
+    .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: transparent;
+        /* background-color: #ED1C24; */
+        color: white;
+        text-align: center;
+        border-top-left-radius: 19px;
+        border-top-right-radius: 19px;
+    }
+
+    .modal-header p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        font-family: "NetflixSansRegular";
+        line-height: 26px;
+        color: #000;
+        margin: 20px 0px 10px 0px;
+        text-align: left;
+        padding-left: 6%;
+        font-family: 'NetflixSansMedium';
+    }
+
+    .paymentType {
+        background: #FFFFFF;
+        border-radius: 5px;
+        display: flex;
+        margin: 3px 0px;
+        padding: 5px 0;
+    }
+
+    .paymentType img {
+        width: 56px;
+        margin: 0px 0px 0px 0px;
+    }
+
+    .paymentType p {
+        color: #696969;
+        /* font-family: Netflix Sans; */
+        font-size: 16px;
+        margin-left: 8%;
+    }
+
+    .cardLabel {
+        font-family: NetflixSansRegular;
+    }
+
+    .paymentChildShowDiv {
+        display: "block";
+        border-top-left-radius: "0px";
+        border-top-right-radius: "0px"
+    }
+
+    .paymentChild {
+        height: 214px;
+        margin: -12px 0px 10px 0px;
+        background-color: #fff;
+        display: none;
+        padding-bottom: 2%;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .modal-body {
+        padding: 2px 16px;
+    }
+
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #ED1C24;
+        color: white;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes slideIn {
+        from {
+            bottom: -300px;
+            opacity: 0
+        }
+
+        to {
+            bottom: 0;
+            opacity: 1
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            bottom: -300px;
+            opacity: 0
+        }
+
+        to {
+            bottom: 0;
+            opacity: 1
+        }
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    div.panel {
+        display: none;
+    }
+
+    div.panel.show {
+        display: block !important;
+    }
+
+    .form_mb {
+        width: 93%;
+        padding: 10px 10px;
+        border: none;
+        outline: none;
+        padding: 10px 10px;
+        font-size: 0.9em;
+        color: #828282;
+        background: #F1F1F1;
+        border-radius: 2px;
+        margin: 1.5% 0;
+        margin-bottom: 0.3%;
+        margin-left: 0%;
+        /* border-radius: 5%; */
+    }
+
+    .expiry {
+        width: 90%;
+        padding: 10px 10px;
+        font-size: 0.9em;
+        color: #828282;
+        background: #F1F1F1;
+        border-radius: 2px;
+        margin: 1.5% 0;
+        margin-bottom: 0.3%;
+        margin-left: 0%;
+        border: none;
+        outline: none;
+    }
+
+    .cvv {
+        width: 92%;
+        /* margin: 0px 5px; */
+        padding: 10px 10px;
+        font-size: 0.9em;
+        color: #828282;
+        background: #F1F1F1;
+        border-radius: 2px;
+        margin: 1.5% 0;
+        margin-bottom: 0.3%;
+        border: none;
+        outline: none;
+    }
+
+    #cvvMessage {
+        font-size: 11px;
+        font-family: NetflixSansRegular;
+    }
+
+    .payCard {
+        background-color: #ED1C24;
+        width: 100px;
+        height: 42px;
+        border-radius: 5px;
+        left: 273px;
+        color: #fff;
+        float: right;
+        border-color: #ED1C24;
+        font-family: NetflixSansRegular;
+    }
+
+    #checkEligibilityMessage {
+        margin-top: 5px;
+        /* position: fixed; */
+        font-size: 13px;
+        font-family: NetflixSansRegular;
+    }
+
+    #showModal {
+        font-size: 30px;
+        background: white;
+        color: rgb(234, 33, 39);
+        /* border-radius: 2px; */
+        position: absolute;
+        right: 7%;
+        bottom: -10%;
+    }
+
+    #cashPay {
+        width: 20%;
+        font-family: 'NetflixSansRegular';
+        right: 7%;
+        position: absolute;
+        background: rgb(234, 33, 39);
+        text-align: center;
+        color: white;
+        bottom: 4%;
+        padding: 2%;
+        border-radius: 6px;
+    }
+
+    #paybyCash {
+        background: rgb(237, 28, 36);
+        color: white;
+        margin-left: 14%;
+        border-radius: 4px;
+        border-color: rgb(237, 28, 36);
+        font-size: 14px;
+        height: 17px;
+        width: 100px;
+        border-radius: 5px;
+        color: #fff;
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        box-shadow: 0px 0px 0px 1px rgb(0 0 0 / 40%);
+    }
+
+    .modal-body hr {
+        width: 120%;
+        margin-left: -10%;
+        background: #F1F1F1;
+        height: 8px;
+        border: none;
+    }
+
+    .include_txt {
+        margin: 1%;
+        font-size: 12px;
+    }
+
+    .PaymentBlock {
+        background: white;
+        padding: 3%;
+        border-radius: 5px;
+    }
+
+    .PaymentBlock input[type="radio"] {
+        margin-right: 3%;
+    }
+
+    .PaymentBlock input[type="radio"]:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    .paymentType input[type="radio"]:after,
+    #SimplDiv input[type="radio"]:after,
+    .upiDiv input[type='radio']:after {
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        top: -9px;
+        left: -8px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: rgb(234, 33, 39);
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    .paymentType input[type='radio']:checked:after,
+    #SimplDiv input[type='radio']:checked:after,
+    .upiDiv input[type='radio']:checked:after {
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        top: -9px;
+        left: -8px;
+        position: relative;
+        background-color: green;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    .PaymentBlock .textBlock {
+        display: inline-grid;
+    }
+
+    .PaymentBlock .textBlock p {
+        font-size: 14px;
+        margin: 0 40px 0 0;
+        padding: 3px;
+    }
+
+    #partAmount,
+    #fullAmount {
+        display: inline-flex;
+        font-family: 'NetflixSansMedium';
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .non-activeAmount {
+        color: grey;
+        font-family: 'NetflixSansRegular' !important;
+    }
+
+    .upiDiv img {
+        width: 30%;
+        margin: 1% 1%;
+    }
+
+    .img_back {
+        width: 100%;
+        background: white;
+        overflow: hidden;
+    }
+
+    .confirm_btn {
+        font-family: 'NetflixSansRegular';
+        background: black;
+        color: white;
+        padding: 15px;
+        position: fixed;
+        bottom: 0;
+        margin: 0 15%;
+        width: 60%;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        /* display: none; */
+    }
+
+    .terms_condition {
+        font-size: 11px;
+    }
+
+    .terms_condition a {
+        text-decoration: none;
+    }
+
+    /* .paymentbtn {
+        position: absolute;
+        right: 5%;
+        margin-top: 6%;
+    } */
+
+    .success {
+        float: right;
+        width: 30%;
+        margin: 4px;
+        text-align: right;
+        color: green;
+        margin-bottom: 5%;
+    }
+
+    #loaderr {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 1%;
+    }
+
+    #confirmation_boxCabDiv5 {
+        position: fixed;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .8);
+        display: none;
+        z-index: 11;
+        text-align: center;
+        padding: 5%;
+
+    }
+
+    .mailb {
+        width: 100%;
+        float: left;
+        background-color: rgb(41, 167, 225);
+        text-align: center;
+        height: 50px;
+        border: none;
+        padding-top: 1%;
+        font-size: 15px;
+        color: white;
+        font-family: "NetflixSansRegular";
+        -webkit-appearance: none;
+        cursor: pointer;
+
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+
+    #sentmail {
+        width: 100%;
+        float: left;
+        background-color: #333333;
+        text-align: center;
+        height: 50px;
+        border: none;
+        padding-top: 1%;
+        font-size: 15px;
+        color: white;
+        font-family: "NetflixSansRegular";
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    .mailbb {
+        width: 79%;
+        display: none;
+        float: left;
+        background-color: #F1F1F1;
+        height: 50px;
+        border: none;
+        padding-top: 1%;
+        font-size: 15px;
+        color: #000;
+        font-family: NetflixSansRegular;
+        border-radius: 7px;
+        cursor: pointer;
+        padding-left: 10px;
+    }
+
+
+    .vl {
+        border-left: 2px solid #000;
+        height: 40px;
+        position: absolute;
+        right: 62px;
+        display: none;
+    }
+
+    .icon {
+        width: 17px;
+        position: relative;
+        top: 0px;
+        background-color: #fff;
+        right: 1px;
+        border-radius: 50px;
+        padding: 5px 5px 5px 5px;
+    }
+
+    #sentmail {
+        display: none;
+    }
+
+    .confirmation_buttonBox {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 20px;
+    }
+
+    .confirm_button {
+        width: 48%;
+        background-color: rgb(41, 167, 225);
+        text-align: center;
+        border-radius: 7px;
+        margin-left: 0px;
+        margin-top: 6%;
+        -webkit-appearance: none;
+        overflow: hidden;
+        cursor: pointer;
+
+
+    }
+
+    .confirm_button input[type="submit"] {
+        width: 100%;
+        float: left;
+        background-color: rgb(41, 167, 225);
+        text-align: center;
+        height: 50px;
+        border: none;
+        padding-top: 1%;
+        font-size: 15px;
+        color: white;
+        font-family: "NetflixSansRegular";
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    .confirmation_boxCab,
+    .confirmation_boxCab2 {
+        position: fixed;
+        width: 80%;
+        top: 30vh;
+        left: 5vw;
+        background-color: white;
+        z-index: 12;
+        text-align: center;
+        padding: 5%;
+        display: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px -1px black;
+    }
+
+    .confirmation_boxCabDiv,
+    .confirmation_boxCabDiv2 {
+        position: fixed;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .8);
+        display: none;
+        z-index: 11;
+        text-align: center;
+        padding: 5%;
+        overflow-y: scroll;
+
+
+    }
+
+    .status {
+        background: RGB(224, 11, 37);
+        color: White;
+        text-align: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        width: 40%;
+        font-size: 1.2em;
+        margin: 0 auto;
+        background-color: rgb(41, 167, 225);
+        margin-bottom: 3%;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: NetflixSansRegular;
+    }
+
+    .inner_textBox {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        background-color: #F1F1F1;
+        margin-right: 22px;
+        border-radius: 12px;
+    }
+
+    .iconbox {
+        display: none;
+    }
+
+    .no-outline:focus {
+        outline: none;
+    }
+
+    .top_carImg {
+        position: absolute;
+        top: -55px;
+        width: 21%;
+        left: 36%;
+        background: white;
+        border: 10px solid rgba(0, 0, 0, 0.8);
+        border-radius: 64px;
+        padding: 5px;
+    }
+
+    .tp_carImg {
+        /* top: -55px; */
+        width: 40%;
+        margin: 0 auto;
+        left: 36%;
+        /* background: white; */
+        border-radius: 64px;
+    }
+
+    .top_carImg img {
+        padding-top: 12px;
+    }
+
+    #confirmation_boxCab5 .thank_msg {
+        font-family: NetflixsansRegular;
+        font-size: 14px;
+        padding-bottom: 0%;
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    #confirmation_boxCab5 .call_msgCab p {
+        padding: 0.5rem;
+        font-weight: bolder;
+        color: green;
+        text-align: center;
+        margin: 0;
+    }
+
+    #confirmation_boxCab5 .coupon_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #confirmation_boxCab5 .coupon_container {
+        border: 2px dotted black;
+        border-radius: 0.2rem;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    #confirmation_boxCab5 .coupon_box img {
+        width: 20px;
+    }
+
+    .BookingBtn {
+        margin-top: 4%;
+    }
+
+    .ReturnRide {
+        margin: 4% 0;
+    }
+
+    .ReturnRide input[type="text"] {
+        width: 65%;
+        padding: 8px;
+        background: #F3F7F8;
+        border: none;
+        border-radius: 5px;
+        margin-right: 7px;
+        box-shadow: 0px 0px 1.97906px rgb(0 0 0 / 25%)
+    }
+
+    .ReturnRide button {
+        color: white;
+        background: #40A3FF;
+        box-shadow: 0px 0px 1.97906px rgba(0, 0, 0, 0.25);
+        border-radius: 4.94764px;
+        border: none;
+        padding: 8px;
+    }
+
+    .detailbox {
+        border-radius: 5px;
+        height: 20vh;
+        width: 85vw;
+        background-color: rgb(223, 234, 236);
+    }
+
+    .innerbox {
+        height: 8vh;
+        width: 85vw;
+        /* background-color: orange; */
+    }
+
+    .img1 {
+        padding: 2%;
+    }
+
+    @media screen and (min-width: 390px) and (max-width: 418px) {
+        .img1 {
+            height: 4vh;
+        }
+    }
+
+    .offamt {
+        width: 100%;
+        padding: 3% 10%;
+        color: white;
+        height: 40%;
+        margin-top: 5%;
+        background-color: red;
+        /* border: 2px solid red; */
+    }
+
+    #discountamt {
+        font-size: 16px;
+        /* margin-top: -2% */
+        font-weight: bold;
+        margin-top: -20%;
+    }
+
+    .fullamt {
+        margin-top: -76%;
+        margin-left: -96%;
+        width: 100%;
+    }
+
+    .calndericon {
+        position: absolute;
+        margin-top: 3%;
+        margin-left: 2%;
+    }
+
+    .calenderbox {
+        width: 45%;
+    }
+
+    #datepicker {
+        color: #828282;
+        padding: 0.5em 0.5em 0.5em 2.5em;
+        width: 70%;
+        margin-left: 3%;
+        outline: none;
+        font-size: 14px;
+        border: none;
+        background-color: rgb(223, 234, 236);
+        height: 24px;
+        border-radius: 2px;
+    }
+
+    .datecalender {
+        color: #828282;
+        padding: 0.5em 0.5em 0.5em 2.5em;
+        width: 70%;
+        margin-left: 3%;
+        outline: none;
+        font-size: 14px;
+        border: none;
+        background-color: rgb(223, 234, 236);
+        height: 24px;
+        border-radius: 2px;
+    }
+
+    .paymentbtn {
+        margin-top: 10%;
+        border-radius: 40px;
+        background-color: #8d97a1;
+        ;
+        color: white;
+    }
+
+    .timepicker::placeholder {
+        color: #828282 !important;
+    }
+
+    #close6 {
+        position: absolute;
+        top: -9px;
+        right: -7px;
+        font-size: 30px;
+        background: rgb(234, 33, 39);
+        color: white;
+        border-radius: 30px;
+    }
+</style>
+
+
+<body>
+
+    <div id="snackbarCab">Your Cab Booking Voucher is downloading<br> If the download does not start, take a screenshot
+    </div>
+
+    <div id="loaderr">
+        <img src="img/loader.gif" alt="">
+    </div>
+
+    <div class="confirmation_boxCabDiv"></div>
+    <div class="confirmation_boxCab">
+        <!-- <i class="fas fa-times-circle" id="referclose2" style="right: 0%;"></i> -->
+        <div class="thank_msg" style="font-family: NetflixsansRegular">
+            <br>Confirmation for your cab booking has been successfully downloaded.
+        </div>
+        <div class="call_msgCab">
+            <p id="reserve">Please check your phone's download section
+            </p>
+        </div>
+        <div class="status" id="Failed">Ok</div>
+    </div>
+    <div class="confirmation_boxCabDiv2"></div>
+    <div class="confirmation_boxCab2">
+        <i class="fas fa-times-circle" id="referclose" style="right: 0%;"></i>
+        <div class="call_msgCab">
+            <p id="cmmsg1"></p>
+            <p id="cmmsg2"></p>
+        </div>
+        <div class="status" id="arrivalBook"><a style="text-decoration: none; color: #fff;" id="arrVAL">Book Now</a>
+        </div>
+    </div>
+    <div class="confirmation_boxCabDiv3"></div>
+    <div class="confirmation_boxCab3">
+        <div class="thank_msg" style="font-family: NetflixsansRegular; font-size: 17px;">
+            <br>Your booking request is submitted successfully.
+        </div>
+        <div class="call_msgCab">
+            <p id="reserve" style="font-size: 17px;">You will receive confirmation details shortly through SMS &
+                Whatsapp.
+            </p>
+            <!-- <p style="font-size:17px ;">Don't forget to take your cashback , after successful payment through payment link sent to your mobile number. -->
+            <!-- <p style="font-size: 17px;">Don't forget to take your cashback.
+                <br> For any assistance call 011-46514254</p> -->
+            <p style="font-size: 17px;">For any assistance call 011-46514254</p>
+        </div>
+        <div class="status" id="status3">Ok</div>
+    </div>
+
+    <div id="confirmation_boxCabDiv5"></div>
+    <div id="confirmation_boxCab5">
+        <i class="fas fa-times-circle" id="close5" style="right: 0%;"></i>
+        <div class="thank_msg" style="font-family: NetflixsansRegular;font-size: 14px; padding-bottom: 0%;">
+            <br>Your booking request is submitted successfully.
+            <p>You will receive confirmation details shortly through SMS & Whatsapp.Don't forget to take your Cashback.
+            </p>
+            <p>For any assistance call 011-46514254.</p>
+            <!-- <p>You will receive confirmation details shortly through SMS & Whatsapp.<br> For any assistance call 011-46514254.</p> -->
+        </div>
+        <div class="call_msgCab" style="outline-style: dotted; border-radius: 0.2rem; height: 11rem;">
+            <h3 style="color: red; padding-top: 0.5rem; padding-left: 0.5rem;">Want to Book Arrival Cab ?</h3>
+            <p style="font-weight: bolder;">Use Coupon Code :</p>
+            <p style="margin-top: -0.5rem; background-color: rgb(236, 228, 228); padding: 0.5rem; border-radius: 0.2rem; font-weight: bolder; width: 90%; margin-left: 0.5rem; text-align: center;"
+                id="couponapi"></p>
+            <p style="font-size: 14px; padding-left: 0.5rem;">& get Cashback of Rs. <b><span id="coupounamt"></span></b>
+                on trip start.</p>
+        </div>
+        <div class="status" id="status6" style="width:100%; margin-top: 1rem;">Book Arrival Now !</div>
+    </div>
+
+    <div id="confirmation_boxCab6">
+        <i class="fas fa-times-circle" id="close6" style="right: 0%;"></i>
+
+        <div style="background-color: rgb(223, 234, 236);
+        padding: 2%;
+        width: 108%;
+        margin-left: -6%;">
+            <div class="tp_carImg"><img src="img/top_car.png" /></div>
+            <div class="thank_msg" style="font-family: inter-medium;">
+                Booked Successfully
+                <p style="font-size: 14px; font-family: inter-medium;">You will receive confirmation details shortly
+                    through
+                    SMS & Whatsapp.
+                </p>
+            </div>
+        </div>
+        <h4 style="text-align: left; font-family: inter-bold; margin-bottom: 2%;">Schedule your Return Ride</h4>
+        <div class="call_msgCab coupon_box ">
+        </div>
+        <div class="detailbox">
+            <div class="innerbox" style="display: flex;">
+                <div class="img1">
+                    <img src="img/Group 79794.png" alt="">
+                </div>
+                <div class="pno" style="width: 80%;">
+                    <p style="font-size: 14px; text-align: left; font-family: inter-medium;"><span
+                            id="mobile">9999999999</span> <br>Sedan - 1-3 people | 2 bags</p>
+                </div>
+                <div class="img1" style="height: 125%;">
+                    <img src="img/carnew.png" alt="">
+                </div>
+            </div>
+
+            <div class="innerbox" style="display: flex;  margin-top: 2%;">
+                <div class="img1" style="margin-left: 4%;">
+                    <img src="img/Group 79795.png" alt="">
+                </div>
+                <div class="pno" style="width: 70%; margin-top: -3%;">
+                    <p style="font-size: 12px; text-align: left"><span id="fromlocation"
+                            style="font-family: inter-regular;">Delhi Airport</span> <br><br><span id="tolocation"
+                            style="font-family: inter-regular;">Phase 5 Udyog Vihar</span></p>
+                </div>
+                <div class="img1" id="img1" style="display: none;">
+                    <div class="offamt">
+                        <p style="font-size: 10px; margin-top: 2%">₹ 75 Off</p>
+                    </div>
+                    <div id="discountamt">
+                        <p id="finalamt" style="font-family: inter-bold;">₹ 0</p>
+                    </div>
+                    <div class="fullamt">
+                        <p style="font-size: 12px; text-decoration: line-through red" id="fullamt">₹ 0</p>
+                    </div>
+                    <p style="font-size: 8px;
+                    position: absolute;
+                    margin-top: -3.5%;
+                    width: 30%;
+                    margin-left: -14%; font-family: inter-regular;">Exc. of Airport tolls & taxes</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <h6 style="font-family: inter-bold; margin-top: 2%;" id="updatedatetimeline">* To Get Discounted Fare Update Your Pickup Date & Time</h6> -->
+
+        <div style="text-align: left;">
+            <h4 style="font-family: inter-bold;">Update Date & Time</h4>
+        </div>
+
+        <div style="display: flex;">
+            <div class="calenderbox">
+                <i class="fas fa-calendar-week calndericon"></i>
+                <input style="border-radius: 5px; margin-left: 0%; font-family: inter-medium;" type="text"
+                    class="datecalender" id="datepicker" placeholder="Pickup Date" autocomplete="off" readonly>
+            </div>
+
+            <div class="calenderbox" style="margin-left: 10%;">
+                <i class="fas fa-clock calndericon"></i>
+                <input style="border-radius: 5px; margin-left: 0%; font-family: inter-medium;" type="text"
+                    class="datecalender timepicker" placeholder="Pickup Time" autocomplete="off" readonly>
+            </div>
+        </div>
+
+        <div class="paymentbtn" id="paymentbtn">
+            <h4 style="padding: 3%; font-family: inter-bold; text-align: center;">Pay Now</h4>
+        </div>
+
+        <p style="text-align: left; text-decoration: underline; color: rgb(64,163,255); font-family: inter-bold;"
+            id="arrivalpageopen">+ Add
+            Destination Airport Ride </p>
+
+    </div>
+
+
+    <!----------- TiME uI POPUP code start --------->
+    <div class="form-popup" id="myForm" style="display: none;">
+        <div class="back_icon">
+            <img src="img/arrow-left.png">
+
+        </div>
+        <p class="back_text">Back</p>
+
+        <div id="choosetimegrid" style="display: block; margin-bottom: 3%;">
+            <label>Select Pick-up time:</label>
+        </div>
+
+
+        <div id="slotdiv">
+            <div class="timeam">
+                <span id="timeam" value="AM">AM</span>
+            </div>
+
+            <div class="timepm">
+                <span id="timepm" value="PM">PM</span>
+            </div>
+            <p class="outstationMSG">* Do not select a time between 10PM to 6AM</p>
+            <!-- <div class="done_btn"><input id="donetime" value="DONE" disabled />
+            </div> -->
+        </div>
+        <div class="time-list-wrap" id="time-list-wrap" style="display: none;">
+        </div>
+        <div style="margin: 2% 0% 3% 5%;">
+            <span style="font-size: 12px; font-weight: bold;">Important :</span><br> <span
+                style="font-size: 11px; font-weight: lighter;">In case of departure choose your pick-up
+                time wisely to catch your flight on time.</span><br><span
+                style="font-size: 11px; font-weight: lighter;">• Domestic
+                flight :- 2+2 hours (Airport Travel + Security Check-in)
+                <br> • International flight :- 2+3 hours (Airport Travel + Security Check-in)</span>
+        </div>
+
+        <div id="timemsg">Please Select Time-Zone (AM/PM).
+        </div>
+    </div>
+    <!----------- TiME uI POPUP code end --------->
+
+
+    <main>
+        <div id="interstitial_back" style="display: none;">
+        </div>
+
+
+        <form class="confirm" id="cabForm">
+
+            <div class="top_img">
+                <img src="img/red_box.png" alt="Logo">
+            </div>
+
+            <div class="back_img">
+                <div class="top_head">
+                    <div class="top_div">
+                        <div class="green"><img src="img/green_cab.png"></div>
+                        <h4 style="margin: 1px; font-size: 17px; clear: both; margin-left: 4%;" id="cabTitle">
+                            Airport Taxi Service</h4>
+
+                    </div>
+
+                    <div class="div2">
+                        <div id="BookingId">Booking Id : <span>......</span></div>
+                        <div id="MobileNo">Mobile No : <span>........</span></div>
+                        <div style="width: 95%; margin-bottom: 2%;">
+                            <h5 class="heading">From:</h5>
+                            <span id="pickUpLock">T3 Indira Gandhi International Airport, New Delhi</span>
+                        </div>
+                        <div style="width: 95%; margin-bottom: 2%;">
+                            <h5 class="heading">To:</h5>
+                            <span id="dropLoc">Loading..</span>
+                        </div>
+                        <div style="width: 47%; margin-bottom: 1%;
+                        float: left;">
+                            <h5 class="heading">Date:</h5>
+                            <span id="picTime" style="width: 30%;
+                            margin-left: 13%;">DD-MM-YYYY</span>
+                        </div>
+                        <div style="width: 48%;
+                        float: left;">
+                            <h5 class="heading">Time:</h5>
+                            <span id="picTym" style="margin-left: 15%;">00:00 hrs</span>
+                        </div>
+                        <div style="width: 48%;
+                        margin-bottom: 5%;
+                        ">
+                            <h5 class="heading" style="width: 43%;">Cab Type:</h5>
+                            <span id="picTyp">Sedan</span>
+                        </div>
+                        <div style="width: 95%;">
+                            <h5>Trip fare</h5>
+                            <div class="left_div">Base Fare</div>
+                            <div class="right_div" id="bfp">₹ 000</div>
+                            <div class="left_div">Discount</div>
+                            <div class="right_div" id="discount_amount">₹ 0</div>
+                            <div class="left_div" id="paidText">Pre-Paid Amount</div>
+                            <div class="right_div" id="paidTextamount" style="display: none;">₹ 0</div>
+                            <div class="right_div" id="simplPaid_amount">₹ 0</div>
+                            <div class="left_div">Cancellation Fee</div>
+                            <div class="right_div">₹0</div>
+                            <br>
+                            <hr style="clear: both;">
+                        </div>
+                        <div style="width: 95%;">
+                            <div class="left_div" style="font-family: NetflixSansMedium; font-size: 15px;">Due Amount:
+                            </div>
+                            <div class="right_div" style="font-size: 20px; margin-top: -1%;" id="tobfp">₹ 000</div>
+                            <br>
+                            <div class="left_div" style="font-family: NetflixSansMedium; margin-bottom: 5%;">Estimated
+                                Distance:<span style="font-family: NetflixSansMedium;" id="eprk"></span></div>
+                            <!-- <hr style="clear: both;"> -->
+                            <h5 style="margin: 2% 0%; clear: both; width: 65%;
+                            float: left;" id="payMethod"> </h5>
+                            <!-- <h4 class="success">Success</h4> -->
+                            <!-- <h5 style="margin: 2% 0%; clear: both;" id="payMethod">Payment can be made
+                                after trip
+                                completion through UPI, online wallets or cash to driver.</h5> -->
+                            <p style="font-size: 12px;
+                            margin: 0;
+                            margin-top: 5px;
+                            clear: both;" id="simpl_extra"><b style="font-size: 14px;">Note :</b>You will receive a
+                                link on your registered mobile number where you can modify your trip details or request
+                                for refund.</p>
+
+                            <p style="font-size: 12px;
+                            margin: 0;
+                            margin-top: 5px;
+                            clear: both; display: none;" id="cash_extra"><b style="font-size: 14px;">Note :</b> In case
+                                of extra distance travelled fare will be re-calculated. For any assistance
+                                call 011-46514254.</p>
+
+                        </div>
+
+                        <hr style="clear: both;">
+                        <div style="width: 95%;">
+                            <h5 style="margin:0%; clear: both;">Our Service Promise</h5>
+                            <!-- <hr style="clear: both;"> -->
+                            <p style="font-size: 13px; margin: 0;margin-top: 5px;" id="paymethod">
+                                We are committed to providing our customers with the best airport ride experience.
+                                <br><br>
+                                In case you are not
+                                satisfied with your experience, Call us at <b>011-46514254</b> or mail to
+                                <b>cabquery@rigocab.com</b> to share your feedback and receive an instant 100% refund
+                                for your airport ride.
+                            </p><br>
+                            <h5 style="margin:0%; clear: both; font-style: italic;">Wish you a very Happy Journey !</h5>
+                            <br>
+                            <h5 style="margin:0%; clear: both; font-style: italic;">#Delight #rigocab</h5>
+
+                        </div>
+
+                        <!-- <div class="confirm_button">
+                            <input type="submit" value="Download PDF" id="cmcb" />
+                        </div>
+                        <input type="email" class="mailb" value="Get invoice on mail " id="mailbox" />
+                        <input value="Sent on mail" id="sentmail" class="sentmail" />
+                        <div class="iconbox" style="display: flex;">
+
+                            <input type="email" class="mailbb" id="typemail" placeholder="Enter your email Id" required
+                                name="email">
+
+                            <img src="img/icon-removebg-preview.png" alt="icon" id="icon" type="sumbit" class="icon">
+        </form>
+        <div class="vl" id="line"></div>
+        </div> -->
+                        <!-- <div class="confirmation_buttonBox">
+                            <div class="confirm_button">
+                                <input type="submit" value="Download PDF" id="cmcb" />
+                            </div>
+                            <div class="confirm_button">
+                                <input type="email" class="mailb" value="Get invoice on e-mail " id="mailbox"
+                                    readonly />
+                                <input value="Sent on e-mail" id="sentmail" class="mailb" readonly />
+                            </div>
+
+                        </div> -->
+                        <div class="iconbox">
+                            <div class="inner_textBox">
+                                <input type="email" class="mailbb  no-outline" id="typemail"
+                                    placeholder="Enter your email Id" required name="email">
+                                <div class="vl" id="line"></div>
+                                <div class="icongo">
+                                    <img src="img/Forward-512.webp" alt="icon" id="icon" type="sumbit" class="icon">
+                                </div>
+                            </div>
+                        </div>
+        </form>
+
+
+
+        <!-- <p id="cmcb" style="font-size: 14px"><a href="#">Click here to Download Confirmation</a></p> -->
+        </div>
+        </div>
+        <div id="bottom_banner" style="margin-top: 4%" ;>
+        </div>
+        </div>
+
+
+        <input type="hidden" id="popupvalue" />
+        <!-- start modal  -->
+        <!-- The Modal -->
+
+
+
+        </form>
+    </main>
+
+
+
+    <script>
+        //   var responseload
+        var FetchBookingResp
+        localStorage.setItem("Pageopen", "second");
+        var fareVal;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get("orderId");
+        const paymentType = urlParams.get("paymentType");
+        const order_reference_number = urlParams.get("order_reference_number");
+        const Paymethod = urlParams.get("payMethod");
+        // fillDataThroughBookingId();
+        if (
+            orderId != null &&
+            paymentType != null &&
+            order_reference_number != null
+        ) {
+            // fillBookingData();
+            document.getElementById("loaderr").style.display = "block";
+            fillDataThroughBookingId(order_reference_number);
+            $("#payMethod").html("PAYMENT METHOD : PAYTM")
+
+
+            departure_Ads();
+
+        }
+        else {
+            fillBookingData();
+            if (Paymethod == "Simpl") {
+                $("#payMethod").html("PAYMENT METHOD : SIMPL")
+            }
+            if (Paymethod == "RAZORPAY") {
+                $("#payMethod").html("PAYMENT METHOD : RazorPay")
+            }
+            if (Paymethod == "Cash") {
+                $("#payMethod").html("PAYMENT METHOD : ONLINE")
+                $("#simpl_extra").css("display", "none");
+                $("#cash_extra").css("display", "block");
+            }
+            departure_Ads();
+        }
+
+        ///////////////////////////// Status Show after payment start ////////////////////////
+
+        // const ShowStatus = (statusCode) => {
+
+        //     if (statusCode == 101) {
+        //         $(".confirmation_boxCabDiv").css("display", "block");
+        //         $(".confirmation_boxCab").css("display", "block");    
+        //      }
+
+        // if (statusCode == 200) {
+        //     $(".confirmation_boxCabDiv3").css("display", "block");
+        //     $(".confirmation_boxCab3").css("display", "block");
+        // }
+        // }
+
+        ///////////////////////////// Status Show after payment end ////////////////////////
+
+        $("#Failed").click(function () {
+            $(".confirmation_boxCabDiv").css("display", "none");
+            $(".confirmation_boxCab").css("display", "none");
+            // window.location= "https://spicescreen.com/"  
+        })
+        $("#status3").click(function () {
+            $(".confirmation_boxCabDiv3").css("display", "none");
+            $(".confirmation_boxCab3").css("display", "none");
+            // window.location= "https://spicescreen.com/" 
+        })
+
+        ///////////////////// DATA FILL ON PAGE LOAD CODE START ////////////////
+        var final_data
+        async function fillBookingData() {
+            console.log(JSON.parse(localStorage["TripEND"]));
+            // const dataDF = JSON.parse(JSON.parse(localStorage["BookingDatafromMain"]))
+
+            const registerClubMember2 = JSON.parse(localStorage.TripEND)
+            final_data = registerClubMember2.clubMember
+            FetchBookingResp = final_data[0]
+
+            if ((final_data[0].isDeparture == 1) && (final_data[0].category == "CAB") && (final_data[0].cab_category != 'Outstation')) {
+                fetch(BaseAPIURL + domain + "/webapi/getCouponCode").then((res) => {
+                    return res.json();
+                }).then((data) => {
+                    for (let k in data.data) {
+                        if (data.data[k].confirm_page == 1) {
+                            $("#confirmation_boxCabDiv5").css("display", "block");
+                            $("#confirmation_boxCab6").css("display", "block");
+                            returnride(FetchBookingResp);
+                            document.getElementById("couponapi").innerText = data.data[k].coupon_code;
+                            document.getElementById("coupounamt").innerText = data.data[k].amount;
+                        }
+                    }
+                })
+            }
+            else {
+                $(".confirmation_boxCabDiv3").css("display", "block");
+                $(".confirmation_boxCab3").css("display", "block");
+            }
+
+            ///////Split Fare amount code start///////
+            if (String(final_data[0]["fare_price"]).includes("-")) {
+                final_data[0]["fare_price"] = final_data[0]["fare_price"].split("-")[1];
+            }
+            if (final_data[0]["card_type"] == "mojoFixFare") {
+                var fare;
+                if (final_data[0]["discount_type"] == "discount") {
+                    fare = (Number(final_data[0]["content_id"]) + Number(final_data[0]["discount_amount"]))
+                    $("#bfp").html("₹" + (Number(final_data[0]["content_id"]) + Number(final_data[0]["discount_amount"])));
+                }
+                else {
+                    fare = final_data[0]["content_id"]
+                    $("#bfp").html("₹" + final_data[0]["content_id"]);
+                }
+            }
+            else {
+                var fare = final_data[0]["fare_price"]
+                $("#bfp").html("₹" + final_data[0]["fare_price"]);
+            }
+            var splitFare;
+            if (String(fare).includes(" - ")) {
+                fareVal = fare.split("-")[1];
+                splitFare = parseInt(fare.split("-")[1]) + 50;
+            }
+            else {
+                fareVal = fare;
+                splitFare = parseInt(fareVal) + 50;
+            }
+            ///////Split Fare amount code end///////
+
+            ////// amount show by simpl code start//////////
+            if (final_data[0]["pay_type"] == "partial_simpl" && final_data[0]["paymentMethod"] == "SIMPL") {
+                $("#simplPaid_amount").html("- ₹" + 50);
+                $("#tobfp").html("₹" + Number(parseInt(fareVal) - parseInt(50)));
+                // $("#discount_amount").html("- ₹" + parseInt(final_data[0]["total_kilometers"])*2)
+            }
+            else if (final_data[0]["pay_type"] == "full_simpl" && final_data[0]["paymentMethod"] == "SIMPL") {
+                $("#simplPaid_amount").html("- ₹" + fareVal);
+                // $("#discount_amount").html("- ₹" + parseInt(final_data[0]["total_kilometers"])*2)
+                $("#tobfp").html("₹" + Number(parseInt(fareVal) - parseInt(fareVal)));
+            }
+
+            else if (final_data[0]["pay_type"] == "full_razor" && final_data[0]["paymentMethod"] == "RAZORPAY") {
+                if ((final_data[0].cab_category == 'Outstation') || (final_data[0].cab_category == 'Rental')) {
+                    $("#paidText").css("display", "block")
+                    $("#bfp").html("₹" + fareVal);
+                    $("#simplPaid_amount").html("₹" + fareVal);
+                    $("#tobfp").html("₹" + Number(parseInt(fareVal) - parseInt(fareVal)));
+                }
+                else {
+                    let fareVal;
+                    if (final_data[0]["card_type"] == "mojoFixFare") {
+                        if (final_data[0]["discount_type"] == "discount") {
+                            fareVal = (Number(final_data[0]["content_id"]) + Number(final_data[0]["discount_amount"]))
+                            $("#paidText").css("display", "block")
+                            $("#discount_amount").css("display", "block")
+                            $("#discount_amount").html("- ₹" + Number(final_data[0]["discount_amount"]))
+                        }
+                        else {
+                            fareVal = final_data[0]["content_id"]
+                        }
+                        $("#simplPaid_amount").html("₹" + Number(final_data[0]["content_id"]));
+                        $("#bfp").html("₹" + fareVal);
+                        $("#tobfp").html("₹" + Number(parseInt(fareVal) - parseInt(fareVal)));
+                    }
+                    else {
+                        if (final_data[0]["discount_type"] == "discount") {
+                            fareVal = (Number(final_data[0]["content_id"]) + Number(final_data[0]["discount_amount"]))
+                            $("#paidText").css("display", "block")
+                            $("#discount_amount").css("display", "block")
+                            $("#discount_amount").html("- ₹" + Number(final_data[0]["discount_amount"]))
+                        }
+                        else {
+                            fareVal = final_data[0]["content_id"]
+                        }
+                        $("#paidText").css("display", "block")
+                        $("#bfp").html("₹" + fareVal);
+                        $("#simplPaid_amount").html("₹" + final_data[0]["content_id"]);
+                        $("#tobfp").html("₹" + Number(parseInt(fareVal) - Number(parseInt(final_data[0]["content_id"]))));
+                    }
+                }
+            }
+
+            else if (final_data[0]["pay_type"] == "partial_razor" && final_data[0]["paymentMethod"] == "RAZORPAY") {
+                $("#bfp").html("₹" + (Number(parseInt(final_data[0]["fare_price"]))));
+                $("#simplPaid_amount").html("- ₹" + Number(final_data[0]["content_id"]));
+                $("#paidText").css("display", "block")
+                $("#discount_amount").html("- ₹" + Number(final_data[0]["discount_amount"]))
+                $("#tobfp").html("₹" + (Number(final_data[0]["fare_price"]) - (Number(final_data[0]["content_id"]) + Number(final_data[0]["discount_amount"]))));
+
+
+
+            }
+            else {
+                $("#simplPaid_amount").html("₹0");
+                $("#simpl_extra").css("display", "none")
+                $("#tobfp").html("₹" + parseInt(fareVal));
+                // $("#paidText").css("display","none")
+                // $("#discount_amount").html("₹" + 50);
+            }
+            ////// amount by simpl show code end  //////////
+
+            $("#epr").html(final_data[0]["fare_price"]);
+
+            //////// Calculate distance km start/////////////
+            var Addmoreamount = "";
+            Addmoreamount = (parseInt(final_data[0]["total_kilometers"]) * 2)
+            // $("#bfp").html("₹" + Number(parseInt(final_data[0]["fare_price"])+parseInt(Addmoreamount)));
+            // $("#bfp").html("₹" + final_data[0]["fare_price"]);
+            //////// Calculate distance km end /////////////
+
+            if (final_data[0]["email"] != "" && final_data[0]["email"] != "undefined") {
+
+                sendEmail(final_data[0]["email"], final_data[0]["order_reference_number"], final_data[0]["mobile"], "BAC_box")
+            }
+
+            $("#eprk").html(final_data[0]["total_kilometers"] + "Km");
+            $("#picTyp").html(final_data[0]["cab_type"]).css('text-transform', 'Capitalize');
+            $("#cabPartner").html(final_data[0]["partnerName"]);
+
+            $("#dropLoc").html(final_data[0]["destination_name"]);
+            $("#pickUpLock").html(final_data[0]["source_name"]);
+            $("#MobileNo span").html(final_data[0]["mobile"]);
+            $("#BookingId span").html(final_data[0]["order_reference_number"]);
+
+            const PickupTym = new Date(final_data[0]["pickup_time"].split(" ")[0])
+            const zone2 = PickupTym.toGMTString();
+            const da2 = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(PickupTym)
+            const mo2 = new Intl.DateTimeFormat('en', { month: 'short' }).format(PickupTym)
+            const ye2 = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(PickupTym)
+
+            const bottom_date = da2 + '-' + mo2 + '-' + ye2;
+
+            // let wholeTime = bottom_date + " " + localStorage["Pictime"];
+            $("#picTime").html(bottom_date);
+            $("#picTym").html(final_data[0]["pickup_time"].split(" ")[1] + " hrs");
+
+            document.getElementById("loaderr").style.display = "none";
+        }
+
+        var responseload
+        async function fillDataThroughBookingId(order_reference_number) {
+
+            const dataLoad = await fetch(BaseAPIURL + domain + "/webapi/getCabBookingDetail?bookingId=" + order_reference_number)
+            responseload = await dataLoad.json();
+            console.log(responseload);
+            FetchBookingResp = responseload
+            // console.log(FetchBookingResp)
+
+            if ((responseload.isDeparture == 1) && (responseload.category == "CAB")) {
+                fetch(BaseAPIURL + domain + "/webapi/getCouponCode").then((res) => {
+                    return res.json();
+                }).then((data) => {
+                    for (let k in data.data) {
+                        if (data.data[k].confirm_page == 1) {
+                            $("#confirmation_boxCabDiv5").css("display", "block");
+                            $("#confirmation_boxCab6").css("display", "block");
+                            returnride(responseload);
+                            document.getElementById("couponapi").innerText = data.data[k].coupon_code;
+                            document.getElementById("coupounamt").innerText = data.data[k].amount;
+                        }
+                    }
+                })
+            }
+            else {
+                $(".confirmation_boxCabDiv3").css("display", "block");
+                $(".confirmation_boxCab3").css("display", "block");
+            }
+
+            if (responseload["fare_price"].includes("-")) {
+                responseload["fare_price"] = responseload["fare_price"].split("-")[1];
+            }
+
+            $("#picTyp").html(responseload["cab_type"]);
+            $("#cabPartner").html(responseload["partnerName"]);
+
+            if (responseload["pay_type"] == "partial_paytm" && responseload["paymentMethod"] == "PAYTM") {
+                $("#bfp").html("₹" + (Number(parseInt(responseload["fare_price"])) + Number(responseload["service_charge"])));
+                $("#simplPaid_amount").html("- ₹" + Number(responseload["content_id"]));
+                $("#paidText").css("display", "block")
+                $("#discount_amount").html("- ₹" + Number(responseload["discount_amount"]))
+                $("#tobfp").html("₹" + ((Number(parseInt(responseload["fare_price"])) + Number(responseload["service_charge"])) - (Number(responseload["content_id"]) + Number(responseload["discount_amount"]))));
+            }
+            else if (responseload["pay_type"] == "full_paytm" && responseload["paymentMethod"] == "PAYTM") {
+                if ((responseload.cab_category == 'Outstation') || (responseload.cab_category == 'Rental')) {
+                    $("#paidText").css("display", "block")
+                    $("#bfp").html("₹" + Number(responseload["fare_price"]));
+                    $("#simplPaid_amount").html("₹" + Number(responseload["fare_price"]));
+                    $("#tobfp").html("₹" + Number(parseInt(responseload["fare_price"]) - parseInt(responseload["fare_price"])));
+                }
+                else {
+                    let fareVal;
+                    if (responseload["card_type"] == "mojoFixFare") {
+                        if (responseload["discount_type"] == "discount") {
+                            fareVal = (Number(responseload["content_id"]) + Number(responseload["discount_amount"]))
+                            $("#paidText").css("display", "block")
+                            $("#discount_amount").css("display", "block")
+                            $("#discount_amount").html("- ₹" + Number(responseload["discount_amount"]))
+                        }
+                        else {
+                            fareVal = responseload["content_id"]
+                        }
+                        $("#simplPaid_amount").html("₹" + Number(responseload["content_id"]));
+                        $("#bfp").html("₹" + fareVal);
+                        $("#tobfp").html("₹" + Number(parseInt(fareVal) - parseInt(fareVal)));
+                    }
+                    else {
+
+                        if (responseload["discount_type"] == "discount") {
+                            fareVal = (Number(responseload["content_id"]) + Number(responseload["discount_amount"]))
+                            $("#paidText").css("display", "block")
+                            $("#discount_amount").css("display", "block")
+                            $("#discount_amount").html("- ₹" + Number(responseload["discount_amount"]))
+                        }
+                        else {
+                            fareVal = responseload["content_id"]
+                        }
+                        $("#paidText").css("display", "block")
+                        $("#bfp").html("₹" + fareVal);
+                        $("#simplPaid_amount").html("₹" + responseload["content_id"]);
+                        $("#tobfp").html("₹" + Number(parseInt(fareVal) - parseInt(fareVal)));
+                    }
+                }
+            }
+
+            $("#epr").html(responseload["fare_price"]);
+            $("#eprk").html(responseload["total_kilometers"] + "Km");
+
+            $("#dropLoc").html(responseload["destination_name"]);
+            $("#pickUpLock").html(responseload["source_name"]);
+            $("#MobileNo span").html(responseload["mobile"]);
+            $("#BookingId span").html(responseload["order_reference_number"]);
+
+            const PickupTym = new Date(responseload["pickup_time"].split(" ")[0])
+            const zone2 = PickupTym.toGMTString();
+            const da2 = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(PickupTym)
+            const mo2 = new Intl.DateTimeFormat('en', { month: 'short' }).format(PickupTym)
+            const ye2 = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(PickupTym)
+
+            const bottom_date = da2 + '-' + mo2 + '-' + ye2;
+
+            // let wholeTime = bottom_date + " " + localStorage["Pictime"];
+            $("#picTime").html(bottom_date);
+            $("#picTym").html(responseload["pickup_time"].split(" ")[1] + " hrs");
+            document.getElementById("loaderr").style.display = "none";
+        }
+
+        ////////////////////PDF DOWNLOAD CODE START ///////////////////////////////  
+        $('#cmcb').on("click", async function (e) {
+            $("#cmcb").css("display", "none");
+            localStorage.setItem("moveHere", true)
+            e.preventDefault();
+            var x, y;
+            if (sessionStorage["delivery"]) {
+                var a = 500;
+                y = 270 + a;
+            } else {
+                var a = 300;
+                y = 350 + a;
+            }
+
+            var HTML_Width = $("#cabForm ").width();
+            var HTML_Height = $("#cabForm ").height() + 300;
+            var top_left_margin = 15;
+            var PDF_Width = HTML_Width + (top_left_margin * 2);
+            var PDF_Height = HTML_Height;
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
+
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+            var body = document.body,
+                html = document.documentElement;
+
+            var height = Math.max(body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+            // document.getElementById("status").onclick = function () {
+            //     location.href = "index.html"
+            //     window.sessionStorage.removeItem("prevPageNameTravel");
+            //     window.sessionStorage.removeItem("prevPageDataIndexTravel");
+            // }
+
+            html2canvas($("body ")[0], {
+                // allowTaint: true,
+                useCORS: true
+            }).then(function (canvas) {
+                canvas.getContext('2d');
+
+                console.log(canvas.height + " " + canvas.width);
+
+                var imgData = canvas.toDataURL("image/jpeg ", 1.0);
+
+                // window.location.href = imgData;
+
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height + a]);
+                pdf.addImage(imgData, 'JPEG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+                pdf.setFontSize(11);
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFillColor(0, 0, 0);
+
+                var textX, textY;
+                // if (coupon_card == " " || coupon_card == "null ") {
+                textX = 225, textY = 530;
+
+                // let pnrD = JSON.parse(localStorage["pnrData"]);
+                // Track_analytics(localStorage["booking_id"], pnrD[0]["FirstName"], pnrD[0]["ArrivalStation"], pnrD[0]["DepartureStation"], pnrD[0]["STA"], pnrD[0]["STD"], pnrD[0]["PassengerNumber"], "NULL", "PDF DOWNLOAD");
+                //Canvas2Image.saveAsImage(canvas, canvas_image_width, canvas_image_height, name + pdfCount + ".png ")
+
+                pdf.save("cabConfirmationInfo.pdf");
+
+                setTimeout(function () {
+                    //$(".confirmation_box ").fadeIn(1000);
+                    $(".confirmation_boxCabDiv").fadeIn(1000);
+                    $(".confirmation_boxCab").fadeIn(1000);
+                    // localStorage.setItem("PDF_download",true);
+                }, 2000);
+
+                myFunction();
+            });
+            function myFunction() {
+                var x = document.getElementById("snackbarCab");
+                x.className = "show";
+                setTimeout(function () {
+                    x.className = x.className.replace("show", " ");
+                }, 5000);
+            }
+            $("#cmcb").css("display", "block");
+        });
+
+        function searchRandom(length) {
+            return "sch" + Math.floor(Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1));
+        }
+        var random_serchNum = searchRandom(18);
+        ////////////////////PDF DOWNLOAD CODE END /////////////////////////////// 
+
+
+        ///////////////////// DISPLAY ADS CODE START ///////////////////////// 
+        async function departure_Ads() {
+            // const ads = await fetch(BaseURL+domain+"/webapi/getDepartureAds")
+            const ads = await fetch(BaseAPIURL + domain + "/webapi/getDepartureAds")
+            const adResponse = await ads.json();
+            // console.log(adResponse.length);
+
+            for (let i = 0; i < adResponse.length; i++) {
+                if (adResponse[i]["type"].toLowerCase() == "interstitial" && adResponse[i]["position"] == 2 && adResponse[i]["page_name"] == "departure") {
+                    document.getElementById("interstitial_back").style.display = "block";
+                    document.getElementById("interstitial_back").innerHTML = "";
+                    let inter = document.createElement("div");
+                    inter.setAttribute("class", "interstitial");
+                    let interImg = document.createElement("img");
+                    interImg.setAttribute("src", adResponse[i]["thumbnail"])
+                    inter.appendChild(interImg);
+                    localStorage.setItem("popupshow", true)
+                    interImg.onclick = function () {
+                        document.getElementById("interstitial_back").style.display = "none";
+                        // document.getElementById("Terminal").style.display = "block";
+                    }
+                    let cross = document.createElement("i");
+                    cross.setAttribute("class", "fas fa-times-circle");
+                    cross.setAttribute("id", "cross");
+                    inter.appendChild(cross);
+                    cross.onclick = function () {
+                        document.getElementById("interstitial_back").style.display = "none";
+                        if (localStorage["PNR_Data"] == "Found") {
+                            let pnrD = JSON.parse(localStorage["pnrData"]);
+                            Track_analytics(localStorage["booking_id"], pnrD[0]["FirstName"], pnrD[0]["ArrivalStation"], pnrD[0]["DepartureStation"], pnrD[0]["STA"], pnrD[0]["STD"], pnrD[0]["PassengerNumber"], "NULL", "Confirmation_Cross");
+                        }
+                        else {
+                            Track_analytics(localStorage["booking_id"], "C2ACustomer", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "Confirmation_CrossNon-Pnr");
+                        }
+                    }
+                    document.getElementById("interstitial_back").appendChild(inter);
+                    var closeTym;
+                    if (adResponse[i]["interstitial_time"] != "" || adResponse[i]["interstitial_time"] != null) {
+                        closeTym = adResponse[i]["interstitial_time"];
+                    } else {
+                        closeTym = 7000;
+                    }
+                    setTimeout(() => {
+                        document.getElementById("interstitial_back").style.display = "none";
+                    }, closeTym);
+                }
+                else if (adResponse[i]["type"].toLowerCase() == "bottom-banner") {
+                    console.log(adResponse[i]["type"].toLowerCase())
+                    document.getElementById("bottom_banner").innerHTML = ''
+                    document.getElementById("bottom_banner").style.display = "block";
+                    let interImg = document.createElement("img");
+                    interImg.setAttribute("src", adResponse[i]["thumbnail"])
+                    document.getElementById("bottom_banner").appendChild(interImg);
+                }
+            }
+        }
+        ///////////////////// DISPLAY ADS CODE END //////////////////////////  
+
+        $("#close5").click(function () {
+            $("#confirmation_boxCabDiv5").css("display", "none");
+            $("#confirmation_boxCab5").css("display", "none");
+        })
+
+        $("#close6").click(function () {
+            $("#confirmation_boxCabDiv5").css("display", "none");
+            $("#confirmation_boxCab6").css("display", "none");
+            // if (localStorage["PNR_Data"] == "Found") {
+            //     let pnrD = JSON.parse(localStorage["pnrData"]);
+            //     Track_analytics(localStorage["booking_id"], pnrD[0]["FirstName"], pnrD[0]["ArrivalStation"], pnrD[0]["DepartureStation"], pnrD[0]["STA"], pnrD[0]["STD"], pnrD[0]["PassengerNumber"], "NULL", "ConfirmBox_D2A_closeClick");
+            // }
+        })
+
+        $("#status6").click(function () {
+            localStorage.setItem("discount", document.getElementById("couponapi").innerText);
+            $("#confirmation_boxCabDiv5").css("display", "none");
+            $("#confirmation_boxCab5").css("display", "none");
+            location.href = "arrival.html"
+        })
+
+
+
+
+        $('#cmcb').click(function () {
+            $('#mailbox').css('display', 'block')
+            $('#icon').css('display', 'none')
+            $('#typemail').css('display', 'none')
+            $('#sentmail').css('display', 'none')
+
+
+        })
+        $('#mailbox').click(function () {
+            $('#cmcb').css('display', 'none')
+            $('#mailbox').css('display', 'none')
+            $('#typemail').css('display', 'block')
+            $('#line').css('display', 'block')
+            $('#icon').css('display', 'block')
+            $('.iconbox').css('display', 'block')
+
+
+        })
+        // $('#icon').click(function () {
+        //     $('#cmcb').css('display', 'block')
+        //     $('#icon').css('display', 'none')
+        //     $('#typemail').css('display', 'none')
+        //     $('#line').css('display', 'none')
+        //     $('#sentmail').css('display', 'block')
+
+
+        // })
+
+        ////////////////////////////////////////email button/////////////////////////////////////////////
+        // var BookingData = JSON.parse(localStorage["cabbookingData"])
+        // var BookigInnerLoad;
+        //     BookigInnerLoad = BookingData.clubMember[0];
+        // console.log(final_data[0]["mobile"]);
+
+
+        $("#icon").click(function () {
+            console.log(FetchBookingResp);
+            console.log(FetchBookingResp["order_reference_number"]);
+            console.log(FetchBookingResp["mobile"]);
+
+            var emailVal = $("#typemail").val()
+            if (emailVal == "") {
+                alert("Please enter your email id")
+                return false
+            }
+            else {
+                $('#cmcb').css('display', 'block')
+                $('#icon').css('display', 'none')
+                $('#typemail').css('display', 'none')
+                $('#line').css('display', 'none')
+                $('#sentmail').css('display', 'block')
+                // console.log(BookigInnerLoad);
+                sendEmail($("#typemail").val(), FetchBookingResp["order_reference_number"], FetchBookingResp["mobile"], "BAC")
+
+            }
+
+        })
+        //////////////////////////////////Send Email///////////////////////////////
+
+        function sendEmail(email, bookingId, phoneNumber, name) {
+            // console.log("hey");
+            // console.log(email, bookingId, phoneNumber);
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({
+                "email": email,
+                "name": name,
+                "bookingId": bookingId,
+                "urlType": "CAB",
+                "phoneNumber": phoneNumber,
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch(BaseAPIURL + domain + "/webapi/sendEmailOfInvoice", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
+
+
+    </script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="js/tracking.js"></script>
+
+    <script src="js/jspdf.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/mdtimepicker.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/mdtimepicker.js"></script>
+    <script src="js/paytm_cabbooking.js"></script>
+</body>
+
+</html>

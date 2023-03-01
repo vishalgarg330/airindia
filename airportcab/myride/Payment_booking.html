@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departure Cab</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/apicall.js"></script>
+</head>
+<style>
+    body {
+        /* overflow: hidden; */
+        background-color: white;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    html {
+        scrollbar-width: none;
+        /* For Firefox */
+        -ms-overflow-style: none;
+        /* For Internet Explorer and Edge */
+    }
+
+    html::-webkit-scrollbar {
+        width: 0px;
+        /* For Chrome, Safari, and Opera */
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: scroll
+    }
+
+    @font-face {
+        font-family: 'NetflixSansLight';
+        src: url(font/NetflixSansLight.ttf);
+    }
+
+    @font-face {
+        font-family: 'NetflixSansMedium';
+        src: url(font/NetflixSansMedium.ttf);
+    }
+
+    @font-face {
+        font-family: 'NetflixSansRegular';
+        src: url(font/NetflixSansRegular.ttf);
+    }
+
+    p,
+    span {
+        font-family: NetflixSansRegular;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: NetflixSansRegular;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .top {
+        overflow-x: hidden;
+        background-color: black;
+    }
+
+    .left_logo {
+        width: 45%;
+        margin: 0 auto;
+        margin-top: 4px;
+
+    }
+
+    .right_logo {
+        width: 32%;
+        float: right;
+        margin-top: 1%;
+    }
+
+    .green {
+        width: 30%;
+        float: left;
+        margin-top: 0%;
+        margin-left: 34%;
+
+    }
+
+    .back_img {
+        position: relative;
+        z-index: 0;
+        height: 80vh;
+        /* overflow-x: hidden; */
+    }
+
+    .confirm {
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .top_div {
+        margin-top: -14.5%;
+        margin-bottom: 2%;
+        overflow: hidden;
+        width: 96%;
+        /* margin-left: 32%; */
+    }
+
+    .top_head {
+        position: absolute;
+        width: 100vw;
+        top: 3%;
+        margin: 0;
+        padding-left: 2%;
+        /* overflow-x: hidden; */
+        z-index: 9999;
+    }
+
+    .mid_text {
+        float: left;
+        width: 50%;
+    }
+
+    .right_text p,
+    .right_text h5 {
+        margin: 1px 0px;
+    }
+
+    .right_text p {
+        font-size: 10px;
+    }
+
+    .right_text {
+        width: 31%;
+        float: left;
+        font-size: 11px;
+        text-align: right;
+    }
+
+    .mid_text {
+        float: left;
+        width: 47%;
+        font-size: 15px;
+        margin-left: 1%;
+    }
+
+    .mid_text span {
+        font-size: 11px;
+        font-weight: 600;
+        margin: 2px;
+    }
+
+    .mid_text p {
+        margin: 2px;
+        font-size: 10px;
+    }
+
+    .div2 {
+        clear: both;
+        margin: 1% 3%;
+        padding-top: 1%;
+        padding-left: 1%;
+        margin-top: 1%;
+    }
+
+    .div2 h5 {
+        margin: 5px 0px;
+    }
+
+    .div2 span {
+        font-size: 13px;
+    }
+
+    .left_div {
+        width: 55%;
+        float: left;
+        margin: 2px 0px;
+        font-size: 13px;
+        font-family: NetflixSansRegular;
+    }
+
+    .right_div {
+        width: 45%;
+        float: left;
+        margin: 2px 0px;
+        font-size: 14px;
+        padding-bottom: 1%;
+        font-family: NetflixSansMedium;
+        text-align: right;
+    }
+
+    .notify p {
+        font-size: 11px;
+        word-spacing: 3px;
+    }
+
+    .notify {
+        margin-top: 5%;
+        width: 95%;
+    }
+
+    .confirm_button {
+        width: 95%;
+        background-color: red;
+        text-align: center;
+        border-radius: 7px;
+        margin-top: 6%;
+        -webkit-appearance: none;
+        overflow: hidden;
+        cursor: pointer;
+
+    }
+
+    .confirm_button input[type="submit"] {
+        width: 100%;
+        float: left;
+        background-color: red;
+        text-align: center;
+        height: 50px;
+        border: none;
+        padding-top: 1%;
+        font-size: 20px;
+        color: white;
+        font-family: "NetflixSansRegular";
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    .confirmation_boxCab,
+    .confirmation_boxCab2,
+    .confirmation_boxCab3 {
+        position: fixed;
+        width: 80%;
+        top: 20vh;
+        left: 5vw;
+        background-color: white;
+        z-index: 12;
+        text-align: center;
+        padding: 5%;
+        display: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px -1px black;
+    }
+
+    .confirmation_boxCabDiv,
+    .confirmation_boxCabDiv2,
+    .confirmation_boxCabDiv3,
+    .loaderBox {
+        position: fixed;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .8);
+        display: none;
+        z-index: 11;
+        text-align: center;
+        padding: 5%;
+
+    }
+
+    .status {
+        background: RGB(224, 11, 37);
+        color: White;
+        text-align: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        width: 40%;
+        font-size: 1.2em;
+        margin: 0 auto;
+        background-color: red;
+        margin-bottom: 3%;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: NetflixSansRegular;
+    }
+
+    .payment_success,
+    .cab_confi {
+        background: red;
+        color: white;
+        border-radius: 7px;
+        padding: 8px;
+        text-align: center;
+        top: 40%;
+        width: 80%;
+        /* margin: 0 auto; */
+        position: absolute;
+        left: 8%;
+
+    }
+
+    .payment_success h3,
+    .cab_confi h3 {
+        font-weight: 100;
+    }
+
+    .ok_b {
+        background: white;
+        color: red;
+        width: 13%;
+        padding: 5px;
+        margin: 0 auto;
+        border-radius: 5px;
+        margin-bottom: 3%;
+    }
+
+    .pay_back1 {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.9);
+        top: 0%;
+        display: none;
+    }
+
+    .pay_back2 {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.9);
+        top: 0%;
+        display: none;
+    }
+
+    #brand-logo {
+        background: black;
+        width: 100%;
+        overflow: hidden;
+        display: none;
+    }
+
+    .top_img {
+        width: 100%;
+        float: left;
+        margin-left: -3%;
+    }
+
+    .bookingDate {
+        width: 40%;
+        float: right;
+        text-align: right;
+    }
+
+    #passenger_name {
+        margin: 0;
+        padding: 0;
+        color: red;
+        font-size: 16px;
+        /* border-bottom: 5px solid #F1F1F1; */
+        padding-right: 3%;
+        padding-top: 5%;
+        font-family: 'NetflixSansMedium';
+    }
+
+    .journeyInfo {
+        width: 95%;
+        background: white;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        overflow: hidden;
+    }
+
+    .journeyDest {
+        width: 97%;
+        overflow: hidden;
+        margin-top: 5%;
+        margin-left: 3%;
+    }
+
+    .journeyFrom {
+        width: 15%;
+        float: left;
+        margin-right: 3%;
+    }
+
+    #passenger_source,
+    #passenger_to {
+        margin-top: 5%;
+        font-size: 20px;
+        margin-bottom: 10%;
+        font-family: NetflixSansMedium;
+    }
+
+    #passenger_source {
+        color: green;
+        font-weight: 800;
+        text-decoration: underline;
+    }
+
+    .journeyImg {
+        float: left;
+        width: 62%;
+        margin-top: -2%;
+        border-bottom: 2px dashed;
+    }
+
+    #snackbarCab {
+        visibility: hidden;
+        min-width: 100%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        bottom: 30px;
+        font-size: 13px;
+        padding: 8px 9px 9px 2px;
+        font-family: NetflixSansRegular;
+
+    }
+
+    #snackbarCab.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .journeyTo {
+        width: 15%;
+        float: left;
+        padding-left: 3%;
+    }
+
+    .detail_img {
+        width: 5%;
+        float: left;
+        margin-right: 3%;
+    }
+
+    .heading {
+        width: 13%;
+        float: left;
+        margin-top: 0 !important;
+    }
+
+    #depart_time,
+    #arrival_time {
+        margin-top: 2%;
+        font-size: 13px;
+        width: 130%;
+    }
+
+    .modal {
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        /* background-color: rgb(0,0,0); Fallback color */
+        /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+        -webkit-animation-name: fadeIn;
+        /* Fade in the background */
+        -webkit-animation-duration: 0.4s;
+        animation-name: fadeIn;
+        animation-duration: 0.4s
+    }
+
+    /* Modal Content */
+    .modal-content {
+        /* position: fixed; */
+        bottom: 0%;
+        background-color: #fefefe;
+        width: 100%;
+        -webkit-animation-name: slideIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: slideIn;
+        animation-duration: 0.4s;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-bottom: 15%;
+    }
+
+    .paymentType_active {
+        background-color: gray !important;
+    }
+
+    .paymentPara_active {
+        color: white;
+    }
+
+    /* The Close Button */
+    .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: transparent;
+        /* background-color: #ED1C24; */
+        clear: both;
+        color: white;
+        text-align: center;
+        border-top-left-radius: 19px;
+        border-top-right-radius: 19px;
+    }
+
+    .modal-header p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        font-family: "NetflixSansRegular";
+        line-height: 26px;
+        color: #000;
+        margin: 5px 0px 0px 0px;
+        text-align: left;
+        padding-left: 6%;
+        font-family: 'NetflixSansMedium';
+    }
+
+    .paymentType {
+        background: #FFFFFF;
+        border-radius: 5px;
+        margin: 3px 0px;
+        padding: 2px 0;
+    }
+
+    .paymentType img {
+        width: 56px;
+        margin: 0px 0px 0px 0px;
+        float: left;
+    }
+
+    .paymentType p {
+        color: #696969;
+        margin-left: 8%;
+        margin-bottom: 10px;
+        clear: both;
+        font-size: 14px;
+    }
+
+    .cardLabel {
+        font-family: NetflixSansRegular;
+    }
+
+    .paymentChildShowDiv {
+        display: "block";
+        border-top-left-radius: "0px";
+        border-top-right-radius: "0px"
+    }
+
+    .paymentChild {
+        height: 214px;
+        margin: -12px 0px 10px 0px;
+        background-color: #fff;
+        display: none;
+        padding-bottom: 2%;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .modal-body {
+        padding: 2px 16px;
+    }
+
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #ED1C24;
+        color: white;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes slideIn {
+        from {
+            bottom: -300px;
+            opacity: 0
+        }
+
+        to {
+            bottom: 0;
+            opacity: 1
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            bottom: -300px;
+            opacity: 0
+        }
+
+        to {
+            bottom: 0;
+            opacity: 1
+        }
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    div.panel {
+        display: none;
+    }
+
+    div.panel.show {
+        display: block !important;
+    }
+
+    .form_mb {
+        width: 93%;
+        padding: 10px 10px;
+        border: none;
+        outline: none;
+        padding: 10px 10px;
+        font-size: 0.9em;
+        color: #828282;
+        background: #F1F1F1;
+        border-radius: 2px;
+        margin: 1.5% 0;
+        margin-bottom: 0.3%;
+        margin-left: 0%;
+        /* border-radius: 5%; */
+    }
+
+    .expiry {
+        width: 90%;
+        padding: 10px 10px;
+        font-size: 0.9em;
+        color: #828282;
+        background: #F1F1F1;
+        border-radius: 2px;
+        margin: 1.5% 0;
+        margin-bottom: 0.3%;
+        margin-left: 0%;
+        border: none;
+        outline: none;
+    }
+
+    .cvv {
+        width: 92%;
+        /* margin: 0px 5px; */
+        padding: 10px 10px;
+        font-size: 0.9em;
+        color: #828282;
+        background: #F1F1F1;
+        border-radius: 2px;
+        margin: 1.5% 0;
+        margin-bottom: 0.3%;
+        border: none;
+        outline: none;
+    }
+
+    #cvvMessage {
+        font-size: 11px;
+        font-family: NetflixSansRegular;
+    }
+
+    .payCard {
+        background-color: #ED1C24;
+        width: 100px;
+        height: 42px;
+        border-radius: 5px;
+        left: 273px;
+        color: #fff;
+        float: right;
+        border-color: #ED1C24;
+        font-family: NetflixSansRegular;
+    }
+
+    #checkEligibilityMessage,
+    .payText {
+        margin-top: 5px;
+        /* position: fixed; */
+        font-size: 13px;
+        font-family: NetflixSansRegular;
+        /* display: inline-block; */
+    }
+
+    #checkEligibilityMessage {
+        margin: 38px 0 6% 9%;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: ov;
+        overflow: hidden;
+    }
+
+    #showModal {
+        font-size: 30px;
+        background: white;
+        color: red;
+        /* border-radius: 2px; */
+        position: absolute;
+        right: 7%;
+        bottom: -10%;
+    }
+
+    #cashPay {
+        width: 20%;
+        font-family: 'NetflixSansRegular';
+        right: 7%;
+        position: absolute;
+        background: red;
+        text-align: center;
+        color: white;
+        bottom: 4%;
+        padding: 2%;
+        border-radius: 6px;
+    }
+
+    #paybyCash {
+        background: rgb(237, 28, 36);
+        color: white;
+        margin-left: 14%;
+        border-radius: 4px;
+        border-color: rgb(237, 28, 36);
+        font-size: 14px;
+        height: 17px;
+        width: 100px;
+        border-radius: 5px;
+        color: #fff;
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        box-shadow: 0px 0px 0px 1px rgb(0 0 0 / 40%);
+    }
+
+    .modal-body hr {
+        width: 120%;
+        margin-left: -10%;
+        background: #F1F1F1;
+        height: 8px;
+        border: none;
+    }
+
+    .include_txt {
+        margin: 1%;
+        font-size: 12px;
+    }
+
+    .PaymentBlock {
+        background: white;
+        padding: 3%;
+        border-radius: 5px;
+    }
+
+    .PaymentBlock input[type="radio"] {
+        margin-right: 3%;
+    }
+
+    .PaymentBlock input[type="radio"]:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    .paymentType input[type="radio"]:after,
+    #SimplDiv input[type="radio"]:after,
+    .upiDiv input[type='radio']:after {
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        top: -6px;
+        left: -4px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: red;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    .paymentType input[type='radio']:checked:after,
+    #SimplDiv input[type='radio']:checked:after,
+    .upiDiv input[type='radio']:checked:after {
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        top: -6px;
+        left: -4px;
+        position: relative;
+        background-color: green;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+
+    .PaymentBlock .textBlock {
+        display: inline-grid;
+    }
+
+    .PaymentBlock .textBlock p {
+        font-size: 14px;
+        margin: 0 40px 0 5px;
+        padding: 3px;
+    }
+
+    #partAmount,
+    #fullAmount {
+        display: inline-flex;
+        font-family: 'NetflixSansMedium';
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .non-activeAmount {
+        color: grey;
+        font-family: 'NetflixSansRegular' !important;
+    }
+
+    .upiDiv img {
+        width: 30%;
+        margin: 1% 1%;
+    }
+
+    .img_back {
+        width: 50%;
+        float: left;
+        background: white;
+        overflow: hidden;
+    }
+
+    .confirm_btn {
+        font-family: 'NetflixSansRegular';
+        background: black;
+        color: white;
+        padding: 15px;
+        position: fixed;
+        bottom: 0;
+        margin: 0 15%;
+        width: 60%;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        /* display: none; */
+    }
+
+    .confirm_btn:hover {
+        background: red;
+        color: white;
+    }
+
+    .terms_condition {
+        font-size: 13px;
+        margin-left: 2%;
+        padding-top: 1px;
+    }
+
+    .terms_condition a {
+        text-decoration: none;
+    }
+
+    .paymentbtn {
+        position: absolute;
+        right: 5%;
+        margin-top: 5%;
+    }
+
+    .paylaterSIMPL {
+        width: 70%;
+        float: left;
+    }
+
+    .payLine {
+        width: 100% !important;
+        margin-left: 0% !important;
+        background: #FAFAFA !important;
+        height: 4px !important;
+    }
+
+    .loaderBox {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .loader {
+        z-index: 99;
+        position: fixed;
+        top: 50%;
+        width: 100%;
+    }
+
+    .top_img2 {
+        float: right;
+        width: 22%;
+        margin-top: 3%;
+        margin-right: 4%;
+    }
+
+    .agreeBox {
+        clear: both;
+        display: flex;
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+
+    .InfoBox {
+        background: white;
+        position: absolute;
+        top: 25%;
+        z-index: 99;
+        padding: 16px;
+        font-size: 11px;
+        width: 91%;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .InfoBoxDiv {
+        position: fixed;
+        top: 0;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        height: 100vh;
+        z-index: 9;
+        overflow: hidden;
+        display: none;
+    }
+
+    .referPara ul li {
+        margin-top: 2%;
+        font-size: 13px;
+    }
+
+    .referBlock {
+        background: rgb(234,33,39);
+        bottom: -100%;
+    }
+
+    .referImg {
+        width: 35%;
+    }
+
+    .fa-times-circle {
+
+        background: rgb(234,33,39);
+    }
+
+    .benefitPara {
+        clear: both;
+        text-align: center;
+        color: white;
+        font-family: 'NetflixSansMedium';
+        margin: 0px 0;
+    }
+
+    .referImg {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-right: 33%;
+    }
+
+    .cancellation_policy {
+        position: fixed;
+        bottom: -60%;
+        padding: 10px 15px;
+        z-index: 99;
+        font-size: 14px;
+        background: #EE1C25;
+        color: white;
+        width: 92%;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        transition: 1s;
+    }
+
+    .cancellation_policy h3 {
+        text-align: center;
+        font-weight: 500;
+        font-family: 'NetflixSansMedium';
+        font-size: 19px;
+    }
+
+    #policy_submit {
+        background: white;
+        color: black;
+        text-align: center;
+        font-family: 'NetflixSansMedium';
+        padding: 8px;
+        font-size: 17px;
+        border-radius: 5px;
+    }
+
+    .read_more {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .read_more a {
+        margin-left: 2%;
+        text-decoration: none;
+        /* color: rgba(66,134,244); */
+    }
+
+    /* .cancellation_policy p::before{
+        content: '- ';
+    } */
+    #maxAMOUNT {
+        margin: 0;
+        padding-top: 1px;
+        margin-right: 4%;
+        visibility: hidden;
+    }
+
+    #maxAMOUNT {
+        background: linear-gradient(to top left, rgba(0, 0, 0, 0) 45%, red calc(54% - 0.8px), rgba(0, 0, 0, 0) 53%, red calc(50% + 0.8px), rgba(0, 0, 0, 0) 50%);
+        color: grey;
+    }
+
+    .simpl_discount {
+        color: grey !important;
+        font-size: 10px !important;
+        margin: 5px 0px 0px 30px !important;
+        width: 72%;
+    }
+
+    .simpl_discountPara {
+        display: flex;
+    }
+
+    #simplDiscount {
+        margin-left: 5%;
+        font-size: 13px;
+        color: grey;
+        font-family: NetflixSansMedium;
+    }
+
+    .spinner {
+        position: absolute;
+        top: 35%;
+        left: 37%;
+        width: 25%;
+        display: none;
+        z-index: 99;
+    }
+
+    .spinnerBack {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        top: 0;
+        display: none;
+        z-index: 99;
+    }
+
+    #loader_img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .spinner p {
+        width: 100%;
+        color: white;
+        font-size: 15px;
+    }
+    #offer{
+        margin: 0 0 0 20px;
+    clear: both;
+    font-size: 12px;
+    font-family: 'NetflixSansMedium';
+    color: grey;
+    }
+</style>
+
+<body>
+
+    <div class="spinnerBack"></div>
+    <div class="spinner" id="spinner"><img id="loader_img" src="img/loader.gif">
+        <p>Please wait...</p>
+    </div>
+
+    <div id="snackbarCab">Your Cab Booking Voucher is downloading<br> If the download does not start, take a screenshot
+    </div>
+    <!-- <div class="loaderBox"></div> -->
+    <!-- <div class="loader"><img src="img/processing.gif" /></div> -->
+    <div class="confirmation_boxCabDiv"></div>
+
+    <div class="confirmation_boxCab">
+        <i class="fas fa-times-circle" id="referclose2" style="right: 0%;"></i>
+        <div class="thank_msg" style="font-family: NetflixsansRegular">
+            <br>Confirmation for your cab booking has been successfully downloaded.
+        </div>
+        <div class="call_msgCab">
+            <p id="reserve">Skip the queue and pre-book your arrival cab. For any assistance call 011-46514254
+
+            </p>
+        </div>
+        <div class="status" id="arrivalBook2">Book Now</div>
+    </div>
+    <div class="confirmation_boxCabDiv2"></div>
+    <div class="confirmation_boxCab2">
+        <!-- <i class="fas fa-times-circle" id="referclose" style="right: 0%;"></i> -->
+        <div class="call_msgCab">
+            <p id="cmmsg1">Please agree to the terms & conditions</p>
+            <p id="cmmsg2"></p>
+        </div>
+        <div class="status" id="arrivalBook"><a style="text-decoration: none; color: #fff;" id="arrVAL">Ok</a>
+        </div>
+    </div>
+    <div class="confirmation_boxCabDiv3"></div>
+    <div class="confirmation_boxCab3">
+        <div class="thank_msg" style="font-family: NetflixsansRegular">
+            <br>Your booking request is submitted successfully.
+        </div>
+        <div class="call_msgCab">
+            <p id="reserve"><br> For any assistance
+                call 011-46514254.
+            </p>
+        </div>
+        <div class="status" id="status3">Ok</div>
+    </div>
+
+    <div class="InfoBoxDiv"></div>
+    <div class="InfoBox">
+        <div class="thank_msg" style="font-family: NetflixsansRegular">
+            <p style="font-weight: bold; text-align: center; font-size: 15px;">Benefits of Simpl</p>
+        </div>
+        <div class="call_msgCab">
+            <p>- Users can easily use the buy now and pay later option.</p>
+            <p>- Interest free credit for 15 days. </p>
+            <p>- Easy transactions without any interruptions.</p>
+            <p>- Users can avail special offers on using Simpl for transactions.</p>
+            <p>- One Tap payment gateway</p>
+            <p>- Based on credit score, Simpl allots credit limit to a user</p>
+        </div>
+        <div class="status" id="Info_ok" style="    width: 20%;
+        margin-top: 5%;">OK</div>
+    </div>
+
+    <main>
+        <!-- start modal  -->
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <div class="img_back">
+                    <div class="top_img">
+                        <img src="img/red_box.png" alt="RIGOCAB_logo">
+                    </div>
+                </div>
+                <!-- <div class="top_img2">
+                    <img src="img/brocab_logo.jpg" alt="Brocab_logo">
+                </div> -->
+                <div id="top_banner">  
+                </div>
+                <div class="modal-header">
+                    <p>Payment Option</p>
+                </div>
+                <div class="modal-body" style="background-color: white;">
+                    <div class="PaymentBlock">
+                        <div class="Partpayment paymentOption" id="PartialPaymentBlock" style="display:none"><input
+                                type="radio" id="partPay" name="paymetTyp" value="partPayment" checked />
+                            <label class="textBlock" for="partPay">
+                                <p style="font-family:NetflixSansMedium">Make Part Payment Now</p>
+                                <p style="color:gray !important">Pay rest on trip completion</p>
+                            </label>
+                            <p id="partAmount" class="non-activeAmount">₹ 0</p>
+                        </div>
+                        <!-- <br> -->
+
+                        <div class="fullpayment paymentOption" style="display: flex; width: 108%;"><input type="radio"
+                                id="fullPay" name="paymetTyp" value="fullPayment" checked />
+                            <label class="textBlock" for="fullPay" style=" margin-right: 20%;">
+                                <p style="font-family:NetflixSansMedium">Total Trip Value</p>
+                            </label>
+                            <!-- <p id="maxAMOUNT" class="non-show">₹ 0</p> -->
+                            <p id="fullAmount" style="margin-left: 15px;">₹ 00</p>
+                        </div>
+                        <div class="simpl_discountPara">
+                            <p class="simpl_discount">Pay using simpl & get 5% cashback Up to ₹ 100.</p>
+                            <span id="simplDiscount"></span>
+                        </div>
+
+                    </div>
+                    <hr>
+
+                    <!-- Pay Later start -->
+                    <label class="paymentType" for="SimplPayment">
+                        <!-- <img src="img/simpl_new.png" style="margin: 13px 0 0 0;"> -->
+                        <!-- <img src="img/payLatter.png" style="margin-bottom: 3%;"> -->
+                        <img src="img/simpl_new.png" style="margin: 4% 0 7% 0;">
+                        <div class="paylaterSIMPL">
+                            <p class="PaymentPara" style="margin: 5% 0 1px 8%;float: left;">Ride Now Pay Later</p>
+                            <img src="img/info.png" style="width: 15px;
+                                float: left;
+                                margin: 15px 0 0px 8px;" onclick="infoBox()">
+                            <!-- <p class="PaymentPara" style="    margin: 1% 5px 2px 8%;float: left;font-size: 10px;"> Get
+                                10% Cashback up to ₹75 </p> -->
+                            <p id="checkEligibilityMessage"></p>
+                        </div>
+
+                        <input type="radio" name="paymentbtn" id="SimplPayment" class="paymentbtn" value="SIMPL" />
+                    </label>
+                    <hr class="payLine">
+                    <div id="SIMPLDiv" style="height: 75px;" class="paymentChild">
+                        <div style="margin: 0px 3%;">
+                            <form id="form1">
+                                <div>
+                                    <div id="SimplDiv">
+                                        <br>
+                                        <div class="left_div selectSimpl">
+                                            <img src="img/simpl_new.png" style="width: 55%;">
+                                        </div>
+                                        <div class="right_div selectSimpl" style="margin-top: 10px;">
+                                            <input type="radio" id="paymentMethodSimpl" name="paymentSimpl"
+                                                value="SIMPL">
+                                        </div>
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <button type="button" id="payLater" class="payCard">Confirm</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+                    <label class="paymentType accordion" id="PaytmDiv" style="clear: both;display: none;"
+                        for="PaytmPayment">
+                        <img src="img/Capture2.PNG" style="width: 19%;
+                    margin: 8px -2% 0 -1%;" />
+                        <div class="paylaterSIMPL">
+
+                            <p class="PaymentPara" style="float: left;margin: 2% 0 15px 8%;
+                            font-size: 14px;">Pay Now &<br> Get ₹ 51 Instant Cashback</p>
+                            <!-- <img src="img/info.png" style="width: 15px;
+                            float: left;
+                            margin: 7px 0 0px 8px;" onclick="infoBoxPaytm()"> -->
+                            <!-- <p class="PaymentPara" style="margin: 2% 0 1px 8%; float: left;">Pay Now</p><span><img src="img/offer.jpg"/></span> -->
+                            <!-- <p class="payText">Debit Card, Credit Card, UPI, Wallet</p> -->
+                            <!-- <p id="offer"><span style="color:black; font-size: 15px; font-weight: bold">Offer : </span>₹ 50 Instant Cashback</p> -->
+
+                            <div class="imgsection" style="clear: both;">
+                                <div>
+                                    <img src="img/paytmm.png" class="payBypaytm">
+                                    <p>Paytm</p>
+                                </div>
+                                <div>
+                                    <img src="img/CardPay.png" class="payByrazorpay">
+                                    <p>Card</p>
+                                </div>
+                                <!-- <img src="img/Gpay.png" class="payByrazorpay"> -->
+                                <div>
+                                    <img src="img/UPI.png" class="payByrazorpay" id="upi">
+                                    <p>UPI</p>
+                                </div>
+                                <div>
+                                    <img src="img/netbanking.png" class="payByrazorpay">
+                                    <p>Netbanking</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <input type="radio" name="paymentbtn" id="PaytmPayment" class="paymentbtn" value="PAYTM" />
+                    </label>
+
+                    
+                 
+                    <hr class="payLine" id="paytmPayHr">
+                       <!-- Pay by Cash start  -->
+                       <label class="paymentType accordion cashPAYMENTBOX" style="clear: both;overflow: hidden;" for="cashPayment">
+                        <!-- <img src="img/payCash.png" /> -->
+                        <img src="img/online.jpg" id="cashImg" style="margin-top: 10px;" />
+                        <div class="paylaterSIMPL">
+                            <p class="PaymentPara"  id="Cashtext" style="margin: 4% 0 1px 8%;"> Pay later via online payment link anytime till trip completion.</p>
+                         <!-- <p class="payText" style="margin-bottom: 10%;">(During The Trip)</p> -->
+                         <p class="payText" style="margin-bottom: 10%;"></p>
+                        </div>
+                        <input type="radio" name="paymentbtn" id="cashPayment" class="paymentbtn" value="CASH" />
+                    </label>
+                    <!-- Pay by Cash end  -->
+
+                    <!-- <p id="offer"><span style="color:black; font-size: 15px; font-weight: bold">Offer : </span>₹ 50 Instant Cashback</p> -->
+
+                    <div class="agreeBox">
+                        <input type="checkbox" name="terms_condition" id="terms_condition" checked />
+                        <p class="terms_condition" style="margin-top: 4%;">I agree to <a
+                                href="terms_condition.html?back=Payment_booking.html">Terms &
+                                Conditions</a></p>
+                    </div>
+
+                </div>
+                <!-- <p id="checkEligibilityMessage"></p> -->
+                <div class="confirm_btn" value="cash" onclick="bookCabPayment()">
+                <!-- <div class="confirm_btn" value="cash" onclick="policyshow()"> -->
+                    <p id="confirmTxt" data-ptype="SIMPL" style="margin: 0; padding: 0; display: initial;">Confirm
+                    </p>
+                    <span id="payment_amount"></span>
+                </div>
+
+            </div>
+        </div>
+        <input type="hidden" id="methodPayment" value="" />
+        <!-- end modal  -->
+        <div id="interstitial_back" style="display: none;">
+        </div>
+        <div class="referBlock">
+            <i class="fas fa-times-circle" id="referDivClose" style="right: 0%;"></i>
+            <!-- <hr class="hideBox" id="referclose" style="right: 0%;"></hr> -->
+            <div class="referImg">
+                <!-- <img src="img/benefit.png"> -->
+                <img src="img/simpl_new.png">
+            </div>
+            <p class="benefitPara">Benefits of simpl</p>
+            <div class="referPara">
+                <ul>
+                    <li>Users can easily use the buy now and pay later option.</li>
+                    <li>Interest free credit for 15 days. </li>
+                    <li>Easy transactions without any interruptions.</li>
+                    <li>Users can avail special offers on using Simpl for transactions.</li>
+                    <li>One Tap payment gateway</li>
+                    <li style="margin-bottom: 10%;">Based on credit score, Simpl allots credit limit to a user</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cancellation_policy">
+            <i class="fas fa-times-circle" id="policyDivClose" style="right: 0%;top: -2px;"></i>
+            <h3>Cancellation Policy</h3>
+            <p>Cancellation before 1 hour of pick up will result in 100% refund. </p>
+            <p>Cancellation within an hour of pick up will result in 50% refund. </p>
+            <p>Cancellation beyond pick up will result in zero refund. </p>
+            <p class="read_more"><a href="terms_condition.html">Read More</a></p>
+
+            <div id="policy_submit" onclick="bookCabPayment()">I Accept</div>
+        </div>
+
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/jspdf.min.js "></script>
+    <script src="js/html2canvas.js "></script>
+    <script src="js/canvas2image.js "></script>
+    <script src="js/paytm_cabbooking.js "></script>
+    <script src="js/moment.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+    <script>
+        $("#PartialPaymentBlock").css("display", "none")
+        if (localStorage["ptnr"] == "QUICKRIDE" || localStorage["ptnr"] == "GOZO CABS") {
+            $("#PaytmDiv").css("display", "block")
+            $("#paytmPayHr").css("display", "block")
+        }
+        if (localStorage["ptnr"] == "GOZO CABS") {
+            $("#Cashtext").html("Pay After Trip Completion")
+            $(".payText").html("(Cash Payment)")
+            $("#cashImg").prop("src","img/payCash.png").css("margin-top","0px")
+            // $(".cashPAYMENTBOX").css("display","none")
+            // $("#paytmPayHr").css("display", "none")
+
+        }
+
+        if (localStorage["Pageopen"] == "second") {
+            location.reload();
+        }
+        localStorage.setItem("Pageopen", "first");
+
+         ///////////////// Load Banner ad code end //////////////////
+         departure_Ads()
+            async function departure_Ads() {
+                const ads = await fetch(BaseURL+domain+"/webapi/getDepartureAds")
+                const adResponse = await ads.json();
+                console.log(adResponse)
+
+                for (let i = 0; i < adResponse.length; i++) {
+                        if (adResponse[i]["type"].toLowerCase() == "top-banner" && adResponse[i]["page_name"] == "payment_page_departure") {
+                            let interTop = document.createElement("img");
+                            interTop.setAttribute("src", adResponse[i]["thumbnail"])
+                            document.getElementById("top_banner").appendChild(interTop);
+                        }
+                }
+            }
+        ///////////////// Load Banner ad code end //////////////////
+
+        var AmountPaidbyuser = localStorage["TotalFare"];
+        var AmountPaidbyPaytm = localStorage["TotalFare"];
+
+        if (localStorage["KMVal"].includes(".")) {
+            localStorage["KMVal"] = localStorage["KMVal"].split(".")[0]
+        }
+        else if (localStorage["KMVal"].includes("k")) {
+            localStorage["KMVal"] = localStorage["KMVal"].split(" ")[0]
+        }
+        var AmountBYkm = (localStorage["KMVal"] * 2)
+
+        $("#referDivClose").click(function () {
+            $(".referBlock").css("bottom", "-100%")
+        })
+        $("#policyDivClose").click(function () {
+            $(".cancellation_policy ").css("bottom", "-60%")
+        })
+
+        function infoBox() {
+            $(".referBlock").css("bottom", "0")
+            // $(".InfoBoxDiv").css("display", "block")
+            // $(".InfoBox").css("display", "block")
+        }
+
+        function infoBoxPaytm() {
+
+        }
+
+        $("#Info_ok").click(function () {
+            $(".InfoBoxDiv").css("display", "none")
+            $(".InfoBox").css("display", "none")
+        })
+
+        if (localStorage["TotalFare"].includes("-")) {
+            localStorage["TotalFare"] = localStorage["TotalFare"].split("-")[1];
+        }
+        var fare = localStorage["TotalFare"];
+        var splitFare;
+        if (fare.includes(" - ")) {
+            fareVal = fare.split("-")[1];
+            splitFare = parseInt(fare.split("-")[1]) + 50;
+        }
+        else {
+            fareVal = fare;
+            splitFare = parseInt(fareVal) + 50;
+        }
+        $("#fullAmount").html("₹ " + localStorage["TotalFare"]);
+        $("#partAmount").html("₹ 149");
+        $("#payment_amount").css("display", "contents")
+
+        if (localStorage["TotalFare"] >= Number(1000)) {
+            $("#simplDiscount").html("₹ " + 100);
+        }
+        else {
+            $("#simplDiscount").html("₹ " + Math.floor(parseInt(localStorage["TotalFare"]) / 5));
+        }
+
+
+        //////////////////////////simpl eligibility check code start //////////////////////////////////////////////////
+        var REDIRECTION_URL = '';
+        var PolicyShow = '';
+        let userMobile = sessionStorage["MobileNum"];
+        const check_eligibility_fc = async (userMobile) => {
+            const registerClubMember = JSON.parse(localStorage.cabbookingData);
+            const final_data = registerClubMember.clubMember;
+            const rawResponse = await fetch(
+                BaseURL+domain+"/webapi/check_eligibility",
+                {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        phone_number: userMobile,
+                        amount: 2000 * 100,
+                        manufacturer: "apple",
+                        model: "iphone",
+                        id: "10.10.101.1",
+                    }),
+                }
+            );
+            // console.log(rawResponse.body)
+            const content = await rawResponse.json();
+            // console.log(content);
+
+            if (content.data.data.status == "not_eligible") {
+                // $("#checkEligibilityMessage").html(`your are not eligible`);
+                // $(".confirm_btn").css("display", "none");
+                // alert("you are not eligible")
+                $("#cmmsg").html("Please enter a valid mobile number");
+        $(".thank_msg i").css("display", "none");
+        $(".confirmation_boxCabDiv").css("display", "block");
+        $(".confirmation_boxCab").css("display", "block");
+            }
+
+            if (content.data.data.error_code == "pending_dues") {
+                $("#checkEligibilityMessage").html(
+        //             $("#cmmsg").html("Please enter a valid mobile number");
+        // $(".thank_msg i").css("display", "none");
+        // $(".confirmation_boxCabDiv").css("display", "block");
+        // $(".confirmation_boxCab").css("display", "block");
+        //             `payment over due Rs. ${content.data.data.metadata.pending_due_in_paise / 100}`
+                );
+                $(".confirm_btn").css("display", "block");
+                $(".confirm_btn").prop("disabled", false);
+                $("#confirmTxt").html("Pay Now");
+                REDIRECTION_URL = `${content.data.data.redirection_url}&merchant_payload=RIGOCAB-000-pending_dues-${userMobile}-${content.data.data.metadata.pending_due_in_paise}`;
+            }
+
+            if (content.data.data.error_code == "insufficient_credit") {
+                // $("#checkEligibilityMessage").html(`pending dues`);
+                // $(".confirm_btn").css("display", "block");
+                // $(".confirm_btn").prop("disabled", false);
+                // $("#confirmTxt").html("Pay Now");
+                OK
+                REDIRECTION_URL = `${content.data.data.redirection_url}&merchant_payload=RIGOCAB-000-pending_dues-${userMobile}-${content.data.data.available_credit_in_paise}`;
+            }
+
+            if (
+                content.data.data.status == "eligible" &&
+                content.data.data.error_code == "linking_required" &&
+                content.data.data.redirection_url != ""
+            ) {
+                $(".confirm_btn").css("display", "block");
+                $(".confirm_btn").prop("disabled", false);
+                $("#confirmTxt").html("Link your simpl account");
+
+                REDIRECTION_URL = `${content.data.data.redirection_url}&merchant_payload=RIGOCAB-000-linking_required-${userMobile}-000`;
+            }
+
+            if (
+                content.data.data.status == "eligible" &&
+                content.data.data.error_code == null &&
+                content.data.data.redirection_url == null
+            ) {
+                REDIRECTION_URL = "";
+                $("#payLater").prop("disabled", false);
+                $(".confirm_btn").css("display", "block");
+                $("#confirmTxt").html("CONFIRM CAB");
+                PolicyShow = "yes";
+                $("#checkEligibilityMessage").html(
+                    `Your credit limit Rs. ${content.data.data.available_credit_in_paise / 100
+                    }`
+                );
+            }
+        }
+
+        ///////////////// simpl eligibility check code end ////////////////////////////////////////////////////////
+
+        var modal = document.getElementById("myModal");
+
+
+        var payType = "full_pay";
+        // var payType = "partial_pay";
+        $('input:radio[name=paymetTyp]').change(function () {
+            if (this.value == 'partPayment') {
+                $("#fullAmount").addClass("non-activeAmount")
+                $("#partAmount").removeClass("non-activeAmount")
+                payType = "partial_pay";
+                AmountPaidbyPaytm = "149";
+            }
+            if (this.value == 'fullPayment') {
+                $("#partAmount").addClass("non-activeAmount")
+                $("#fullAmount").removeClass("non-activeAmount")
+                AmountPaidbyuser = localStorage["TotalFare"];
+                AmountPaidbyPaytm = localStorage["TotalFare"];
+                payType = "full_pay";
+            }
+        });
+
+        setTimeout(() => {
+            document.getElementById("PaytmPayment").click()
+            // document.getElementById("SimplPayment").click()
+            document.getElementById("fullPay").click()
+        }, 100);
+
+        $('input:radio[name=paymentbtn]').change(function () {
+            if (this.value == 'CASH') {
+                PolicyShow = "no";
+                $(".simpl_discountPara").css("display", "none")
+                $(".confirm_btn").css("display", "block")
+                $("#confirmTxt").attr("data-ptype", 'CASH')
+                $("#PaytmPayment").css("display", "none")
+                // $("#fullAmount").html(String("₹ ") + Number(parseInt(localStorage["TotalFare"]) + parseInt(AmountBYkm)));
+                $("#fullAmount").html(String("₹ ") + Number(parseInt(localStorage["TotalFare"])));
+                $("#confirmTxt").text("CONFIRM CAB")
+                $("#payment_amount").css("display", "none")
+                $("#checkEligibilityMessage").css("display", "none");
+                $("#maxAMOUNT").css("visibility", "hidden");
+                $("#partPay").prop("disabled", true);
+                $(".textBlock p").css("color", "gray");
+                $("#PartialPaymentBlock").css("display", "none")
+                // AmountPaidbyuser = Number(parseInt(localStorage["TotalFare"]) + parseInt(AmountBYkm));
+                AmountPaidbyuser = Number(parseInt(localStorage["TotalFare"]));
+                $(".payByrazorpay").removeClass("highlightPay")
+                $(".payBypaytm").removeClass("highlightPay")
+                document.getElementById("fullPay").click()
+
+            }
+            if (this.value == 'SIMPL') {
+                $(".simpl_discountPara").css("display", "flex")
+                $("#confirmTxt").text("Please wait...").attr("data-ptype", 'SIMPL')
+                $("#payment_amount").css("display", "none")
+                $("#fullAmount").html("₹ " + localStorage["TotalFare"]);
+                if (localStorage["TotalFare"] >= Number(750)) {
+                    $("#simplDiscount").html("₹ " + 75);  }
+                else { $("#simplDiscount").html("₹ " + Math.floor(parseInt(localStorage["TotalFare"]) / 10)); }
+                $("#PaytmPayment").css("display", "none")
+                $("#checkEligibilityMessage").css("display", "block")
+                // $("#maxAMOUNT").css("visibility", "visible");
+                // $("#maxAMOUNT").html(String("₹ ") + Number(parseInt(localStorage["TotalFare"]) + parseInt(AmountBYkm)));
+                $("#partPay").prop("disabled", false);
+                $(".textBlock p").css("color", "black");
+                AmountPaidbyuser = localStorage["TotalFare"]
+                document.getElementById("fullPay").click()
+                $("#PartialPaymentBlock").css("display", "none")
+                check_eligibility_fc(userMobile);
+                $(".payByrazorpay").removeClass("highlightPay")
+                $(".payBypaytm").removeClass("highlightPay")
+            }
+            if (this.value == 'PAYTM') {
+
+                $(".confirm_btn").val("PAYTM")
+                $(".simpl_discountPara").css("display", "none")
+                PolicyShow = "yes";
+                $("#fullAmount").html("₹ " + localStorage["TotalFare"]);
+                // $("#maxAMOUNT").css("visibility", "visible");
+                // $("#maxAMOUNT").html(String("₹ ") + Number(parseInt(localStorage["TotalFare"]) + parseInt(AmountBYkm)));
+                $(".confirm_btn").css("display", "block");
+                $(".payByrazorpay").removeClass("highlightPay")
+                $(".payBypaytm").removeClass("highlightPay")
+                $("#partPay").prop("disabled", false);
+                $(".textBlock p").css("color", "black");
+                $("#PaytmPayment").css("display", "block")
+                $("#confirmTxt").text("CONFIRM CAB").attr("data-ptype", 'RAZORPAY')
+                $("#checkEligibilityMessage").css("display", "none")
+                $("#payment_amount").css("display", "contents")
+                $("#PartialPaymentBlock").css("display", "block")
+                $("#upi").addClass("highlightPay")
+                $("#PartialPaymentBlock").css("display", "none")
+                document.getElementById("fullPay").click()
+            }
+        });
+
+        async function policyshow() {
+            if (PolicyShow == "yes") {
+                $(".cancellation_policy").css("bottom", "0%");
+            }
+            else {
+                $(".spinner").css("display", "block")
+                $(".spinnerBack").css("display", "block")
+                bookCabPayment()
+            }
+        }
+
+        $(".payBypaytm").click(async function () {
+            setTimeout(() => {
+                $(".payByrazorpay").removeClass("highlightPay")
+                $(".payBypaytm").removeClass("highlightPay")
+                $(".confirm_btn").css("display", "block");
+                $("#confirmTxt").text("CONFIRM CAB").attr("data-ptype", 'PAYTM')
+                $(this).addClass("highlightPay")
+            }, 50);
+        })
+
+
+        $(".payByrazorpay").click(async function () {
+            setTimeout(() => {
+                $(".payByrazorpay").removeClass("highlightPay")
+                $(".payBypaytm").removeClass("highlightPay")
+                $(".confirm_btn").css("display", "block");
+                $("#confirmTxt").text("CONFIRM CAB").attr("data-ptype", 'RAZORPAY')
+                $(this).addClass("highlightPay")
+            }, 50);
+        })
+
+
+        async function bookCabPayment() {
+            $(".cancellation_policy").css("bottom", "-60%");
+            if ($('#terms_condition').is(":checked")) {
+                if ($("#confirmTxt").attr("data-ptype") == "CASH") {
+                    const responseData = await addPaymentType('PAYBYCASH', '', '', '', AmountPaidbyuser);
+                    $(".spinner").css("display", "none")
+                    $(".spinnerBack").css("display", "none")
+                    await ShowStatus(responseData.status);
+                }
+                if ($("#confirmTxt").attr("data-ptype") == "PAYTM") {
+                    $(".spinner").css("display", "block")
+                    $(".spinnerBack").css("display", "block")
+                    await addPaymentType('PAYTM', '', '', payType, AmountPaidbyuser);
+                }
+                if ($("#confirmTxt").attr("data-ptype") == "RAZORPAY") {
+                    $(".spinner").css("display", "block")
+                    $(".spinnerBack").css("display", "block")
+                    await addPaymentType('RAZORPAY', '', '', payType, AmountPaidbyuser);
+                }
+                if ($("#confirmTxt").attr("data-ptype") == "SIMPL") {
+
+                    if (REDIRECTION_URL != '') {
+                        window.location = `${REDIRECTION_URL}`
+                    } else {
+                        const responseData = await addPaymentType('SIMPL', '', '', payType, AmountPaidbyuser);
+                        if (responseData.status == 101) {
+                            $("#reserve4").html("Something went wrong, Please choose another method");
+                            $(".confirmation_boxCabDiv4").css("display", "block");
+                            $(".confirmation_boxCab4").css("display", "block");
+                        }
+
+                        if (responseData.status == 200) {
+                            $("#methodPayment").val('SIMPL')
+                            $(".confirmation_boxCabDiv3").css("display", "block");
+                            $(".confirmation_boxCab3").css("display", "block");
+                        }
+
+                    }
+
+                }
+            }
+            else {
+                $(".spinner").css("display", "none")
+                $(".spinnerBack").css("display", "none")
+                $(".confirmation_boxCabDiv2").css("display", "block");
+                $(".confirmation_boxCab2").css("display", "block");
+            }
+        }
+
+
+        //////////////// Book a cab /////////////////////////////
+
+        $("#status3").click(function () {
+            $(".confirmation_boxCabDiv3").css("display", "none");
+            $(".confirmation_boxCab3").css("display", "none");
+            if ($("#methodPayment").val() == "Cash") {
+                location.href = "payendBooking.html?payMethod=Cash"
+            } else if ($("#methodPayment").val() == "RAZORPAY") {
+                location.href = "payendBooking.html?payMethod=RAZORPAY"
+            }
+            else {
+                location.href = "payendBooking.html?payMethod=Simpl"
+            }
+        })
+        $("#arrivalBook").click(function () {
+            $(".confirmation_boxCabDiv2").css("display", "none");
+            $(".confirmation_boxCab2").css("display", "none");
+        })
+
+
+
+        // console.log(JSON.parse(localStorage["cabbookingData"]))
+
+        /////////////////////////// UPI payment method start /////////////////////////
+
+        const paymentUpi = async (UPI_PAYMNET_TYPE, order_reference_number) => {
+            let registerClubMember = JSON.parse(localStorage.cabbookingData);
+            const RegisterClubMember = registerClubMember;
+            const final_data = registerClubMember.clubMember
+
+            let fare_price = registerClubMember.clubMember[0].fare_price.split('-');
+            let getStementPrice = fare_price.length > 1 ? fare_price[1] : fare_price[0];
+            const totalAmount = ((10 / 100) * getStementPrice).toFixed();
+
+            const dataR = JSON.stringify({
+                // "amount": 1,
+                "amount": AmountPaidbyPaytm,
+                "custId": "CUST_001",
+                "mobileNo": final_data[0].mobile,
+                "email": final_data[0].email,
+                "bookingId": order_reference_number, // random()
+                "type": "cab",
+                "pnr": order_reference_number, // same as bookingId
+                "partnerName": final_data[0].partnerName,
+                "source_name": final_data[0].isDeparture == 0 ? final_data[0].source_name + ', ' + final_data[0].source_city : final_data[0].destination_name,
+                "source_city": localStorage["SourceCity"],
+                "source_latitude": final_data[0].isDeparture == 0 ? final_data[0].source_latitude : final_data[0].latitude,
+                "source_longitude": final_data[0].isDeparture == 0 ? final_data[0].source_longitude : final_data[0].longitude,
+                "destination_name": final_data[0].isDeparture == 1 ? final_data[0].source_name + ', ' + registerClubMember.clubMember[0].source_city : final_data[0].destination_name,
+                "start_time": final_data[0].pickup_time,
+                "cab_type": localStorage["partnercabType"],
+                "URL_open": "departure",
+                "fare_price": final_data[0].fare_price,
+                "total_kilometers": final_data[0].total_kilometers
+            });
+            // console.log(dataR)
+            const rawResponse = await fetch(BaseURL+domain+"/webapi/initaiteJSPayment", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: dataR
+            });
+            const content = await rawResponse.json();
+            // console.log(content);
+            const initaiteJSPayment = { paytmTransId: content.paytmTransId, txnToken: content.data.txnToken, totalAmount: totalAmount }
+            localStorage.setItem('initaiteJSPayment', JSON.stringify(initaiteJSPayment))
+            // window.location = "paytm.html?cancelPage=Payment_booking"
+            window.location = "paytm.html?cancelPage=index"
+        }
+
+        /////////////////////////// UPI payment method end ///////////////////////////////
+
+        ///////////////////////////// Status Show after payment start ////////////////////////
+
+        // const ShowStatus = (statusCode) => {
+
+        //     if (statusCode == 101) {
+        //         $("#reserve4").html("Something went wrong, Please choose another method");
+        //         $(".confirmation_boxCabDiv4").css("display", "block");
+        //         $(".confirmation_boxCab4").css("display", "block");
+        //     }
+
+        //     if (statusCode == 200) {
+        //         $("#methodPayment").val('Cash')
+        //         $(".confirmation_boxCabDiv3").css("display", "block");
+        //         $(".confirmation_boxCab3").css("display", "block");
+        //     }
+        // }
+
+        ///////////////////////////// Status Show after payment end ////////////////////////
+
+        /////////////RazorPay code start ///////////////////////////
+
+        var razor_paydata,
+            user_data,
+            options,
+            rzp1;
+
+        function check_razorpay(userMobile, UserName) {
+            console.log(RazorpayBookingId)
+            console.log(userMobile) // document.getElementById("loader").style.display = "block";
+            // var response_data = JSON.parse(localStorage["order_data"]);
+            // console.log(response_data);
+
+            var user_amount = {
+                "bookingId": RazorpayBookingId,
+                "userId": '',
+                "userName": UserName,
+                "mobileNo": userMobile,
+                "email": "cabquery@rigocab.com",
+                "transAmt": AmountPaidbyPaytm * 100,
+                "success": true
+            }
+            console.log(user_amount);
+            $.ajax({
+                url: BaseURL+domain+"/webapi/initiateRazorPayTrans",
+                type: "POST",
+                crossDomain: true,
+                dataType: "json",
+                data: user_amount,
+                success: function (response, textStatus, jqXHR) {
+                    console.log(response);
+                    console.log(response.data["booking_id"]);
+                    localStorage.setItem("razor_pay", JSON.stringify(response));
+                    // RazorpayBookingId = response.data["booking_id"];
+                    abc(UserName);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+
+                    $("#reserve4").html("Something went wrong");
+                    $(".confirmation_boxCabDiv4").css("display", "block");
+                    $(".confirmation_boxCab4").css("display", "block");
+                    // console.log(textStatus);
+                    // console.log(errorThrown);
+                }
+            });
+
+        }
+
+        function abc(UserName) {
+            $("#methodPayment").val('RAZORPAY')
+            razor_paydata = JSON.parse(localStorage["razor_pay"]);
+            console.log(razor_paydata);
+            // var response_data = JSON.parse(localStorage["order_data"]);
+
+            options = {
+                "key": "rzp_live_NoKgpIbnNwrUtM",
+                // "key": "rzp_test_gXdgSAtNWQ0uLk", // Enter the Key ID generated from the Dashboard
+                "amount": AmountPaidbyPaytm * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                // "amount": 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "Rigo",
+                "description": "Cab Payment",
+                "image": "RIgo img path",
+                "order_id": razor_paydata["data"]["id"],
+                "handler": function (response) {
+                    // console.log("1");
+                    // console.log(response);
+                    localStorage.setItem("ordr_id", response.razorpay_order_id)
+                    localStorage.setItem("pymt_id", response.razorpay_payment_id)
+                    // console.log(RazorpayBookingId)
+                    var pay_success = {
+                        "bookingId": RazorpayBookingId,
+                        "checkout_logo": "https://cdn.razorpay.com/logo.png",
+                        "custom_branding": false,
+                        "org_logo": "",
+                        "org_name": "Rigo cab",
+                        "userName": UserName,
+                        // "date": "25-05-2022 12:30",
+                        "date": moment().format('DD-MM-YYYY HH:mm'),
+                        "transAmt": AmountPaidbyPaytm * 100,
+                        // "transAmt": 100,
+                        "razorpay_order_id": response.razorpay_order_id,
+                        "razorpay_payment_id": response.razorpay_payment_id,
+                        "razorpay_signature": response.razorpay_signature,
+                        "status": "success",
+                        "type": 'CAB',
+                        "user_mobile": userMobile,
+                        "cab_patner_name": localStorage["ptnr"]
+                    }
+                    // console.log(pay_success);
+                    $.ajax({
+                        url: BaseURL+domain+"/webapi/razorPayTransStatus",
+                        type: "POST",
+                        dataType: "json",
+                        data: pay_success,
+                        success: function (response, textStatus, jqXHR) {
+                            // console.log(response);
+                            $(".spinner").css("display", "none")
+                            $(".spinnerBack").css("display", "none")
+                            // console.log("payment success 2")
+                            $(".confirmation_boxCabDiv3").css("display", "block");
+                            $(".confirmation_boxCab3").css("display", "block");
+
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                            $(".spinner").css("display", "none")
+                            $(".spinnerBack").css("display", "none")
+                            $("#reserve4").html("Payment Failed :" + textStatus);
+                            $(".confirmation_boxCabDiv4").css("display", "block");
+                            $(".confirmation_boxCab4").css("display", "block");
+                        }
+                    });
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        window.location = "index.html"
+                    }
+                },
+                "prefill": {
+                    "name": UserName,
+                    "email": "cabquery@rigocab.com",
+                    "contact": userMobile
+                },
+                "notes": {
+                    "address": "Rigo cab"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            rzp1 = new Razorpay(options);
+            rzp1.open();
+            rzp1.on('payment.failed', function (response) {
+                console.log(response)
+                localStorage.setItem("error_reason", JSON.stringify(response));
+                $("#reserve4").html(response.error.reason);
+                $(".confirmation_boxCabDiv4").css("display", "block");
+                $(".confirmation_boxCab4").css("display", "block");
+
+                var pay_fail = {
+                    "bookingId": RazorpayBookingId,
+                    "userName": UserName,
+                    "date": moment().format('DD-MM-YYYY HH:mm'),
+                    "transAmt": AmountPaidbyPaytm * 100,
+                    // "transAmt": 100,
+                    "razorpay_order_id": razor_paydata["data"]["id"],
+                    "razorpay_payment_id": response.error.metadata["payment_id"],
+                    "status": "fail",
+                    "type": 'CAB',
+                    "user_mobile": userMobile,
+                    "cab_patner_name": localStorage["ptnr"]
+                }
+                console.log(pay_fail);
+                $.ajax({
+                    url: BaseURL+domain+"/razorPayTransStatus",
+                    type: "POST",
+                    dataType: "json",
+                    data: pay_fail,
+                    success: function (response, textStatus, jqXHR) {
+                        // console.log(response);
+                        // console.log("fail 4")
+                        var fail_reason = JSON.parse(localStorage["error_reason"])
+                        // console.log(fail_reason);
+                        $(".spinner").css("display", "none")
+                        $(".spinnerBack").css("display", "none")
+                        $("#reserve4").html("Payment Failed");
+                        $(".confirmation_boxCabDiv4").css("display", "block");
+                        $(".confirmation_boxCab4").css("display", "block");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR);
+                        // console.log(textStatus);
+                        // console.log(errorThrown);
+                        $(".spinner").css("display", "none")
+                        $(".spinnerBack").css("display", "none")
+                        $("#reserve4").html("Payment Failed :" + textStatus);
+                        $(".confirmation_boxCabDiv4").css("display", "block");
+                        $(".confirmation_boxCab4").css("display", "block");
+                    }
+                });
+            });
+        }
+
+        /////////////RazorPay code end  ///////////////////////////
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
